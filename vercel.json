@@ -1,0 +1,17 @@
+{
+    "builds": [
+        {
+            "src": "coralcity/wsgi.py",
+            "use": "@vercel/python",
+            "config": {
+                "runtime": "python-3.10.4"
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/coralcity/wsgi.py"
+        }
+    ]
+}
