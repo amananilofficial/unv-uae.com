@@ -87,7 +87,6 @@ promise
 prompt_toolkit
 proto-plus
 protobuf
-psycopg2
 pyasn1
 pyasn1_modules
 pycparser
