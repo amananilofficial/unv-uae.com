@@ -1,0 +1,1044 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% load meta %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Add preload for critical resources first -->
+  <link rel="preload" href="{% static 'images/logo/logo.svg' %}" as="image" type="image/svg+xml" fetchpriority="high">
+
+  <!-- Add resource hints earlier -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- Dynamic Title and Meta Description -->
+  <title>{% block title %}Uniview - Innovative AIoT Solutions{% endblock %}</title>
+  <meta name="description"
+    content="{% block meta_description %}Uniview offers AI and IoT-based solutions to transform industries and improve lives.{% endblock %}">
+
+  <!-- SEO Optimization (Open Graph & Twitter) -->
+  <meta property="og:title" content="Uniview - Innovative AIoT Solutions">
+  <meta property="og:description"
+    content="{% block meta_description_og %}Uniview offers AI and IoT-based solutions to transform industries and improve lives.{% endblock %}">
+  <meta property="og:image" content="{% block og_image_og %}/static/images/og-image.jpg{% endblock %}">
+  <meta property="og:url" content="{% block og_url %}{% url 'pages:home' %}{% endblock %}">
+
+  <meta name="twitter:title" content="Uniview - Innovative AIoT Solutions">
+  <meta name="twitter:description"
+    content="{% block meta_description_twitter %}Uniview offers AI and IoT-based solutions to transform industries and improve lives.{% endblock %}">
+  <meta name="twitter:image" content="{% block og_image_twitter %}/static/images/twitter-image.jpg{% endblock %}">
+
+  <!-- Accessibility -->
+  <meta name="theme-color" content="#4CAF50">
+  <meta name="robots" content="index, follow">
+
+  <!-- Canonical URL to avoid duplicate content -->
+  <link rel="canonical" href="{% block canonical %}{% url 'pages:home' %}{% endblock %}">
+
+  <!-- Schema Markup (JSON-LD for Structured Data) -->
+  <script type="application/ld+json">
+      {
+          "@context": "http://schema.org",
+          "@type": "Organization",
+          "name": "Uniview UAE | Global AIoT Solutions Provider",
+          "url": "{% block schema_url %}{% url 'pages:home' %}{% endblock %}",
+          "logo": "https://www.unv-uae.com/static/images/logo/logo.svg",
+          "description": "Leading provider of AIoT solutions including security systems, surveillance cameras, industrial automation, smart city solutions, and IoT integration in UAE",
+          "sameAs": [
+              "https://www.linkedin.com/company/digital-link-technology-uae/",
+              "https://www.instagram.com/digitallinktechnologyllc/",
+              "https://www.facebook.com/people/Digital-Link-Technology-LLC/100087290161175/?mibextid=ZbWKwL"
+          ],
+          "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+971-xxx-xxx-xxxx",
+              "email": "info@unv-uae.com",
+              "contactType": "customer service",
+              "availableLanguage": ["English", "Arabic"],
+              "areaServed": ["AE", "OM", "BH", "SA", "KW", "QA"],
+              "hoursAvailable": {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday"
+                  ],
+                  "opens": "09:00",
+                  "closes": "18:00"
+              }
+          },
+          "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Baghlaf Building Shop No.11 Satellite Market, Naif, Deira",
+              "addressLocality": "Dubai",
+              "addressRegion": "Dubai",
+              "postalCode": "123241",
+              "addressCountry": "AE"
+          },
+          "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "25.2744",
+              "longitude": "55.3009"
+          }
+      }
+  </script>
+
+  <!-- Meta Tags for SEO -->
+  <meta name="keywords"
+    content="{% block meta_keywords %}AIoT, Internet of Things, AI solutions, Uniview, smart solutions{% endblock %}">
+
+  <!-- Preload Critical Fonts for Better Performance -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    as="style">
+
+  <!-- Minified CSS for Performance -->
+  <!-- Favicon for Branding -->
+  <link rel="icon" href="{% static 'images/favicon.ico' %}" sizes="32x32">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Security -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- Performance -->
+  <meta http-equiv="Cache-Control" content="max-age=31536000">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+  <!-- Enhanced Accessibility -->
+  <meta name="application-name" content="Uniview">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Uniview">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <!-- Additional SEO -->
+  <meta name="author" content="Uniview">
+  <meta name="generator" content="Django">
+  <meta name="google" content="notranslate">
+  <meta name="rating" content="general">
+  <meta name="revisit-after" content="7 days">
+  {% load i18n %}
+  <meta name="language" content="{% get_current_language as LANGUAGE_CODE %}{{ LANGUAGE_CODE }}">
+
+  <!-- Social Media Enhancement -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Uniview">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@uniview">
+
+  <!-- Mobile App Integration -->
+  <link rel="manifest" href="{% static 'manifest.json' %}">
+  <link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
+  <meta name="msapplication-TileColor" content="#4CAF50">
+  <meta name="msapplication-TileImage" content="{% static 'images/ms-tile-icon.png' %}">
+
+  <!-- Preload Critical Resources -->
+  <link rel="preload" href="{% static 'images/logo/logo.svg' %}" as="image" type="image/svg+xml">
+
+  <!-- Performance Optimization -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <!-- Enhanced Security Headers -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self' https:; 
+    script-src 'self' https: 'unsafe-inline' 'unsafe-eval'; 
+    style-src 'self' https: 'unsafe-inline';
+    img-src 'self' https: data: blob:;
+    font-src 'self' https: data:;
+    connect-src 'self' https:;
+    media-src 'self' https:;
+    object-src 'none';
+    frame-ancestors 'self';
+    form-action 'self';
+    base-uri 'self';
+    upgrade-insecure-requests;
+    block-all-mixed-content">
+
+  <!-- Enhanced Permissions Policy -->
+  <meta http-equiv="Permissions-Policy" content="
+    camera=(),
+    microphone=(),
+    geolocation=(),
+    interest-cohort=(),
+    accelerometer=(),
+    autoplay=(),
+    encrypted-media=(),
+    gyroscope=(),
+    magnetometer=(),
+    midi=(),
+    payment=(),
+    picture-in-picture=(),
+    usb=()">
+
+  <!-- Improved Performance Headers -->
+  <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable">
+  <meta http-equiv="X-DNS-Prefetch-Control" content="on">
+
+  <!-- Add support for native lazy loading -->
+  <script>
+    if ('loading' in HTMLImageElement.prototype) {
+      document.documentElement.className += ' native-lazy-loading';
+    }
+  </script>
+
+  <!-- Enhanced Accessibility -->
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#1a1f2e">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <link rel="icon" type="image/png" sizes="192x192" href="{% static 'images/icons/icon-192x192.png' %}">
+
+  <!-- Register service worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('{% static "js/sw.js" %}')
+          .then(registration => {
+            console.log('ServiceWorker registration successful');
+          })
+          .catch(err => {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+      });
+    }
+  </script>
+</head>
+
+
+<style>
+  :root {
+    --primary: #0066cc;
+    --secondary: #000000;
+    --accent: #00a0ff;
+    --background: #ffffff;
+    --text: #040404;
+    --gray-light: #f7fafc;
+    --gray-medium: #e2e8f0;
+    --transition: all 0.3s ease;
+  }
+
+  /* Base Styles */
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* Navbar Styles */
+  .navbar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    padding: 1rem 0;
+    height: 80px;
+  }
+
+  .navbar-brand {
+    padding: 0;
+    margin-right: 2rem;
+  }
+
+  .navbar-brand img {
+    height: 40px;
+    width: auto;
+  }
+
+  .navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+  }
+
+  .navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  .navbar-toggler-icon {
+    width: 24px;
+    height: 24px;
+    background-image: none;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .navbar-toggler-icon::before,
+  .navbar-toggler-icon::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: #2563eb;
+    left: 0;
+    transition: all 0.3s ease;
+  }
+
+  .navbar-toggler-icon::before {
+    top: 8px;
+  }
+
+  .navbar-toggler-icon::after {
+    bottom: 8px;
+  }
+
+  .navbar-nav {
+    margin: 0 auto;
+  }
+
+  .nav-item {
+    margin: 0 0.5rem;
+  }
+
+  .nav-link {
+    color: #000000 !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    transition: color 0.3s ease;
+    font-size: 1rem;
+    background-color: transparent !important;
+  }
+
+  .nav-link:hover {
+    color: #0066cc !important;
+  }
+
+  .nav-utilities {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .utility-link {
+    color: #000000;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    background-color: transparent;
+  }
+
+  .utility-link:hover {
+    color: #0066cc;
+  }
+
+  .utility-link i {
+    font-size: 1.25rem;
+  }
+
+  /* Footer Styles */
+  .footer {
+    background: linear-gradient(to bottom, #1a1f2e, #111827);
+    color: #fff;
+    padding: 5rem 0 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .footer-brand img {
+    height: 2.5rem;
+    width: auto;
+  }
+
+  .footer-brand p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .social-links a {
+    color: #fff;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .social-links a:hover {
+    background: #2563eb;
+    transform: translateY(-3px);
+  }
+
+  .footer-links h5 {
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+  }
+
+  .footer-links h5::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: #2563eb;
+  }
+
+  .footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-links li {
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-links a {
+    color: #cbd5e0 !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-size: 0.95rem;
+  }
+
+  .footer-links a:hover {
+    color: #ffffff !important;
+    transform: translateX(5px);
+  }
+
+  .footer-newsletter {
+    padding: 2rem;
+    border-radius: 10rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .footer-newsletter h5 {
+    margin-bottom: 1rem;
+    color: #fff;
+    font-weight: 60px;
+    font-size: 1.5rem;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .newsletter-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    color: #fff;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+  }
+
+  .newsletter-input:focus {
+    outline: none;
+    border-color: #2563eb;
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .btn-subscribe {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .btn-subscribe:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-copyright {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+  }
+
+  .footer-legal {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .footer-legal a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+  }
+
+  .footer-legal a:hover {
+    color: #fff;
+  }
+
+  /* Mobile Styles */
+  @media (max-width: 991.98px) {
+    .footer {
+      padding: 3rem 0 1rem;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .footer-brand {
+      text-align: center;
+      align-items: center;
+    }
+
+    .social-links {
+      justify-content: center;
+    }
+
+    .footer-links {
+      text-align: center;
+    }
+
+    .footer-links h5::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .newsletter-form {
+      flex-direction: column;
+    }
+
+    .btn-subscribe {
+      width: 100%;
+      padding: 1rem;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.5rem;
+    }
+
+    .footer-legal {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+  }
+
+  /* Small Mobile Devices */
+  @media (max-width: 576px) {
+    .footer {
+      padding: 2rem 0 1rem;
+    }
+
+    .footer-brand img {
+      height: 2rem;
+    }
+
+    .social-links {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    .footer-links h5 {
+      font-size: 1rem;
+    }
+
+    .footer-links a {
+      font-size: 0.9rem;
+    }
+
+    .footer-newsletter {
+      padding: 1.5rem;
+    }
+
+    .newsletter-input {
+      padding: 0.75rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  /* Newsletter Button Styles */
+  .newsletter-btn {
+    background: #2563eb;
+    color: #fff;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.25rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .newsletter-btn i {
+    font-size: 1rem;
+  }
+
+  .newsletter-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    color: #fff;
+    text-decoration: none;
+  }
+
+  @media (max-width: 991.98px) {
+    .newsletter-btn {
+      width: 100%;
+      justify-content: center;
+      padding: 0.75rem;
+      margin-top: 1rem;
+    }
+  }
+
+  /* Mobile Navigation Styles */
+  @media (max-width: 991.98px) {
+    .navbar-collapse {
+      background: #ffffff;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .navbar-nav {
+      margin: 0;
+    }
+
+    .nav-item {
+      margin: 0;
+      text-align: center;
+      padding: 0.5rem 0;
+    }
+
+    .nav-utilities {
+      justify-content: center;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    /* Animate the toggler icon */
+    .navbar-toggler-icon::before,
+    .navbar-toggler-icon::after {
+      transition: transform 0.3s ease;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+      transform: rotate(45deg);
+      top: 11px;
+    }
+
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+      transform: rotate(-45deg);
+      bottom: 11px;
+    }
+
+    /* Hide middle line when expanded */
+    .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+      background: transparent;
+    }
+  }
+
+  /* Ensure proper spacing for mobile menu items */
+  @media (max-width: 576px) {
+    .nav-link {
+      padding: 0.75rem 1rem;
+      font-size: 1.1rem;
+    }
+
+    .navbar-collapse {
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
+    }
+  }
+
+  /* Add support for dark mode */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --primary: #3b82f6;
+      --secondary: #cbd5e1;
+      --background: #1a1f2e;
+      --text: #f1f5f9;
+      --gray-light: #334155;
+      --gray-medium: #475569;
+    }
+
+    .navbar {
+      background-color: #ffffff !important;
+    }
+
+    .nav-link {
+      color: #000000 !important;
+    }
+
+    .nav-link:hover {
+      color: #0066cc !important;
+    }
+
+    .utility-link {
+      color: #000000 !important;
+    }
+
+    .utility-link:hover {
+      color: #0066cc !important;
+    }
+  }
+
+  /* Add reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+
+  /* Improve accessibility */
+  :focus {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+  }
+
+  .skip-to-content {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: 1em;
+    background-color: var(--primary);
+    color: black;
+    text-decoration: none;
+  }
+
+  .skip-to-content:focus {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Add/update these styles */
+  .utility-btn {
+    background: none;
+    border: none;
+    color: #000000;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .utility-btn:hover {
+    color: #0066cc;
+  }
+
+  .utility-btn i {
+    font-size: 1.25rem;
+  }
+
+  /* If you have a dark mode, add this */
+  @media (prefers-color-scheme: dark) {
+    .utility-btn {
+      color: #000000;
+    }
+
+    .utility-btn:hover {
+      color: #0066cc;
+    }
+  }
+</style>
+
+<body>
+  <!-- Add more semantic landmarks -->
+  <header role="banner">
+    <nav class="navbar navbar-expand-lg fixed-top" role="navigation" aria-label="Main navigation">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'pages:home' %}">
+          <img src="{% static 'images/logo/logo.svg' %}" alt="Uniview Logo">
+        </a>
+
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+          aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMain">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="{% url 'products:products' %}">All Products</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link" href="{% url 'products:all_category' %}">All Categories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'pages:solutions' %}">Solutions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'pages:about' %}">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contacts:contacts' %}">Contact</a>
+            </li>
+          </ul>
+
+          <div class="nav-utilities">
+            <button class="utility-btn" data-bs-toggle="modal" data-bs-target="#searchModal">
+              <a href="{% url 'products:search' %}" class="utility-btn">
+                <i class="fas fa-search"></i>
+              </a>
+            </button>
+            <button class="utility-btn">
+              <i class="fas fa-user"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Improve skip links -->
+  <nav class="skip-links" aria-label="Skip links">
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    <a href="#footer" class="skip-to-content">Skip to footer</a>
+  </nav>
+
+  {% block header %}
+
+  {% endblock header%}
+
+  <main id="main-content" role="main" tabindex="-1">
+    {% block content %}
+
+    {% endblock content %}
+  </main>
+
+  <footer id="footer" class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="{% static 'images/logo/logo.svg' %}" alt="Uniview Logo">
+          <p>Leading provider of AIoT solutions including security systems, surveillance cameras, industrial automation,
+            smart city solutions, and IoT integration in UAE.</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/company/digital-link-technology-uae/" rel="noopener"
+              aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.instagram.com/digitallinktechnologyllc/" rel="noopener" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/people/Digital-Link-Technology-LLC/100087290161175/" rel="noopener"
+              aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h5><a href="{% url 'pages:about' %}">Quick Links</a></h5>
+          <ul>
+            <li><a href="{% url 'products:products' %}">All Products</a></li>
+            <li><a href="{% url 'products:all_category' %}">Categories</a></li>
+            <li><a href="{% url 'pages:about' %}">About Us</a></li>
+            <li><a href="{% url 'pages:careers' %}">Career</a></li>
+            <li><a href="{% url 'contacts:contacts' %}">Contact</a></li>
+            <li><a href="{% url 'pages:video' %}">Videos</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h5><a href="{% url 'pages:solutions' %}">Solutions</a></h5>
+          <ul>
+            <li><a href="{% url 'pages:bank' %}">Banking</a></li>
+            <li><a href="{% url 'pages:retail' %}">Retail</a></li>
+            <li><a href="{% url 'pages:school' %}">Education</a></li>
+            <li><a href="{% url 'pages:hotel' %}">Hospitality</a></li>
+            <li><a href="{% url 'pages:warehouse' %}">Warehouse</a></li>
+            <li><a href="{% url 'pages:building' %}">Building</a></li>
+            <li><a href="{% url 'pages:hospital' %}">Hospital</a></li>
+            <li><a href="{% url 'pages:shoppingmall' %}">Shopping Mall</a></li>
+            <li><a href="{% url 'pages:stadium' %}">Stadium</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-newsletter">
+          <h5>Subscribe to Our Newsletter</h5>
+          <p>Stay updated with our latest news and updates</p>
+          <a href="{% url 'contacts:newsletter_subscription' %}" class="newsletter-btn">
+            <i class="fas fa-envelope"></i>
+            <span>Subscribe Newsletter</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          © {% now "Y" %} Uniview UAE. All rights reserved.
+        </div>
+        <div class="footer-legal">
+          <a href="{% url 'pages:privacy' %}">Privacy Policy</a>
+          <a href="{% url 'pages:cookies' %}">Cookie Policy</a>
+          <a href="{% url 'sitemap' %}">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Add intersection observer for performance -->
+  <script type="module">
+    // Lazy load images
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            img.classList.remove('lazy');
+            observer.unobserve(img);
+          }
+        });
+      });
+
+      document.querySelectorAll('img[data-src]').forEach(img => {
+        imageObserver.observe(img);
+      });
+    }
+
+    // Add smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+
+  <!-- Add service worker registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('ServiceWorker registration successful');
+          })
+          .catch(err => {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+      });
+    }
+  </script>
+
+  <!-- Add error boundary -->
+  <script>
+    window.addEventListener('error', function (e) {
+      // Log errors to your analytics service
+      console.error('Global error:', e);
+    });
+  </script>
+
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Add basic JavaScript for enhanced accessibility -->
+  <script>
+    // Add ARIA attributes dynamically
+    document.addEventListener('DOMContentLoaded', function () {
+      // Enhance dropdown accessibility
+      const dropdowns = document.querySelectorAll('.dropdown');
+      dropdowns.forEach(dropdown => {
+        const link = dropdown.querySelector('.nav-link');
+        link.setAttribute('role', 'button');
+        link.setAttribute('aria-expanded', 'false');
+        link.setAttribute('aria-haspopup', 'true');
+      });
+
+      // Add loading attribute to images
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        img.setAttribute('loading', 'lazy');
+        if (!img.hasAttribute('alt')) {
+          img.setAttribute('alt', '');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

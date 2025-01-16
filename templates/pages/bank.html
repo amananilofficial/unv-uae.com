@@ -1,0 +1,844 @@
+﻿{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Bank - Uniview{% endblock %}
+{% block meta_description %}Learn more about Uniview and our innovative AIoT solutions, transforming industries and improving lives in the UAE and Middle East.{% endblock %}
+{% block og_image %}/static/images/about-og-image.jpg{% endblock %}
+{% block schema_url %}{% url 'pages:bank' %}{% endblock %}
+{% block content %}
+<link rel="preload" href="{% static 'images/solutions/bank/4.webp' %}" as="image">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" as="style">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Uniview">
+<meta name="keywords" content="AIoT, Bank Security, UAE, Middle East, Security Solutions, Surveillance, Digital Link Technology">
+<meta property="og:title" content="Uniview Bank Security Solutions">
+<meta property="og:description" content="Comprehensive bank security solutions in the UAE and Middle East.">
+<meta property="og:url" content="https://www.unv-uae.com/solutions/bank">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/static/images/about-og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Uniview Bank Security Solutions">
+<meta name="twitter:description" content="Comprehensive bank security solutions in the UAE and Middle East.">
+<meta name="twitter:image" content="/static/images/about-og-image.jpg">
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Uniview UAE",
+    "url": "https://www.unv-uae.com",
+    "logo": "https://www.unv-uae.com/static/images/logo/logo.svg",
+    "description": "Leading provider of AIoT solutions including security systems, surveillance cameras, industrial automation, smart city solutions, and IoT integration in UAE",
+    "sameAs": [
+      "https://www.linkedin.com/company/digital-link-technology-uae/",
+      "https://www.instagram.com/digitallinktechnologyllc/",
+      "https://www.facebook.com/people/Digital-Link-Technology-LLC/100087290161175/?mibextid=ZbWKwL"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+971509162488",
+      "email": "sales1@digitallink.ae",
+      "contactType": "customer service",
+      "availableLanguage": ["English", "Arabic"],
+      "areaServed": ["AE", "OM", "BH", "SA", "KW", "QA"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira",
+        "addressLocality": "Dubai",
+        "addressRegion": "Dubai",
+        "postalCode": "123421",
+        "addressCountry": "AE"
+      }
+    }
+  }
+</script>
+<style>
+  :root {
+    --primary: #2563eb;
+    --secondary: #1d4ed8;
+    --dark: #1e293b;
+    --light: #f8fafc;
+    --gray: #64748b;
+    --white: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+    --radius: 24px;
+  }
+
+  /* Core Typography */
+  h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: var(--dark);
+    text-align: center;
+    margin: 4rem 0;
+    letter-spacing: -0.02em;
+  }
+
+  /* Hero Banner */
+  .sub-banner {
+    position: relative;
+    height: 75vh;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .sub-banner .bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.8);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    will-change: transform;
+    background-image: var(--bg-image);
+  }
+
+  .sub-banner .txt {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), transparent);
+    padding: 2rem;
+  }
+
+  /* Navigation Links */
+  .adds-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+  }
+
+  .adds-nav a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: var(--transition);
+  }
+
+  .adds-nav a:hover {
+    background-color: var(--primary-color);
+    color: white;
+  }
+
+  /* Solution Overview Grid */
+  .solution-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .overview-grid-box {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+  }
+
+  .overview-grid-box:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .overview-grid-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
+  }
+
+  /* Solution List */
+  .solution-list-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 3rem 0;
+    align-items: center;
+  }
+
+  .solution-list-box:nth-child(even) {
+    direction: rtl;
+  }
+
+  .solution-list-box .img-box img {
+    width: 100%;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Case Reference Grid */
+  .unv-solution-case-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .solution-case-box {
+    background-color: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    text-decoration: none;
+    display: block;
+  }
+
+  .solution-case-box:hover {
+    transform: translateY(-5px);
+  }
+
+  .solution-case-box img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .solution-list-box {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .solution-list-box:nth-child(even) {
+      direction: ltr;
+    }
+
+    .sub-banner {
+      height: 50vh;
+      border-radius: 0;
+    }
+
+    .sub-banner .unv-tit {
+      font-size: 2rem;
+    }
+
+    .wr {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .sub-banner .unv-subtit {
+      font-size: 1rem;
+    }
+
+    .adds-nav {
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .adds-nav a {
+      font-size: 0.9rem;
+      padding: 0.4rem 0.8rem;
+    }
+
+    .solution-overview-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .overview-grid-box {
+      padding: 1rem;
+    }
+
+    .unv-solution-case-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .solution-case-box img {
+      height: 180px;
+    }
+
+    p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    h4 {
+      font-size: 1.1rem;
+      margin-top: 0.8rem;
+    }
+  }
+
+  /* Optimize images for different screen sizes */
+  .sub-banner .bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.8);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    will-change: transform;
+    /* Performance optimization for animations */
+  }
+
+  /* Add prefers-reduced-motion media query */
+  @media (prefers-reduced-motion: reduce) {
+
+    .overview-grid-box:hover,
+    .solution-case-box:hover {
+      transform: none;
+    }
+  }
+
+  /* Add these specific styles for bg classes */
+  .bg.pc {
+    display: block;
+  }
+
+  .bg.mb {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .bg.pc {
+      display: none;
+    }
+
+    .bg.mb {
+      display: block;
+    }
+  }
+
+  /* Add these styles to your existing stylesheet */
+  .bg[data-image] {
+    background-image: var(--bg-image);
+  }
+
+  /* Optimize font loading */
+  @font-face {
+    font-family: 'Inter';
+    font-display: swap;
+    src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+  }
+
+  /* Performance optimizations */
+  .solution-list-box img,
+  .solution-case-box img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    transform: translateZ(0);
+    /* Hardware acceleration */
+  }
+
+  /* Accessibility improvements */
+  .adds-nav a:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+  }
+
+  /* Add smooth scrolling only if user hasn't requested reduced motion */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Improve color contrast for accessibility */
+  .unv-tit {
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Add loading="lazy" and explicit width/height to all images */
+  img {
+    max-width: 100%;
+    height: auto;
+    loading: lazy;
+  }
+
+  /* Optimize animations */
+  .solution-case-box {
+    transform: translateZ(0);
+    will-change: transform;
+    transition: transform 0.2s ease-out;
+  }
+
+  /* Image and text container styles */
+  .unv-solution-wrap {
+    padding: 4rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .unv-solution-wrap h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #000000;
+  }
+
+  .unv-solution-case-wrap {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 1rem 0;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .solution-case-box {
+    min-width: 350px;
+    max-width: 350px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+  }
+
+  .solution-case-box img {
+    width: 350px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
+
+  .solution-case-box h4 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #000000;
+    margin: 1rem 0;
+    line-height: 1.4;
+    text-align: center;
+  }
+
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .unv-solution-wrap h2 {
+      font-size: 2rem;
+    }
+
+    .solution-case-box {
+      min-width: 300px;
+      max-width: 300px;
+    }
+
+    .solution-case-box img {
+      width: 300px;
+      height: 200px;
+    }
+
+    .solution-case-box h4 {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .unv-solution-wrap h2 {
+      font-size: 1.75rem;
+    }
+
+    .solution-case-box {
+      min-width: 250px;
+      max-width: 250px;
+    }
+
+    .solution-case-box img {
+      width: 250px;
+      height: 175px;
+    }
+
+    .solution-case-box h4 {
+      font-size: 1rem;
+    }
+  }
+
+  /* Desktop styles */
+  .txt .unv-tit {
+    font-size: 60px !important;
+    /* Increased from 40px */
+    line-height: 1.2;
+    margin-bottom: 20px;
+    max-width: 800px;
+    /* Added for better text container width */
+    text-align: center;
+  }
+
+  .txt .unv-subtit {
+    font-size: 28px !important;
+    /* Increased from 20px */
+    line-height: 1.4;
+    max-width: 600px;
+    /* Added for better text container width */
+    text-align: center;
+  }
+
+  /* Mobile styles - update the existing media query */
+  @media (max-width: 768px) {
+    .sub-banner .unv-tit {
+      font-size: 40px !important;
+      /* Increased from original mobile size */
+      margin-bottom: 15px;
+    }
+
+    .sub-banner .unv-subtit {
+      font-size: 24px !important;
+      /* Increased from original mobile size */
+    }
+  }
+
+  /* Extra small devices */
+  @media (max-width: 480px) {
+    .sub-banner .unv-tit {
+      font-size: 32px !important;
+      margin-bottom: 12px;
+    }
+
+    .sub-banner .unv-subtit {
+      font-size: 20px !important;
+    }
+  }
+
+  .bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .bg.pc {
+    display: block;
+  }
+  
+  .bg.mb {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .bg.pc {
+      display: none;
+    }
+    
+    .bg.mb {
+      display: block;
+    }
+  }
+  
+  .sub-banner {
+    position: relative;
+    height: 75vh;
+    overflow: hidden;
+  }
+
+  /* Desktop styles */
+  .bg.desktop {
+    display: block;
+  }
+  .bg.mobile {
+    display: none;
+  }
+
+  /* Mobile styles */
+  @media (max-width: 768px) {
+    .bg.desktop {
+      display: none;
+    }
+    .bg.mobile {
+      display: block;
+    }
+    
+    .sub-banner {
+      height: 50vh; /* Shorter height for mobile */
+    }
+  }
+
+  .case-study-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  .solution-case-box:hover .case-study-image {
+    transform: scale(1.05);
+  }
+
+  /* Add loading animation */
+  .case-study-image.loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+  }
+
+  @keyframes loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+</style>
+<main class="header-fix wr" style="padding-left: 0; padding-right: 0;">
+  <section class="sub-banner wr" role="banner" aria-label="Bank Solution Banner">
+    <!-- Desktop background -->
+    <div class="bg desktop" 
+         style="background-image: url('{% static 'images/solutions/bank/1.webp' %}');"
+         role="img" 
+         aria-label="Bank security system background image desktop">
+    </div>
+    
+    <!-- Mobile background -->
+    <div class="bg mobile" 
+         style="background-image: url('{% static 'images/solutions/bank/1.webp' %}');"
+         role="img" 
+         aria-label="Bank security system background image mobile">
+    </div>
+    <div class="txt col-fff">
+      <div class="unv-tit lh1">Uniview Solution for Bank</div>
+      <div class="unv-subtit">Ensure the highest level of security</div>
+    </div>
+  </section>
+  <nav class="adds-nav wr" aria-label="Page Navigation">
+    <div class="wr">
+      <a href="#bank-solution" onclick="scrollToSection('bank-solution')" role="button"
+        aria-label="Navigate to Bank Solution section">Bank Solution</a>
+      <a href="#success-cases" onclick="scrollToSection('success-cases')" role="button"
+        aria-label="Navigate to Success Cases section">Success Cases</a>
+    </div>
+  </nav>
+  <div class="wr" style="padding-left: 150px; padding-right: 150px;">
+    <div class="view">
+      <section class="unv-solution-wrap pordw" id="bank-solution">
+        <h2>Bank Solution</h2>Personnel
+        <div class="inc-box" style="color: black;">
+          <P>With the growing number of bank branches worldwide, the demand for an integrated security solution has
+            become more urgent than ever. There are various important facilities in the bank, such as ATMs and vault
+            rooms, and the bank would receive a large number of clients everyday. Therefore, a comprehensive bank
+            security solution should take these into consideration and integrate with the actual business of banks. It
+            should cover all critical areas without any blind spot and realize centralized management at headquarters.
+          <P>Uniview has been dedicated to the security industry for years, offering a mature bank security solution
+            that addresses potential security challenges. Our solution is adaptable to various bank-related surveillance
+            scenarios, ensuring the highest level of security for your institution.</P>
+        </div>
+        <div class="solution-list-wrap">
+          <div class="solution-list-box">
+            <div class="img-box">
+              <img src="{% static 'images/solutions/bank/2.webp' %}"
+                alt="Real-time bank monitoring system interface showing security camera feeds" loading="lazy"
+                width="800" height="600" decoding="async" fetchpriority="high">
+            </div>
+            <div class="ft-box" style="color: black;">
+              <h4>Real-time monitoring and response</h4>
+              <p>With clear and audible video footage available for retrieval and investigation, system empowers swift
+                and effective response measures. Our advanced technology enables the detection of both internal and
+                external threats, proactively preventing suspicious activities before they escalate. </p>
+            </div>
+          </div>
+          <div class="solution-list-box">
+            <div class="img-box"> <img src="{% static 'images/solutions/bank/3.webp' %}" alt="">
+            </div>
+            <div class="ft-box" style="color: black;">
+              <h4>Safe data management and storage</h4>
+              <p>Banks usually need to store large amounts of video and data safely and efficiently to ensure their
+                integrity and accessible archives. Uniview has developed high-performance, highly reliable unified
+                network storage devices for video security. By integrating a wide array of cutting-edge storage
+                technologies, including several patented by Uniview, it can manage large amounts of data, prevent data
+                loss, and ensure robust service stability. </p>
+            </div>
+          </div>
+          <div class="solution-list-box">
+            <div class="img-box"> <img src="{% static 'images/solutions/bank/4.webp' %}" alt="">
+            </div>
+            <div class="ft-box" style="color: black;">
+              <h4>Guarding from a bank branch to the headquarters</h4>
+              <p>UNV's banking solution extends from individual bank branches to headquarters buildings. We offer a
+                unified management platform at the headquarters that oversees all devices across multiple branches,
+                enabling centralized backup of video data, unified management of alarm statistics, and comprehensive
+                data analysis. </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="unv-solution-wrap pordw" id="success-cases" aria-label="Success Cases">
+        <h2 class="section-title">Success Cases</h2>
+        <div class="unv-solution-case-wrap" role="list">
+
+          <!-- Sonali Bank Case -->
+          <a href="#" class="solution-case-box" role="listitem">
+            <img src="{% static 'images/solutions/bank/5.webp' %}" 
+                 alt="Sonali Bank case study implementation" 
+                 width="350"
+                 height="250" 
+                 loading="lazy" 
+                 decoding="async" 
+                 class="case-study-image">
+            <h4>
+              <span class="bank-name">Sonali Bank PLC</span>
+              <span class="location">Bangladesh</span>
+            </h4>
+            <meta itemprop="description" content="Comprehensive security solution implementation at Sonali Bank PLC in Bangladesh">
+          </a>
+
+          <!-- Regional Building Case -->
+          <a href="#" class="solution-case-box" role="listitem">
+            <img src="{% static 'images/solutions/bank/6.webp' %}" 
+                 alt="Regional Building Juan XXIII security implementation" 
+                 width="350"
+                 height="250" 
+                 loading="lazy" 
+                 decoding="async" 
+                 class="case-study-image">
+            <h4>
+              <span class="building-name">Regional—Building Juan XXIII</span>
+              <span class="location">Paraguay</span>
+            </h4>
+            <meta itemprop="description" content="Advanced security systems deployment at Regional Building Juan XXIII in Paraguay">
+          </a>
+
+          <!-- Public Bank Case -->
+          <a href="#" class="solution-case-box" role="listitem">
+            <img src="{% static 'images/solutions/bank/7.webp' %}" 
+                 alt="Public Bank Malaysia security implementation" 
+                 width="350"
+                 height="250" 
+                 loading="lazy" 
+                 decoding="async" 
+                 class="case-study-image">
+            <h4>
+              <span class="bank-name">Public Bank</span>
+              <span class="location">Malaysia</span>
+            </h4>
+            <meta itemprop="description" content="Comprehensive security implementation at Public Bank Malaysia">
+          </a>
+
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Optimize scroll performance
+    let scrollTimeout;
+    const scrollToSection = (sectionId) => {
+      const section = document.getElementById(sectionId);
+      if (!section) return;
+
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const supportsScrollBehavior = 'scrollBehavior' in document.documentElement.style;
+        const shouldReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (supportsScrollBehavior && !shouldReduceMotion) {
+          window.scrollTo({
+            top: section.offsetTop - 100,
+            behavior: 'smooth'
+          });
+        } else {
+          window.scrollTo(0, section.offsetTop - 100);
+        }
+      }, 50);
+    };
+
+    // Lazy load images using Intersection Observer
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          const src = img.getAttribute('data-src');
+          if (src) {
+            img.src = src;
+            img.removeAttribute('data-src');
+          }
+          observer.unobserve(img);
+        }
+      });
+    }, {
+      rootMargin: '50px 0px',
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('img[data-src]').forEach(img => {
+      imageObserver.observe(img);
+    });
+  });
+
+  window.addEventListener('error', function (e) {
+    // Send error to analytics
+    console.error('Runtime error:', e);
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Debug image loading
+    document.querySelectorAll('img').forEach(img => {
+      img.addEventListener('error', function (e) {
+        console.error('Image failed to load:', {
+          src: this.src,
+          alt: this.alt,
+          error: e
+        });
+      });
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const bgElements = document.querySelectorAll('.bg');
+    
+    bgElements.forEach(bg => {
+      const url = bg.style.backgroundImage.slice(4, -1).replace(/"/g, "");
+      const img = new Image();
+      
+      img.onerror = function() {
+        console.error('Failed to load image:', url);
+        // Fallback to a default image
+        bg.style.backgroundImage = "url('{% static 'images/solutions/bank/fallback.webp' %}')";
+      };
+      
+      img.src = url;
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const caseStudyImages = document.querySelectorAll('.case-study-image');
+    
+    caseStudyImages.forEach(img => {
+      img.onerror = function() {
+        this.src = "{% static 'images/solutions/bank/case-studies/default-case.webp' %}";
+        console.error('Failed to load image:', this.src);
+      };
+    });
+  });
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css">
+{% endblock content %}

@@ -1,0 +1,636 @@
+﻿{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Retail Chain Solutions - Uniview{% endblock %}
+{% block meta_description %}Discover Uniview's innovative retail chain solutions featuring smart security, POS
+integration, and business analytics for enhanced store operations and customer experience in the UAE and Middle East.{% endblock %}
+{% block og_image %}/static/images/about-og-image.jpg{% endblock %}
+{% block schema_url %}{% url 'pages:retail' %}{% endblock %}
+
+{% block extra_meta %}
+<meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="theme-color" content="#2563eb">
+<meta name="author" content="Uniview">
+<meta name="keywords"
+  content="retail security, store surveillance, POS integration, retail analytics, business intelligence, retail chain solutions, UAE, Middle East">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Retail Chain Solutions - Uniview">
+<meta property="og:site_name" content="Uniview">
+<meta property="og:description"
+  content="Discover Uniview's innovative retail chain solutions featuring smart security, POS integration, and business analytics for enhanced store operations in the UAE.">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:image" content="/static/images/about-og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Retail Chain Solutions - Uniview">
+<meta name="twitter:description" content="Smart security and business intelligence solutions for retail chain stores in the UAE">
+<meta name="twitter:image" content="/static/images/about-og-image.jpg">
+<meta name="twitter:site" content="@Uniview">
+<meta name="twitter:creator" content="@Uniview">
+
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+<meta http-equiv="Content-Security-Policy"
+  content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline';">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="preload" href="{% static 'images/solutions/retail/1.webp' %}" as="image" type="image/webp" fetchpriority="high">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Uniview Retail">
+<link rel="manifest" href="{% static 'manifest.json' %}">
+{% endblock %}
+
+{% block content %}
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Uniview UAE",
+    "url": "https://www.unv-uae.com",
+    "logo": "https://www.unv-uae.com/static/images/logo/logo.svg",
+    "description": "Leading provider of AIoT solutions including security systems, surveillance cameras, industrial automation, smart city solutions, and IoT integration in UAE",
+    "sameAs": [
+        "https://www.linkedin.com/company/digital-link-technology-uae/",
+        "https://www.instagram.com/digitallinktechnologyllc/",
+        "https://www.facebook.com/people/Digital-Link-Technology-LLC/100087290161175/?mibextid=ZbWKwL"
+    ],
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+971509162488",
+        "email": "sales1@digitallink.ae",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Arabic"],
+        "areaServed": ["AE", "OM", "BH", "SA", "KW", "QA"],
+        "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+            ],
+            "opens": "09:00",
+            "closes": "18:00"
+        }
+    },
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira",
+        "addressLocality": "Dubai",
+        "addressRegion": "Dubai",
+        "postalCode": "123421",
+        "addressCountry": "AE"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "25.2744",
+        "longitude": "55.3009"
+    }
+}
+</script>
+<link rel="preload" as="image" href="{% static 'images/solutions/retail/1.webp' %}" fetchpriority="high">
+<link rel="preload" href="{% static 'images/solutions/retail/1.webp' %}" as="image" type="image/webp" fetchpriority="high">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" integrity="sha512-..." crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+<style>
+  :root {
+    --primary-color: #1a56db;
+    --primary-dark: #1e429f;
+    --secondary-color: #2563eb;
+    --text-dark: #111827;
+    --text-light: #4b5563;
+    --bg-white: #ffffff;
+    --bg-light: #f9fafb;
+    --box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+    --border-radius: 24px;
+    --transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
+  }
+
+  /* Typography */
+  h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--text-dark);
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+    color: var(--text-dark);
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Sub-Banner Section */
+  .sub-banner {
+    position: relative;
+    height: 90vh;
+    width: 100vw;
+    max-width: 100%;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+
+  .sub-banner .bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.8);
+  }
+
+  .sub-banner .bg.mb {
+    display: none;
+  }
+
+  .sub-banner .txt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--bg-white);
+    z-index: 2;
+    width: 90%;
+  }
+
+  .sub-banner .unv-tit {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .sub-banner .unv-subtit {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Navigation Links */
+  .adds-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+  }
+
+  .adds-nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: var(--transition);
+    background-color: var(--bg-white);
+    box-shadow: var(--box-shadow);
+  }
+
+  .adds-nav a:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+  }
+
+  /* Solution List */
+  .solution-list-wrap {
+    display: grid;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .solution-list-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    background: var(--bg-white);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    margin-bottom: 2rem;
+    will-change: transform;
+    content-visibility: auto;
+    contain-intrinsic-size: 0 300px;
+  }
+
+  .solution-list-box:hover {
+    transform: translateY(-5px);
+    will-change: transform;
+  }
+
+  .solution-list-box:nth-child(even) {
+    direction: rtl;
+  }
+
+  .solution-list-box:nth-child(even) .ft-box {
+    direction: ltr;
+  }
+
+  .solution-list-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    loading: lazy;
+  }
+
+  /* Success Cases */
+  .unv-solution-case-wrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .solution-case-box {
+    background: var(--bg-white);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    text-decoration: none;
+    display: block;
+    will-change: transform;
+    content-visibility: auto;
+    contain-intrinsic-size: 0 300px;
+  }
+
+  .solution-case-box:hover {
+    transform: translateY(-5px);
+    will-change: transform;
+  }
+
+  .solution-case-box img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    loading: lazy;
+  }
+
+  .solution-case-box h4 {
+    padding: 1rem;
+    margin: 0;
+    text-align: center;
+    color: var(--text-dark);
+  }
+
+  /* Content Wrapper */
+  .wr {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .sub-banner .bg.pc {
+      display: none;
+    }
+
+    .sub-banner .bg.mb {
+      display: block;
+    }
+
+    .wr {
+      padding: 0 1rem !important;
+    }
+
+    .sub-banner .unv-tit {
+      font-size: 2.5rem;
+    }
+
+    /* Remove fixed padding on content wrapper */
+    .wr[style*="padding-left: 150px"] {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .solution-list-box {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .solution-list-box:nth-child(even) {
+      direction: ltr;
+    }
+
+    .sub-banner {
+      height: 400px;
+      width: 100vw;
+      max-width: 100%;
+    }
+
+    .sub-banner .unv-tit {
+      font-size: 2rem;
+    }
+
+    .sub-banner .unv-subtit {
+      font-size: 1.25rem;
+    }
+
+    .unv-solution-case-wrap {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 2rem;
+    }
+
+    .adds-nav {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .adds-nav a {
+      width: 100%;
+      text-align: center;
+      padding: 0.5rem 1rem;
+    }
+
+    /* Adjust card padding */
+    .solution-list-box {
+      padding: 1rem;
+    }
+
+    /* Adjust success cases */
+    .solution-case-box {
+      margin-bottom: 1rem;
+    }
+
+    .solution-case-box img {
+      height: 160px;
+    }
+
+    /* Adjust main wrapper padding */
+    .wr {
+      padding: 0 0.75rem;
+    }
+
+    /* Adjust banner for smaller screens */
+    .sub-banner {
+      height: 300px;
+      width: 100vw;
+      max-width: 100%;
+      margin-bottom: 1.5rem;
+    }
+
+    .unv-solution-case-wrap {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Improve accessibility for interactive elements */
+  .adds-nav a:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+  }
+
+  /* Add reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+
+    .solution-list-box:hover,
+    .solution-case-box:hover {
+      transform: none;
+    }
+  }
+
+  /* Improve color contrast for accessibility */
+  .sub-banner .txt {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Optimize performance with will-change */
+  .solution-list-box,
+  .solution-case-box {
+    will-change: transform;
+  }
+
+  /* Add smooth scrolling only if user hasn't requested reduced motion */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Enhanced accessibility styles */
+  .skip-to-main-content {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: 1em;
+    background-color: var(--bg-white);
+    color: var(--text-dark);
+    text-decoration: none;
+  }
+
+  .skip-to-main-content:focus {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Enhance focus styles */
+  a:focus-visible,
+  button:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 3px;
+  }
+
+  /* Add loading="lazy" to images below the fold */
+  img:not([loading]) {
+    loading: lazy;
+  }
+
+  /* Optimize animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-on-scroll {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+</style>
+
+<div class="header-fix">
+  <div class="sub-banner">
+    <div class="bg pc" data-image style="background-image: url({% static 'images/solutions/retail/1.webp' %}); background-color: rgba(0, 0, 0, 0.5);" role="img"
+      aria-label="Retail store interior showcase">
+    </div>
+    <div class="bg mb" data-image style="background-image: url({% static 'images/solutions/retail/1.webp' %}); background-color: rgba(0, 0, 0, 0.5);">
+    </div>
+    <div class="txt">
+      <div class="unv-tit">Uniview Solution for Retail Chain Store</div>
+      <div class="unv-subtit">Smart Savings, Smooth Operations</div>
+    </div>
+  </div>
+
+  <nav class="adds-nav" aria-label="Page navigation">
+    <a href="#retail-chain-store-solution" aria-label="Go to retail chain store solution section">
+      Uniview Solution for Retail Chain Store</a>
+    <a href="#success-cases" aria-label="Go to success cases section">Success Cases</a>
+  </nav>
+
+  <main class="wr">
+    <div class="view" role="main">
+      <section class="unv-solution-wrap" id="retail-chain-store-solution" aria-labelledby="solution-heading">
+        <h2 id="solution-heading">Retail Chain Store Solution</h2>
+        <p>Retail chain stores face numerous security challenges that directly impact their operations and
+          profitability. These challenges include theft (both shoplifting and employee theft), loss prevention,
+          surveillance and monitoring, and ensuring customer and employee safety, as well as managing access control.
+          Effectively addressing these issues is crucial for maintaining a secure and thriving retail environment.
+        </p>
+        <p>
+          Whether you operate a single retail store or oversee thousands of dispersed chain stores, UNV delivers
+          tailored smart solutions to meet your needs. Our solutions help operators mitigate risks in a cost-effective
+          manner, safeguarding employees, customers, and property.</p>
+
+        <div class="solution-list-wrap">
+          <div class="solution-list-box">
+            <img src="{% static 'images/solutions/retail/2.webp' %}"
+              alt="Store Security demonstration with Tri-guard technology" loading="lazy">
+            <div class="ft-box">
+              <h4>Enhance store security with Tri-guard technology</h4>
+              <p>UNV supports overlaying POS data on live and playback videos, displaying transaction details, and
+                retrieving records based on POS keywords. This capability enables seamless retrospective investigation
+                in case of disputes or fraud in a store, reducing operational hassle and enhancing efficiency.</p>
+            </div>
+          </div>
+
+          <div class="solution-list-box">
+            <img src="{% static 'images/solutions/retail/3.webp' %}" alt="Transaction Management">
+            <div class="ft-box">
+              <h4>Combine transaction and security</h4>
+              <p>Utilizing customer traffic analysis, operators can optimize staff allocation and refine business
+                strategies to enhance customer service and shopping experiences. Store heat map analysis enables
+                operators to optimize store layout, effectively manage popular products, and drive sales growth.</p>
+            </div>
+          </div>
+
+          <div class="solution-list-box">
+            <img src="{% static 'images/solutions/retail/4.webp' %}" alt="Business Intelligence">
+            <div class="ft-box">
+              <h4>Boost sales growth with data analytics</h4>
+              <p>Transform your retail operations with advanced analytics. Monitor customer flow patterns, optimize
+                store layouts, and make informed decisions about product placement and staff scheduling to maximize
+                sales potential.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="unv-solution-wrap" id="success-cases">
+        <h2>Success Cases</h2>
+        <div class="unv-solution-case-wrap">
+          <a href="#" class="solution-case-box" aria-label="Read about UNIQLO Chain Store case study">
+            <img src="{% static 'images/solutions/retail/5.webp' %}"
+              alt="UNIQLO retail store interior showing security implementation" loading="lazy">
+            <h4>UNIQLO Chain Store in Korea</h4>
+          </a>
+          <a href="#" class="solution-case-box">
+            <img src="{% static 'images/solutions/retail/6.webp' %}" alt="McDonald's Restaurant">
+            <h4>McDonald's Restaurant in Bahrain</h4>
+          </a>
+          <a href="#" class="solution-case-box">
+            <img src="{% static 'images/solutions/retail/7.webp' %}" alt="Domino's Pizza">
+            <h4>Domino's Pizza Chain in Saudi Arabia</h4>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<script type="module">
+// Use modern JavaScript features and performance optimizations
+import { createIntersectionObserver } from 'https://cdn.jsdelivr.net/npm/intersection-observer@0.12.2/intersection-observer.min.js';
+
+// Lazy load images using native loading="lazy"
+document.querySelectorAll('img').forEach(img => {
+  if (!img.hasAttribute('loading') && !img.hasAttribute('fetchpriority')) {
+    img.loading = 'lazy';
+  }
+});
+
+// Enhanced scroll performance
+const smoothScroll = (target, duration = 500) => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    window.scrollTo(0, target);
+    return;
+  }
+  
+  const start = window.pageYOffset;
+  const distance = target - start;
+  let startTime = null;
+
+  const animation = currentTime => {
+    if (startTime === null) startTime = currentTime;
+    const timeElapsed = currentTime - startTime;
+    const progress = Math.min(timeElapsed / duration, 1);
+    
+    window.scrollTo(0, start + distance * easeInOutCubic(progress));
+    
+    if (timeElapsed < duration) {
+      requestAnimationFrame(animation);
+    }
+  };
+  
+  requestAnimationFrame(animation);
+};
+
+// Add error handling and performance monitoring
+window.addEventListener('error', (e) => {
+  console.error('Runtime error:', e);
+  // Send to analytics service
+});
+
+// Monitor performance
+const performanceObserver = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) {
+    // Log performance metrics
+    console.log(`${entry.name}: ${entry.startTime}ms`);
+  }
+});
+
+performanceObserver.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] });
+
+// Existing JavaScript...
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js" 
+  integrity="sha512-..." 
+  crossorigin="anonymous" 
+  defer
+  async></script>
+<script src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js" 
+  async></script>
+{% endblock content %}

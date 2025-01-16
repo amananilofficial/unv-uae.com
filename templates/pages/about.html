@@ -1,0 +1,889 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}About Us - Uniview | Global AIoT Solutions Provider{% endblock %}
+{% block meta_description %}Discover Uniview's innovative AIoT solutions, including video surveillance, smart
+technology, and security systems. Present in 145+ countries with 1500+ R&D engineers.{% endblock %}
+
+<!-- Add these meta tags after the existing ones -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="theme-color" content="#006666">
+
+<!-- SEO Meta Tags -->
+<meta name="keywords"
+  content="AIoT solutions, video surveillance, security cameras, smart technology, Uniview, IP cameras, NVR, smart office, smart home">
+<meta name="author" content="Uniview">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google" content="notranslate">
+
+<!-- Open Graph / Social Media -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="About Uniview - Global AIoT Solutions Provider">
+<meta property="og:description"
+  content="Discover Uniview's innovative AIoT solutions, including video surveillance, smart technology, and security systems. Present in 145+ countries with 1500+ R&D engineers.">
+<meta property="og:image" content="{% static 'images/about-og-image.jpg' %}">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About Uniview - Global AIoT Solutions Provider">
+<meta name="twitter:description"
+  content="Discover Uniview's innovative AIoT solutions, including video surveillance, smart technology, and security systems.">
+<meta name="twitter:image" content="{% static 'images/about-og-image.jpg' %}">
+
+<!-- Performance & Best Practices -->
+<link rel="dns-prefetch" href="//www.youtube.com">
+<link rel="preconnect" href="https://www.youtube.com">
+<meta http-equiv="Cache-Control" content="public, max-age=31536000">
+
+<!-- Accessibility -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="alternate" href="{{ request.build_absolute_uri }}" hreflang="x-default">
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+
+<!-- Add preload for critical resources -->
+<link rel="preload" href="{% static 'images/about/5.webp' %}" as="image" type="image/webp">
+<link rel="preload" href="{% static 'images/about/1.webp' %}" as="image" type="image/webp">
+<link rel="preload" href="{% static 'fonts/your-main-font.woff2' %}" as="font" type="font/woff2" crossorigin>
+<!-- Debug info -->
+<div style="display: none;">
+  Debug:
+  {% if video %}
+  Video exists
+  URL: {{ video.video_url }}
+  Formatted URL: {{ video.formatted_video_url }}
+  {% else %}
+  No video found
+  {% endif %}
+</div>
+
+<!-- Add these meta tags for UAE and Middle Eastern SEO -->
+<meta name="geo.region" content="AE-DU">
+<meta name="geo.placename" content="Dubai">
+<meta name="geo.position" content="25.276987;55.296249">
+<meta name="ICBM" content="25.276987, 55.296249">
+<meta name="keywords"
+  content="AIoT solutions, video surveillance, security cameras, smart technology, Uniview, Dubai, UAE, Middle East, IP cameras, NVR, smart office, smart home, Digital Link">
+<meta name="author" content="Uniview, Digital Link">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="google" content="notranslate">
+<meta name="description"
+  content="Uniview offers innovative AIoT solutions in Dubai, UAE, including video surveillance and smart technology. Contact us for more information.">
+
+<!-- Add structured data for local business -->
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Digital Link",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira",
+      "addressLocality": "Dubai",
+      "addressRegion": "Dubai",
+      "postalCode": "123421",
+      "addressCountry": "AE"
+    },
+    "telephone": "+971509162488",
+    "email": "sales1@digitallink.ae",
+    "url": "{% url 'pages:about' %}",
+    "logo": "/static/images/logo.png",
+    "sameAs": [
+      "https://www.facebook.com/digitallinktechnologyllc",
+      "https://www.linkedin.com/company/digital-link-technology-uae/",
+      "https://www.instagram.com/digitallinktechnologyllc"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+971509162488",
+      "contactType": "Customer Support",
+      "areaServed": "AE",
+      "availableLanguage": "Arabic, English"
+    }
+  }
+</script>
+
+<!-- Performance & Best Practices -->
+<link rel="dns-prefetch" href="//www.digitallink.ae">
+<link rel="preconnect" href="https://www.digitallink.ae">
+<meta http-equiv="Cache-Control" content="public, max-age=31536000">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Accessibility -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="alternate" href="{{ request.build_absolute_uri }}" hreflang="x-default">
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+
+<!-- Add focus styles for accessibility -->
+<style>
+  .section-tab:focus,
+  .play-video-btn:focus {
+    outline: 2px solid #006666;
+    outline-offset: 2px;
+  }
+</style>
+
+<!-- Add this debug info temporarily -->
+<div style="display:none">
+  Debug Info:
+  Video URL: {{ video.video_url }}
+  Formatted URL: {{ video.formatted_video_url }}
+</div>
+
+{% block content %}
+<link rel="preload" href="{% static 'images/about/5.webp' %}" as="image">
+<link rel="preload" href="{% static 'images/about/1.webp' %}" as="image">
+
+<meta name="keywords" content="AIoT solutions, video surveillance, security cameras, smart technology, Uniview">
+<meta name="author" content="Uniview">
+<meta name="robots" content="index, follow">
+
+<style>
+  /* Hero Section */
+  .hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #000;
+  }
+
+  .hero-background {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+    url("{% static 'images/about/5.webp' %}");
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+    animation: scaleIn 10s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  .hero-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+    z-index: 2;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    animation: fadeInUp 1s ease;
+  }
+
+  .hero-description {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    max-width: 800px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    animation: fadeInUp 1s ease 0.2s;
+  }
+
+  /* Video Button */
+  .play-video-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid white;
+    border-radius: 50px;
+    color: white;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+  }
+
+  .play-video-btn:hover {
+    background: white;
+    color: #006666;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Section Navigation */
+  .section-tabs {
+    position: sticky;
+    top: 0;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: clamp(1rem, 3vw, 2rem);
+    flex-wrap: wrap;
+  }
+
+  .section-tab {
+    padding: 0.8rem 1.5rem;
+    color: #333;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.1rem;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .section-tab::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #006666;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .section-tab:hover {
+    color: #006666;
+  }
+
+  .section-tab:hover::after,
+  .section-tab.active::after {
+    transform: scaleX(1);
+  }
+
+  .section-tab.active {
+    color: #006666;
+    font-weight: 600;
+  }
+
+  /* Content Sections */
+  .section {
+    display: none;
+    padding: 5rem 2rem;
+    text-align: center;
+    background: #f9f9f9;
+  }
+
+  .section.active {
+    display: block;
+    animation: fadeIn 0.6s ease;
+  }
+
+  .section-image {
+    max-width: 1000px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    transition: transform 0.3s ease;
+    loading: lazy;
+  }
+
+  .section-image:hover {
+    transform: scale(1.02);
+  }
+
+  /* Carousel Section */
+  .carousel-section {
+    padding: 5rem 2rem;
+    background: white;
+  }
+
+  .carousel-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .carousel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    transition: transform 0.5s ease;
+  }
+
+  .carousel-item {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .carousel-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .carousel-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .carousel-content {
+    padding: 1.5rem;
+  }
+
+  .carousel-title {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      transform: scale(1.1);
+    }
+
+    to {
+      transform: scale(1.2);
+    }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .carousel {
+      grid-template-columns: 1fr;
+    }
+
+    .section-tabs {
+      gap: 0.5rem;
+      padding: 0.5rem;
+    }
+
+    .section-tab {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  .section-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  .section-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 3rem;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+
+  .stat-item {
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .stat-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .stat-item h3 {
+    font-size: 2.5rem;
+    color: #006666;
+    margin-bottom: 0.5rem;
+  }
+
+  .operations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+
+  .operation-item {
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  /* Add explicit text colors */
+  .operation-item h3 {
+    color: #333;
+    /* Dark color for headings */
+    margin-bottom: 1rem;
+  }
+
+  .operation-item p {
+    color: #444;
+    /* Dark color for paragraph text */
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  /* Fix the hover state to ensure text remains visible */
+  .operation-item:hover {
+    transform: translateY(-5px);
+    background: #006666;
+  }
+
+  .operation-item:hover h3,
+  .operation-item:hover p {
+    color: white;
+    /* Make text white on hover */
+  }
+
+  .operation-item i {
+    font-size: 2.5rem;
+    color: #006666;
+    margin-bottom: 1rem;
+  }
+
+  .operation-item:hover i {
+    color: white;
+  }
+
+  .tech-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+
+  .tech-item {
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .tech-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .tech-item h3 {
+    color: #006666;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 768px) {
+
+    .stats-grid,
+    .operations-grid,
+    .tech-highlights {
+      grid-template-columns: 1fr;
+    }
+
+    .section-content {
+      padding: 1rem;
+    }
+
+    .stat-item h3 {
+      font-size: 2rem;
+    }
+  }
+
+  .video-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+  }
+
+  .video-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 900px;
+    aspect-ratio: 16/9;
+  }
+
+  .video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .close-modal:hover {
+    transform: rotate(90deg);
+  }
+
+  /* Add reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-background {
+      animation: none;
+    }
+
+    .hero-title,
+    .hero-description {
+      animation: none;
+    }
+  }
+
+  /* Add focus styles for accessibility */
+  .section-tab:focus,
+  .play-video-btn:focus {
+    outline: 2px solid #006666;
+    outline-offset: 2px;
+  }
+
+  /* Add print styles */
+  @media print {
+
+    .video-modal,
+    .play-video-btn {
+      display: none !important;
+    }
+  }
+
+  /* Add these styles to ensure text visibility */
+  .section h2 {
+    color: #333;
+    margin-bottom: 2rem;
+  }
+
+  .section p {
+    color: #444;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 1rem 0;
+  }
+</style>
+
+<!-- Hero Section -->
+<section class="hero" role="banner" aria-label="Hero Section">
+  <div class="hero-background"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">A Global Provider of AIoT<br>Products and Solutions</h1>
+    <p class="hero-description">
+      Cloud and IoT technology as the core: the video technology product lines include IP cameras, NVR, Encoder,
+      Decoder, Storage, Client Software and app, the AIoT ranges from display, intelligent access control to
+      smart office and smart home.
+    </p>
+    {% if video %}
+    <a href="#" class="play-video-btn" id="videoBtn" data-video-url="{{ video.formatted_video_url }}">
+      <i class="fas fa-play"></i>
+      {{ video.title|default:"Watch Our Story" }}
+    </a>
+    {% endif %}
+  </div>
+</section>
+
+<!-- Section Navigation -->
+<nav class="section-tabs" role="navigation" aria-label="Page Sections">
+  <button class="section-tab active" onclick="switchSection('introduction')" aria-selected="true" role="tab">
+    Introduction
+  </button>
+  <button class="section-tab" onclick="switchSection('showroom')">Online Showroom</button>
+  <button class="section-tab" onclick="switchSection('rnd')">R&D</button>
+  <button class="section-tab" onclick="switchSection('manufacturing')">Manufacturing</button>
+</nav>
+
+<!-- Content Sections -->
+<section id="introduction" class="section active" role="tabpanel" aria-labelledby="tab-introduction">
+  <h2>Unlimited New View</h2>
+  <img src="{% static 'images/about/1.webp' %}" alt="Company Introduction" class="section-image">
+  <p>Welcome to our world of innovation. We aim to create a safer and smarter world with cutting-edge technology and
+    reliability. Our commitment to excellence drives us to continuously improve our products and services, ensuring that
+    we meet the evolving needs of our customers. With a dedicated team of experts and a passion for innovation, we are
+    at the forefront of the AIoT revolution, delivering solutions that enhance everyday life. Join us on this journey as
+    we explore new horizons and redefine possibilities.</p>
+</section>
+
+<!-- Add other sections similarly -->
+
+<!-- Add this debug info temporarily -->
+<div style="display:none">
+  Debug Info:
+  Video URL: {{ video.video_url }}
+  Formatted URL: {{ video.formatted_video_url }}
+</div>
+
+<!-- Video Modal -->
+<div id="videoModal"
+  style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 9999;">
+  <div style="position: relative; width: 80%; max-width: 800px; margin: 50px auto;">
+    <button onclick="closeVideo()"
+      style="position: absolute; right: -40px; top: 0; background: none; border: none; color: white; font-size: 30px; cursor: pointer;">&times;</button>
+    <div style="padding-top: 56.25%; position: relative;">
+      <iframe id="videoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+        src="" title="{{ video.title|default:'Video' }}" loading="lazy"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const videoBtn = document.getElementById('videoBtn');
+    const videoModal = document.getElementById('videoModal');
+    const videoIframe = document.getElementById('videoIframe');
+
+    if (videoBtn) {
+      videoBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        const videoUrl = this.getAttribute('data-video-url');
+
+        if (videoUrl) {
+          videoModal.style.display = 'block';
+          videoIframe.src = videoUrl;
+          console.log('Loading video:', videoUrl);
+        } else {
+          console.error('No video URL available');
+        }
+      });
+    }
+  });
+
+  function closeVideo() {
+    const videoModal = document.getElementById('videoModal');
+    const videoIframe = document.getElementById('videoIframe');
+    if (videoIframe) {
+      videoIframe.src = ''; // Stop the video
+    }
+    videoModal.style.display = 'none';
+  }
+
+  // Close on escape key
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      closeVideo();
+    }
+  });
+
+  // Close when clicking outside the video
+  document.getElementById('videoModal').addEventListener('click', function (e) {
+    if (e.target === this) {
+      closeVideo();
+    }
+  });
+</script>
+
+<section id="showroom" class="section" role="tabpanel" aria-labelledby="tab-showroom">
+  <h2>Global Operations</h2>
+  <img src="{% static 'images/about/4.webp' %}" alt="Global Operations" class="section-image">
+  <div class="section-content">
+    <div class="operations-grid">
+      <div class="operation-item">
+        <i class="fas fa-globe"></i>
+        <h3>Global Presence</h3>
+        <p>Operating in over 145 countries and regions with comprehensive local support</p>
+      </div>
+      <div class="operation-item">
+        <i class="fas fa-industry"></i>
+        <h3>Manufacturing Excellence</h3>
+        <p>State-of-the-art facilities with annual production capacity of millions of units</p>
+      </div>
+      <div class="operation-item">
+        <i class="fas fa-certificate"></i>
+        <h3>Quality Assurance</h3>
+        <p>ISO 9001 certified with rigorous quality control systems</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rnd" class="section" role="tabpanel" aria-labelledby="tab-rnd">
+  <h2>Innovation & Technology</h2>
+  <img src="{% static 'images/about/3.webp' %}" alt="R&D Center" class="section-image">
+  <div class="section-content">
+    <div class="tech-highlights">
+      <div class="tech-item">
+        <h3>R&D Investment</h3>
+        <p>Over 15% of annual revenue invested in research and development</p>
+      </div>
+      <div class="tech-item">
+        <h3>Patents</h3>
+        <p>2000+ patents demonstrating our commitment to innovation</p>
+      </div>
+      <div class="tech-item">
+        <h3>Research Centers</h3>
+        <p>Multiple R&D centers worldwide focusing on cutting-edge technology</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="manufacturing" class="section active" role="tabpanel" aria-labelledby="tab-manufacturing">
+  <h2>Manufacturing</h2>
+  <img src="{% static 'images/about/6.webp' %}" alt="Manufacturing" class="section-image">
+  <div class="section-content">
+    <p class="section-text">
+      Uniview is a global pioneer in video surveillance. As the inventor of the first network video recorder in China,
+      we're committed to technological innovation in AIoT and video surveillance. With a complete product line including
+      IP cameras, NVR, encoders, decoders, storage, and client software, we provide professional and reliable solutions
+      for various scenarios.
+    </p>
+  </div>
+</section>
+
+<!-- Uniview in Action Section -->
+<section id="inAction" class="section" role="tabpanel" aria-labelledby="tab-inAction">
+  <h2>Uniview in Action</h2>
+  <div class="section-content">
+    <p class="section-text">
+      Discover how Uniview solutions are making a difference across various industries and scenarios worldwide.
+    </p>
+
+    <div class="action-grid">
+      <div class="action-item">
+        <div class="action-image">
+          <img src="{% static 'images/about/action-1.jpg' %}" alt="City Surveillance">
+        </div>
+        <div class="action-content">
+          <h3>City Surveillance</h3>
+          <p>Smart city solutions ensuring public safety and efficient urban management</p>
+          <a href="#" class="action-link">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="action-item">
+        <div class="action-image">
+          <img src="{% static 'images/about/action-2.jpg' %}" alt="Retail">
+        </div>
+        <div class="action-content">
+          <h3>Retail</h3>
+          <p>Comprehensive security and business intelligence for retail environments</p>
+          <a href="#" class="action-link">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="action-item">
+        <div class="action-image">
+          <img src="{% static 'images/about/action-3.jpg' %}" alt="Transportation">
+        </div>
+        <div class="action-content">
+          <h3>Transportation</h3>
+          <p>Advanced surveillance solutions for transportation hubs and networks</p>
+          <a href="#" class="action-link">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  let currentIndex = 0;
+
+  function moveCarousel(direction) {
+    const carousel = document.querySelector('.carousel');
+    const items = document.querySelectorAll('.carousel-item');
+    const totalItems = items.length;
+    const visibleItems = 3; // Number of items visible at a time
+    const maxIndex = Math.ceil(totalItems / visibleItems) - 1;
+
+    currentIndex += direction;
+    if (currentIndex < 0) currentIndex = maxIndex;
+    if (currentIndex > maxIndex) currentIndex = 0;
+
+    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    updatePagination();
+  }
+
+  function goToSlide(index) {
+    currentIndex = index;
+    const carousel = document.querySelector('.carousel');
+    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    updatePagination();
+  }
+
+  function updatePagination() {
+    const dots = document.querySelectorAll('.carousel-dot');
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentIndex);
+    });
+  }
+
+  function switchSection(sectionId) {
+    // Get all sections and tabs
+    const sections = document.querySelectorAll('.section');
+    const tabs = document.querySelectorAll('.section-tab');
+
+    // Hide all sections first
+    sections.forEach(section => {
+      section.classList.remove('active');
+      section.style.display = 'none';
+      section.setAttribute('aria-hidden', 'true');
+    });
+
+    // Show the selected section
+    const activeSection = document.getElementById(sectionId);
+    if (activeSection) {
+      activeSection.classList.add('active');
+      activeSection.style.display = 'block';
+      activeSection.setAttribute('aria-hidden', 'false');
+    }
+
+    // Update tab states
+    tabs.forEach(tab => {
+      const isActive = tab.getAttribute('onclick').includes(sectionId);
+      tab.classList.toggle('active', isActive);
+      tab.setAttribute('aria-selected', isActive);
+    });
+  }
+
+  // Make sure the introduction section is shown on page load
+  document.addEventListener('DOMContentLoaded', function () {
+    switchSection('introduction');
+  });
+</script>
+{% endblock %}

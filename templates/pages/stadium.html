@@ -1,0 +1,528 @@
+﻿{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Stadium Security Solutions - Uniview{% endblock %}
+{% block meta_description %}Discover Uniview's comprehensive stadium security solutions featuring AIoT technology, advanced surveillance systems, and access control for safer sporting venues.{% endblock %}
+{% block og_image %}/static/images/about-og-image.jpg{% endblock %}
+{% block schema_url %}{% url 'pages:stadium' %}{% endblock %}
+
+{% block meta %}
+<!-- SEO Meta Tags -->
+<meta name="keywords" content="stadium security, surveillance systems, AIoT technology, perimeter protection, access control, CCTV cameras, MultiView cameras, OmniView cameras, Dubai, UAE, Middle East">
+<meta name="author" content="Uniview UAE">
+<meta name="robots" content="index, follow">
+<meta name="canonical" content="{% url 'pages:stadium' %}">
+<meta name="description" content="Uniview provides comprehensive stadium security solutions in the UAE, ensuring safety and security for sporting events.">
+
+<!-- Open Graph / Social Media -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Stadium Security Solutions - Uniview">
+<meta property="og:description" content="Comprehensive stadium security and surveillance solutions powered by AIoT technology">
+<meta property="og:image" content="{% static 'images/about-og-image.jpg' %}">
+<meta property="og:url" content="{% url 'pages:stadium' %}">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Uniview UAE">
+<meta property="og:region" content="AE">
+<meta property="og:country" content="AE">
+<meta property="og:email" content="sales1@digitallink.ae">
+<meta property="og:phone_number" content="+971509162488">
+<meta property="og:address" content="Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira, Dubai, United Arab Emirates, P.O.Box: 123421">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Stadium Security Solutions - Uniview">
+<meta name="twitter:description" content="Uniview offers advanced stadium security solutions in the UAE, utilizing AIoT technology for enhanced safety.">
+<meta name="twitter:image" content="{% static 'images/about-og-image.jpg' %}">
+<meta name="twitter:url" content="{% url 'pages:stadium' %}">
+<meta name="twitter:site" content="@UniviewUAE">
+<meta name="twitter:creator" content="@UniviewUAE">
+
+<!-- Performance & Security -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline';">
+
+<!-- PWA -->
+<meta name="theme-color" content="#1a5f7a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+{% endblock %}
+
+{% block content %}
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Uniview UAE",
+    "url": "https://www.unv-uae.com",
+    "logo": "https://www.unv-uae.com/static/images/logo/logo.svg",
+    "description": "Leading provider of AIoT solutions including security systems, surveillance cameras, industrial automation, smart city solutions, and IoT integration in UAE",
+    "sameAs": [
+        "https://www.linkedin.com/company/digital-link-technology-uae/",
+        "https://www.instagram.com/digitallinktechnologyllc/",
+        "https://www.facebook.com/people/Digital-Link-Technology-LLC/100087290161175/?mibextid=ZbWKwL"
+    ],
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+971509162488",
+        "email": "sales1@digitallink.ae",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Arabic"],
+        "areaServed": ["AE", "OM", "BH", "SA", "KW", "QA"],
+        "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+            ],
+            "opens": "09:00",
+            "closes": "18:00"
+        }
+    },
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira",
+        "addressLocality": "Dubai",
+        "addressRegion": "Dubai",
+        "postalCode": "123421",
+        "addressCountry": "AE"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "25.2744",
+        "longitude": "55.3009"
+    }
+}
+</script>
+<style>
+  :root {
+    --primary: #1a5f7a;
+    --secondary: #2d8bba;
+    --accent: #57c4e5;
+    --dark: #102a43;
+    --light: #f0f4f8;
+    --white: #ffffff;
+    --gray: #486581;
+    --shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    --radius: 20px;
+  }
+
+  /* Typography */
+  h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    margin: 5rem 0 3rem;
+    letter-spacing: -0.02em;
+  }
+
+  h4 {
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+  }
+
+  /* Hero Banner */
+  .sub-banner {
+    position: relative;
+    height: 90vh;
+    border-radius: 0;
+    overflow: hidden;
+    margin: -2rem -2rem 4rem;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .sub-banner .bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 1s ease;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+
+  .sub-banner:hover .bg {
+    transform: scale(1.05);
+  }
+
+  .sub-banner .txt {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
+    padding: 2rem;
+  }
+
+  .sub-banner .unv-tit {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+    letter-spacing: -0.02em;
+  }
+
+  .sub-banner .unv-subtit {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--white);
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  /* Navigation */
+  .adds-nav {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 4rem 0;
+    padding: 1rem;
+  }
+
+  .adds-nav a {
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 1rem 2.5rem;
+    border-radius: 100px;
+    transition: all 0.4s ease;
+    background: var(--light);
+  }
+
+  .adds-nav a:hover {
+    background: var(--primary);
+    color: var(--white);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(26, 95, 122, 0.2);
+  }
+
+  /* Solution List */
+  .solution-list-wrap {
+    display: grid;
+    gap: 4rem;
+    margin: 4rem 0;
+  }
+
+  .solution-list-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    padding: 3rem;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: all 0.5s ease;
+  }
+
+  .solution-list-box:hover {
+    transform: translateY(-10px);
+  }
+
+  .solution-list-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius);
+  }
+
+  /* Success Cases */
+  .unv-solution-case-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+    margin: 4rem 0;
+  }
+
+  .solution-case-box {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.4s ease;
+    text-decoration: none;
+    display: block;
+  }
+
+  .solution-case-box:hover {
+    transform: translateY(-10px);
+  }
+
+  .solution-case-box img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+  }
+
+  .solution-case-box:hover img {
+    transform: scale(1.05);
+  }
+
+  .solution-case-box h4 {
+    padding: 2rem;
+    margin: 0;
+    text-align: center;
+    background: var(--white);
+  }
+
+  /* Container */
+  .wr {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .solution-list-box {
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .header-fix.wr {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .solution-list-box {
+      grid-template-columns: 1fr;
+    }
+
+    .adds-nav {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .adds-nav a {
+      text-align: center;
+      width: 100%;
+      padding: 0.8rem 1.5rem;
+    }
+
+    .sub-banner {
+      height: 70vh;
+      margin: -1rem -1rem 3rem;
+    }
+
+    .wr {
+      padding: 0 1rem;
+    }
+
+    /* New mobile-specific styles */
+    .unv-solution-case-wrap {
+      grid-template-columns: 1fr;
+    }
+
+    .solution-case-box {
+      margin: 0 1rem;
+    }
+
+    .unv-tit {
+      font-size: clamp(2rem, 6vw, 3rem) !important;
+      padding: 0 1rem;
+    }
+
+    .unv-subtit {
+      font-size: clamp(1rem, 2vw, 1.5rem) !important;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 3rem 0 2rem;
+    }
+
+    h4 {
+      font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    .solution-list-box img {
+      height: 250px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .header-fix.wr {
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+    }
+
+    .sub-banner {
+      height: 50vh;
+    }
+
+    .solution-case-box {
+      margin: 0;
+    }
+
+    .solution-case-box img {
+      height: 200px;
+    }
+
+    .solution-list-box {
+      padding: 1.5rem;
+    }
+  }
+</style>
+<div class="header-fix wr" style="padding-left: 150px; padding-right: 150px;">
+  <div class="sub-banner wr" aria-label="Stadium security banner">
+    <div class="bg pc" data-image style="background-image: url({% static 'images/solutions/stadium/1.webp' %})"
+         role="img" aria-label="Stadium security system showcase">
+    </div>
+    <div class="bg mb" data-image style="background-image: url({% static 'images/solutions/stadium/1.webp' %});">
+    </div>
+    <div class="txt col-fff">
+      <div class="unv-tit lh1">Uniview Solution for Stadium</div>
+      <div class="unv-subtit">Secure Stadiums, Safe Spectators</div>
+    </div>
+  </div>
+  <nav class="adds-nav wr" aria-label="Page sections">
+    <div class="wr">
+      <a href="#stadium-solution" onclick="scrollToSection('stadium-solution')" role="button">Stadium Solution</a>
+      <a href="#success-cases" onclick="scrollToSection('success-cases')" role="button">Success Cases</a>
+    </div>
+  </nav>
+  <div class="wr">
+    <div class="view">
+      <div class="unv-solution-wrap pordw" id="stadium-solution">
+        <h2>Stadium Solution</h2>
+        <div class="inc-box">
+          <P>A Stadium, as a bustling venue, faces a myriad of threats, including overcrowding, unruly behavior, and
+            potential violence. Effective security measures are essential not only to safeguard fans and athletes, but
+            also to uphold the reputation of the stadium itself. </P>
+          <P>By integrating UNV’s advanced technology into your operations, you can achieve unparalleled peace of mind.
+            Our AIoT devices significantly reduce response times and enhance situational awareness, ensuring that your
+            stadium is always a safe place for all attendees.</P>
+        </div>
+        <div class="solution-list-wrap">
+          <article class="solution-list-box">
+            <div class="img-box">
+              <img src="{% static 'images/solutions/stadium/2.webp' %}" 
+                   alt="Tri-guard perimeter protection system"
+                   loading="lazy"
+                   width="800"
+                   height="600">
+            </div>
+            <div class="ft-box">
+              <h4>Robust perimeter protection with Tri-guard technology</h4>
+              <p>The perimeter of a sports stadium is typically extensive and requires a large number of security
+                personnel to cover it, which may cost a lot of money and manpower. Effective perimeter protection is
+                crucial for preventing intrusions, break-ins, and other security threats. With deep-learning algorithms,
+                UNV's Tri-guard series swiftly detects intruders and makes light and sound warnings, ensuring a rapid
+                response to safeguard your premises. </p>
+            </div>
+          </article>
+          <article class="solution-list-box">
+            <div class="img-box">
+              <img src="{% static 'images/solutions/stadium/3.webp' %}" 
+                   alt="MultiView and OmniView cameras"
+                   loading="lazy"
+                   width="800"
+                   height="600">
+            </div>
+            <div class="ft-box">
+              <h4>Embrace the large scene with MultiView and OmniView</h4>
+              <p>MultiView cameras can realize multi-directional monitoring and seamlessly combine panoramic views with
+                details, making them the best choice for wide sports fields. OmniView cameras provide a wider field of
+                view with a single installation, eliminating blind spots in the stadium. Choose MultiView and OmniView
+                cameras to optimize security across your sports venue, ensuring unparalleled coverage and
+                cost-effectiveness. </p>
+            </div>
+          </article>
+          <article class="solution-list-box">
+            <div class="img-box">
+              <img src="{% static 'images/solutions/stadium/4.webp' %}" 
+                   alt="Access control system"
+                   loading="lazy"
+                   width="800"
+                   height="600">
+            </div>
+            <div class="ft-box">
+              <h4>Ensure smooth flow of foot and vehicle traffic</h4>
+              <p>Managing stadium entrances with advanced access control system helps fans enter venues quickly and
+                smoothly without long queues, adding access control devices in specific areas to ensure that only
+                authorized personnel can enter the area.<br>
+                - Support multiple authentication methods including card, password, QR code, etc.<br>
+                ANPR ensures smooth and automatic entry and exit of vehicles in parking lots, and offer effective
+                parking guidance through parking space detection, maintaining traffic flow during peak hours.<br>
+                - Effective parking guidance with parking spaces detection and license plates recognition<br>
+                - 24-hour parking lot monitoring with vivid full-color images even in dim night<br> </p>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="unv-solution-wrap pordw" id="success-cases">
+        <h2>Success Cases</h2>
+        <div class="unv-solution-case-wrap">
+          <a class="solution-case-box" href="#" aria-label="View Sports Arena Palacoccia case study">
+            <img src="{% static 'images/solutions/stadium/6.webp' %}" 
+                 alt="Sports Arena Palacoccia stadium security implementation"
+                 loading="lazy"
+                 width="800"
+                 height="600">
+            <h4>Sports Arena Palacoccia in Italy</h4>
+          </a>
+          <a class="solution-case-box" href="#" aria-label="View Hong Kong Coliseum case study">
+            <img src="{% static 'images/solutions/stadium/7.webp' %}" 
+                 alt="Hong Kong Coliseum stadium security implementation"
+                 loading="lazy"
+                 width="800"
+                 height="600">
+            <h4>Hong Kong Coliseum in China</h4>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+    
+    const offset = 100;
+    const elementPosition = section.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth"
+    });
+  }
+</script>
+{% endblock content %}

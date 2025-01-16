@@ -1,0 +1,696 @@
+﻿{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Building Security Solutions & Management Systems | Uniview{% endblock %}
+{% block meta_description %}Discover Uniview's comprehensive building security solutions featuring AI-powered
+surveillance, access control, and integrated management systems for modern buildings.{% endblock %}
+
+{% block extra_meta %}
+<meta name="keywords"
+  content="building security solutions UAE, AI surveillance Dubai, access control systems UAE, CCTV installation Dubai, building management systems UAE, security camera solutions Dubai, Uniview building security UAE, integrated security systems Dubai, commercial building security UAE, smart building solutions Dubai, video surveillance UAE, building automation Dubai, security integration UAE, smart surveillance systems Dubai, commercial CCTV UAE, building access control Dubai, smart building management UAE, commercial security systems Dubai, enterprise security solutions UAE, building monitoring systems Dubai, Dubai security solutions, UAE surveillance systems, Middle East security solutions">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Uniview Technologies UAE">
+<meta name="geo.region" content="AE-DU">
+<meta name="geo.position" content="25.2048;55.2708">
+<meta name="ICBM" content="25.2048, 55.2708">
+
+<meta property="og:title" content="Building Security Solutions & Management Systems | Uniview">
+<meta property="og:type" content="website">
+<meta property="og:description"
+  content="Discover Uniview's comprehensive building security solutions featuring AI-powered surveillance, access control, and integrated management systems for modern buildings.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Building Security Solutions | Uniview">
+<meta name="twitter:description" content="Comprehensive building security solutions by Uniview">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<meta name="theme-color" content="#2563eb">
+
+<meta name="language" content="English">
+<meta property="article:published_time" content="2024-01-01">
+<meta property="article:modified_time" content="2024-03-20">
+<meta property="og:locale" content="en_AE">
+<meta property="og:site_name" content="Uniview UAE">
+<meta property="og:url" content="https://www.uniview.com/ae/building-solutions">
+
+<link rel="canonical" href="https://www.uniview.com/ae/building-solutions">
+
+<link rel="alternate" hreflang="en-ae" href="https://www.uniview.com/ae/building-solutions">
+<link rel="alternate" hreflang="ar-ae" href="https://www.uniview.com/ae/ar/building-solutions">
+
+<!-- Preload critical assets -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+  as="style">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style">
+
+<!-- Font optimization -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Additional CDN resources -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+<!-- Additional meta tags for contact information -->
+<meta name="contact:email" content="sales1@digitallink.ae">
+<meta name="contact:phone" content="+971509162488">
+<meta name="contact:address" content="Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira, Dubai, United Arab Emirates, 25th St - Naif - Dubai, P.O.Box: 123421">
+{% endblock %}
+
+{% block og_image %}/static/images/about-og-image.jpg{% endblock %}
+{% block schema_url %}{% url 'pages:building' %}{% endblock %}
+{% block content %}
+<script type="application/ld+json">
+  {
+      "@context": "http://schema.org",
+      "@type": "Product",
+      "name": "Uniview Building Security Solutions",
+      "description": "Comprehensive building security solutions featuring AI-powered surveillance, access control, and integrated management systems for modern buildings in UAE",
+      "brand": {
+          "@type": "Brand",
+          "name": "Uniview"
+      },
+      "category": "Building Security Systems",
+      "offers": {
+          "@type": "AggregateOffer",
+          "availability": "https://schema.org/InStock"
+      },
+      "image": "{% static 'images/solutions/building/1.webp' %}",
+      "provider": {
+          "@type": "Organization",
+          "name": "Uniview UAE",
+          "logo": "/static/images/logo/logo.svg",
+          "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "UAE"
+          }
+      }
+  }
+  </script>
+<link rel="preload" as="image" href="{% static 'images/solutions/building/1.webp' %}" fetchpriority="high"
+  type="image/webp">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<style>
+  :root {
+    /* Enhanced color palette with CSS variables */
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --secondary: #64748b;
+    --dark: #1e293b;
+    --light: #f8fafc;
+    --white: #ffffff;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --radius-sm: 0.375rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1.5rem;
+
+    /* System font stack for better performance */
+    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  /* Base styles */
+  body {
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Performance optimized animations */
+  @media (prefers-reduced-motion: no-preference) {
+
+    .overview-grid-box,
+    .solution-case-box {
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+  }
+
+  /* Improved accessibility styles */
+  .adds-nav a {
+    position: relative;
+    text-decoration: none;
+    color: var(--dark);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    transition: background-color 0.2s ease;
+  }
+
+  .adds-nav a:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+
+  /* Enhanced responsive images */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* Improved performance for animations */
+  .solution-list-box,
+  .overview-grid-box,
+  .solution-case-box {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  /* Core Typography */
+  h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: var(--dark);
+    text-align: center;
+    margin: 4rem 0;
+    letter-spacing: -0.02em;
+  }
+
+  /* Hero Banner */
+  .sub-banner {
+    position: relative;
+    height: 85vh;
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .sub-banner .bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.8);
+  }
+
+  .sub-banner .txt {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), transparent);
+    padding: 2rem;
+  }
+
+  .sub-banner .unv-tit {
+    color: white;
+    font-size: 48px !important;
+  }
+
+  .sub-banner .unv-subtit {
+    color: white;
+    font-size: 24px !important;
+  }
+
+  /* Navigation Links */
+  .adds-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+  }
+
+  .adds-nav a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: var(--transition);
+  }
+
+  .adds-nav a:hover {
+    background-color: var(--primary-color);
+    color: white;
+  }
+
+  /* Solution Overview Grid */
+  .solution-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .overview-grid-box {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    will-change: transform;
+  }
+
+  .overview-grid-box:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .overview-grid-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
+    loading: lazy;
+  }
+
+  /* Solution List */
+  .solution-list-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 3rem 0;
+    align-items: center;
+  }
+
+  .solution-list-box:nth-child(even) {
+    direction: rtl;
+  }
+
+  .solution-list-box .img-box img {
+    width: 100%;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Case Reference Grid */
+  .unv-solution-case-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .solution-case-box {
+    background-color: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    text-decoration: none;
+    display: block;
+    will-change: transform;
+  }
+
+  .solution-case-box:hover {
+    transform: translateY(-5px);
+  }
+
+  .solution-case-box img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .solution-list-box {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .solution-list-box:nth-child(even) {
+      direction: ltr;
+    }
+
+    .sub-banner {
+      height: 400px;
+    }
+
+    .sub-banner .unv-tit {
+      font-size: 32px !important;
+    }
+
+    .sub-banner .unv-subtit {
+      font-size: 18px !important;
+    }
+
+    .wr {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .adds-nav {
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .adds-nav a {
+      font-size: 0.9rem;
+      padding: 0.4rem 0.8rem;
+    }
+
+    .solution-overview-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .overview-grid-box {
+      padding: 1rem;
+    }
+
+    .unv-solution-case-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .solution-case-box img {
+      height: 180px;
+    }
+
+    .view {
+      padding: 0 !important;
+    }
+
+    p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    h4 {
+      font-size: 1.1rem;
+      margin-top: 0.8rem;
+    }
+  }
+
+  /* Add focus styles for accessibility */
+  .adds-nav a:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+</style>
+
+<div class="header-fix wr" role="main">
+  <div class="sub-banner" role="banner" aria-label="Building Solution Banner">
+    <div class="bg" style="background-image: url('{% static 'images/solutions/building/1.webp' %}');">
+    </div>
+    <div class="txt">
+      <div class="unv-tit" style="color: white; font-size: 40px;">Uniview Solution for Building</div>
+      <div class="unv-subtit" style="color: white; font-size: 20px;">More Professional, More Reliable</div>
+    </div>
+  </div>
+  <nav class="adds-nav" role="navigation" aria-label="Page Navigation">
+    <a href="#building-solution" aria-label="Go to Building Solution section">Building Solution</a>
+    <a href="#case-reference" aria-label="Go to Case Reference section">Case Reference</a>
+  </nav>
+
+  <div class="wr" style="padding-left: 150px; padding-right: 150px;">
+    <div class="view">
+      <div class="unv-solution-wrap pordw" id="building-solution">
+        <h2>Building Solution</h2>
+        <div class="inc-box">
+          <article itemscope itemtype="https://schema.org/Article">
+            <h1 class="main-title" itemprop="headline">Building Security Solutions & Integrated Management Systems in
+              UAE</h1>
+            <div itemprop="articleBody">
+              <p>Uniview leads the UAE market in providing comprehensive <strong>building security solutions</strong>,
+                combining cutting-edge <strong>AI-powered surveillance systems</strong>, advanced <strong>access control
+                  technology</strong>, and sophisticated <strong>integrated management systems</strong>. Our end-to-end
+                security solutions are specifically designed for Dubai's diverse building portfolio, including
+                commercial towers, residential complexes, and corporate offices across the UAE.</p>
+
+              <p>With over a decade of specialized experience in UAE's security sector, Uniview has pioneered
+                <strong>smart building management systems</strong> that deliver complete surveillance coverage while
+                maintaining strict privacy standards. Our <strong>integrated security solutions</strong> seamlessly
+                adapt to existing building infrastructure, offering customizable security frameworks that meet the
+                unique requirements of properties throughout Dubai and the Emirates.
+              </p>
+
+              <p>Key features of our building security solutions include:</p>
+              <ul>
+                <li>24/7 AI-powered surveillance with intelligent analytics</li>
+                <li>Advanced access control and visitor management</li>
+                <li>Integrated building management systems</li>
+                <li>Smart parking solutions with ANPR technology</li>
+                <li>Centralized security monitoring and control</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+        <section class="solution-overview-grid">
+          <article class="overview-grid-box">
+            <img src="{% static 'images/solutions/building/2.webp' %}" alt="Integration compatibility illustration"
+              loading="lazy" width="400" height="300">
+            <h4>High integration compatibility with third-prty platforms</h4>
+            <p> </p>
+          </article>
+          <article class="overview-grid-box">
+            <img src="{% static 'images/solutions/building/3.webp' %}"
+              alt="Fusion and visualization of events and data illustration" loading="lazy" width="400" height="300">
+            <h4>Fusion and visualization of events and data</h4>
+            <p> </p>
+          </article>
+          <article class="overview-grid-box">
+            <img src="{% static 'images/solutions/building/4.webp' %}"
+              alt="Clear design and Simplified operation illustration" loading="lazy" width="400" height="300">
+            <h4>Clear design and Simplified operation</h4>
+            <p> </p>
+          </article>
+          <article class="overview-grid-box">
+            <img src="{% static 'images/solutions/building/5.webp' %}"
+              alt="Flexible integration of various modules to meet your needs illustration" loading="lazy" width="400"
+              height="300">
+            <h4>Flexible integration of various modules to meet your needs</h4>
+            <p> </p>
+          </article>
+        </section>
+        <div class="solution-list-wrap">
+          <div class="solution-list-box zigzag">
+            <div class="img-box"> <img src="{% static 'images/solutions/building/6.webp' %}" alt="">
+            </div>
+            <div class="ft-box">
+              <h4>Reliable External Protection</h4>
+              <p>- Realize multi-directional monitoring and seamlessly combine panoramic views with details with
+                MultiView
+                camera<br>
+                - Smart Intrusion Prevention, significantly reduce false alarm, accurately focus on human, motor vehicle
+                and non-motor vehicle<br>
+                - Deterrence through warning lights and speakers, intervention in advance to prevent potential risks.
+              </p>
+            </div>
+          </div>
+          <div class="solution-list-box zigzag">
+            <div class="ft-box">
+              <h4>Digital Internal Upgrade</h4>
+              <p>- Detailed monitoring in areas such as elevators, corridors, and warehouses<br>
+                - Digital meeting room equipped with UNV interactive display products to foster interactivity and
+                engagement<br>
+                - Information display uses LCD video wall or LED to provide a perfect visual experience<br>
+                - Smoking detection, fire detection, obstructed evacuation route detection, providing better and safer
+                working environment </p>
+            </div>
+            <div class="img-box"> <img src="{% static 'images/solutions/building/7.webp' %}" alt="">
+            </div>
+          </div>
+          <div class="solution-list-box zigzag">
+            <div class="img-box"> <img src="{% static 'images/solutions/building/8.webp' %}" alt="">
+            </div>
+            <div class="ft-box">
+              <h4>Unified Personnel Management</h4>
+              <p>- Personnel are managed uniformly through departmental organizations<br>
+                - Enhancing entry & exit with rapid and accurate staff identification<br>
+                - Pleasant visitor experience through convenient on-site or remote registration<br>
+                - Flexible attendance rules and attendance record management </p>
+            </div>
+          </div>
+          <div class="solution-list-box zigzag">
+            <div class="ft-box">
+              <h4>Efficient Vehicle Management</h4>
+              <p>- ANPR for smooth and automated vehicle entry and exit<br>
+                - Effective parking guidance with parking spaces detection and license plates recognition<br>
+                - 24-hour parking lot monitoring with vivid full-color images even in dim night<br>
+                - Easy access and query of detailed vehicle traffic records </p>
+            </div>
+            <div class="img-box"> <img src="{% static 'images/solutions/building/9.webp' %}" alt="">
+            </div>
+          </div>
+          <div class="solution-list-box zigzag">
+            <div class="img-box"> <img src="{% static 'images/solutions/building/10.webp' %}" alt="">
+            </div>
+            <div class="ft-box">
+              <h4>Centralized Management Platform</h4>
+              <p>- Customize the modules you need (CCTV, Access Control, Video Intercom) to protect your building<br>
+                - Rich data visualization and electronic map services<br>
+                - Centralized and digitalized management platform improve efficiency<br>
+                - Open integration with third-party platforms<br> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="unv-solution-wrap pordw" id="case-reference">
+        <h2>Case Reference</h2>
+        <div class="unv-solution-case-grid">
+          <a class="solution-case-box">
+            <img src="{% static 'images/solutions/building/11.webp' %}" alt="">
+            <h4>EON Apartments in Australia</h4>
+          </a>
+          <a class="solution-case-box">
+            <img src="{% static 'images/solutions/building/12.webp' %}" alt="">
+            <h4>Floresta Gardens in Qatar</h4>
+          </a>
+          <a class="solution-case-box">
+            <img src="{% static 'images/solutions/building/13.webp' %}" alt="">
+            <h4>Suwon Prugio Apartment in Korea</h4>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script defer>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Lazy load images
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    if ('loading' in HTMLImageElement.prototype) {
+      lazyImages.forEach(img => {
+        img.loading = 'lazy';
+      });
+    } else {
+      // Fallback for browsers that don't support native lazy loading
+      const lazyLoadScript = document.createElement('script');
+      lazyLoadScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js';
+      document.body.appendChild(lazyLoadScript);
+      lazyLoadScript.onload = function () {
+        const observer = lozad();
+        observer.observe();
+      }
+    }
+
+    // Smooth scroll with performance optimization
+    const scrollToSection = (sectionId) => {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        const supportsNativeSmoothScroll = 'scrollBehavior' in document.documentElement.style;
+
+        if (supportsNativeSmoothScroll) {
+          section.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        } else {
+          // Fallback for browsers that don't support smooth scrolling
+          const targetPosition = section.getBoundingClientRect().top + window.pageYOffset;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+    };
+
+    // Event delegation for better performance
+    document.querySelector('.adds-nav').addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        e.preventDefault();
+        const sectionId = e.target.getAttribute('href').substring(1);
+        scrollToSection(sectionId);
+      }
+    });
+  });
+</script>
+
+<!-- Add intersection observer for animation -->
+<script defer>
+  if ('IntersectionObserver' in window) {
+    const animateOnScroll = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.overview-grid-box, .solution-list-box').forEach((el) => {
+      animateOnScroll.observe(el);
+    });
+  }
+</script>
+
+<!-- Add structured data for local business -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Uniview UAE",
+  "image": "{% static 'images/logo/logo.svg' %}",
+  "description": "Leading provider of building security solutions in UAE, offering AI surveillance, access control, and integrated security systems.",
+  "@id": "https://www.uniview.com/ae/",
+  "url": "https://www.uniview.com/ae/",
+  "telephone": "+971509162488",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira",
+    "addressLocality": "Dubai",
+    "addressRegion": "Dubai",
+    "postalCode": "123421",
+    "addressCountry": "AE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 25.2048,
+    "longitude": 55.2708
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "09:00",
+    "closes": "18:00"
+  },
+  "sameAs": [
+    "https://www.facebook.com/uniview",
+    "https://www.linkedin.com/company/uniview"
+  ]
+}
+</script>
+
+<!-- Add FAQ Schema at the end before closing content block -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What building security solutions does Uniview offer in UAE?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Uniview offers comprehensive building security solutions including AI-powered surveillance, access control systems, integrated management systems, external protection, digital internal upgrades, unified personnel management, and efficient vehicle management solutions."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "Does Uniview provide CCTV installation in Dubai?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes, Uniview provides professional CCTV installation services in Dubai with advanced features like MultiView cameras, smart intrusion prevention, and 24/7 monitoring capabilities."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "What types of access control systems does Uniview offer?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Uniview offers unified personnel management systems with rapid staff identification, visitor management, flexible attendance rules, and integration with other security systems."
+    }
+  }]
+}
+</script>
+
+{% endblock content %}

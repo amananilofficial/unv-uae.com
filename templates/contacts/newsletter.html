@@ -1,0 +1,961 @@
+﻿{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Newsletter - Uniview{% endblock %}
+{% block meta_description %}Learn more about Uniview and our innovative AIoT Newsletters, transforming industries and
+improving lives.{% endblock %}
+{% block og_image %}/static/images/about-og-image.jpg{% endblock %}
+{% block schema_url %}{% url 'contacts:newsletter_subscription' %}{% endblock %}
+
+<!-- SEO Meta Tags -->
+<meta name="robots" content="index, follow">
+<meta name="keywords"
+    content="AIoT newsletter, industrial automation, smart city solutions, IoT integration, Uniview updates">
+<meta name="author" content="Uniview">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<!-- Open Graph / Social Media Meta Tags -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Uniview">
+<meta property="og:title" content="AIoT Newsletter Subscription - Uniview">
+<meta property="og:description"
+    content="Stay updated with the latest in AIoT innovations, industrial automation, and smart solutions from Uniview.">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AIoT Newsletter Subscription - Uniview">
+<meta name="twitter:description"
+    content="Stay updated with the latest in AIoT innovations, industrial automation, and smart solutions from Uniview.">
+
+<!-- Accessibility Meta Tags -->
+<meta name="theme-color" content="#0066cc">
+<link rel="canonical" href="{% url 'contacts:newsletter_subscription' %}">
+
+<!-- Performance Meta Tags -->
+<meta http-equiv="Content-Security-Policy"
+    content="default-src 'self' https:; script-src 'self' https: 'unsafe-inline' 'unsafe-eval'; style-src 'self' https: 'unsafe-inline'; img-src 'self' https: data:;">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="preload" href="{% static 'images/logo/logo.svg' %}" as="image">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.8/build/css/intlTelInput.min.css" as="style">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.8/build/js/intlTelInput.min.js" as="script">
+
+<!-- Apple Mobile Web App Meta Tags -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Uniview UAE | Newsletter Subscription - Uniview | Global AIoT Solutions Provider",
+    "url": "https://www.unv-uae.com",
+    "logo": "https://www.unv-uae.com/static/images/logo/logo.svg",
+    "description": "Leading provider of AIoT solutions including security systems, surveillance cameras, industrial automation, smart city solutions, and IoT integration in UAE",
+    "sameAs": [
+        "https://www.linkedin.com/company/digital-link-technology-uae/",
+        "https://www.instagram.com/digitallinktechnologyllc/",
+        "https://www.facebook.com/people/Digital-Link-Technology-LLC/100087290161175/?mibextid=ZbWKwL"
+    ],
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+971-xxx-xxx-xxxx",
+        "email": "info@unv-uae.com",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Arabic"],
+        "areaServed": ["AE", "OM", "BH", "SA", "KW", "QA"],
+        "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+            ],
+            "opens": "09:00",
+            "closes": "18:00"
+        }
+    },
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Baghlaf Building Shop No.11 Satellite Market, Naif, Deira",
+        "addressLocality": "Dubai",
+        "addressRegion": "Dubai",
+        "postalCode": "123241",
+        "addressCountry": "AE"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "25.2744",
+        "longitude": "55.3009"
+    },
+    "CategoryType": "AIoT-based industrial automation, Smart city Categorys, Healthcare IoT integration, Custom development"
+}
+</script>
+
+<!-- Add additional SEO Meta Tags -->
+<meta name="description" content="Subscribe to Uniview's AIoT Newsletter for the latest updates on industrial automation and smart city solutions in the UAE and Middle East.">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="AIoT, industrial automation, smart city solutions, IoT, UAE, Middle East, Uniview, newsletter subscription">
+<meta name="author" content="Uniview UAE">
+<meta property="og:locale" content="en_AE">
+<meta property="og:url" content="https://www.unv-uae.com/contacts/newsletter">
+<meta property="og:site_name" content="Uniview UAE">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://www.unv-uae.com/static/images/about-og-image.jpg">
+<meta property="og:description" content="Stay updated with the latest in AIoT innovations, industrial automation, and smart solutions from Uniview in the UAE.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AIoT Newsletter Subscription - Uniview UAE">
+<meta name="twitter:description" content="Join our newsletter for exclusive updates on AIoT innovations and industry insights in the UAE.">
+
+<!-- Add Performance Meta Tags -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate">
+<meta http-equiv="Expires" content="Wed, 21 Oct 2025 07:28:00 GMT">
+
+<!-- Add Accessibility Meta Tags -->
+<meta name="theme-color" content="#0066cc">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+
+<!-- Add Schema Markup for Contact Information -->
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Uniview UAE",
+    "url": "https://www.unv-uae.com",
+    "logo": "https://www.unv-uae.com/static/images/logo/logo.svg",
+    "description": "Leading provider of AIoT solutions including security systems, surveillance cameras, industrial automation, smart city solutions, and IoT integration in UAE",
+    "sameAs": [
+        "https://www.linkedin.com/company/digital-link-technology-uae/",
+        "https://www.instagram.com/digitallinktechnologyllc/",
+        "https://www.facebook.com/people/Digital-Link-Technology-LLC/100087290161175/?mibextid=ZbWKwL"
+    ],
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+971-509162488",
+        "email": "sales1@digitallink.ae",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Arabic"],
+        "areaServed": ["AE", "OM", "BH", "SA", "KW", "QA"],
+        "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+            ],
+            "opens": "09:00",
+            "closes": "18:00"
+        }
+    },
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira",
+        "addressLocality": "Dubai",
+        "addressRegion": "Dubai",
+        "postalCode": "123421",
+        "addressCountry": "AE"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "25.2744",
+        "longitude": "55.3009"
+    },
+    "CategoryType": "AIoT-based industrial automation, Smart city solutions, Healthcare IoT integration, Custom development"
+}
+</script>
+
+{% block content %}
+<!-- Link to the CSS file for intl-tel-input -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.8/build/css/intlTelInput.min.css">
+
+
+<style>
+    :root {
+        /* Updated modern color palette */
+        --primary: #2563eb;
+        --primary-dark: #1e40af;
+        --primary-light: #dbeafe;
+        --secondary: #1f2937;
+        --accent: #3b82f6;
+        --success: #059669;
+        --error: #dc2626;
+        --background: #f8fafc;
+        --text: #1f2937;
+        --text-light: #6b7280;
+        --border: #e5e7eb;
+
+        /* Enhanced shadows */
+        --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+        /* Transitions */
+        --transition-fast: 0.2s ease;
+        --transition-normal: 0.3s ease;
+    }
+
+    .newsletter-page {
+        min-height: 100vh;
+        background: var(--background);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        box-sizing: border-box;
+        width: 100%;
+        margin-top: 80px;
+    }
+
+    .newsletter-container {
+        display: flex;
+        max-width: 1400px;
+        width: 100%;
+        background: linear-gradient(145deg, #ffffff, #f8fafc);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+        content-visibility: auto;
+        contain-intrinsic-size: auto 800px;
+        margin: 0 auto;
+        gap: 2rem;
+    }
+
+    /* Info Panel Styles */
+    .info-panel {
+        flex: 1;
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        padding: 2.5rem 3rem;
+        color: white;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .info-content {
+        position: relative;
+        z-index: 1;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .brand-header {
+        margin-bottom: 1.5rem;
+    }
+
+    .brand-logo {
+        height: 40px;
+        width: auto;
+        object-fit: contain;
+    }
+
+    .info-text {
+        margin-bottom: auto;
+    }
+
+    .info-text h1 {
+        font-size: 2.75rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+
+    .info-text .lead {
+        font-size: 1.25rem;
+        opacity: 0.9;
+        margin-bottom: 2rem;
+    }
+
+    .benefits {
+        display: grid;
+        gap: 1rem;
+        margin: 1.5rem 0;
+    }
+
+    .benefit-item {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 1rem;
+        border-radius: 12px;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .benefit-item:hover {
+        transform: translateY(-2px);
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .benefit-icon {
+        flex-shrink: 0;
+        width: 48px;
+        height: 48px;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .benefit-icon i {
+        font-size: 1.25rem;
+    }
+
+    .benefit-text {
+        flex: 1;
+    }
+
+    .benefit-text h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+    }
+
+    .benefit-text p {
+        font-size: 0.9rem;
+        opacity: 0.85;
+        line-height: 1.4;
+    }
+
+    /* Form Panel Styles */
+    .form-panel {
+        flex: 1.2;
+        padding: 4rem 3rem;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .form-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--secondary);
+        margin-bottom: 0.5rem;
+    }
+
+    .form-subtitle {
+        color: var(--text-light);
+        margin-bottom: 3rem;
+    }
+
+    .form-fields {
+        display: grid;
+        gap: 1.5rem;
+        width: 100%;
+    }
+
+    .input-group {
+        position: relative;
+    }
+
+    .input-group label {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 5px;
+        color: var(--text);
+        font-weight: 500;
+    }
+
+    .phone-input-wrapper {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .iti {
+        width: 100% !important;
+    }
+
+    .iti__flag-container {
+        z-index: 10;
+    }
+
+    .input-field {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1.5px solid var(--border);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(4px);
+        transition: all 0.3s ease;
+        font-size: 1rem;
+    }
+
+    .input-field:hover {
+        background: white;
+        border-color: var(--primary-light);
+    }
+
+    .input-field:focus {
+        background: white;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 4px var(--primary-light);
+    }
+
+    .name-group {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .validation-wrapper {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .security-code {
+        padding: 0.875rem 1.5rem;
+        background: #f3f4f6;
+        color: #1f2937;
+        border-radius: 10px;
+        font-family: monospace;
+        font-size: 1.25rem;
+        letter-spacing: 3px;
+        font-weight: 600;
+        border: 1px solid #e5e7eb;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 1.25rem;
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+        transform-origin: center;
+    }
+
+    .submit-btn:hover {
+        transform: translateY(-2px) scale(1.01);
+        box-shadow: 0 6px 8px rgba(37, 99, 235, 0.25);
+    }
+
+    .error-alert {
+        background: #fef2f2;
+        color: var(--error);
+        padding: 1rem;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 0.95rem;
+    }
+
+    /* Animations */
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-up {
+        animation: slideUp 0.6s ease forwards;
+        will-change: transform, opacity;
+    }
+
+    .animate-up-delay-1 {
+        animation: slideUp 0.6s ease 0.2s forwards;
+        opacity: 0;
+    }
+
+    .animate-up-delay-2 {
+        animation: slideUp 0.6s ease 0.4s forwards;
+        opacity: 0;
+    }
+
+    .animate-up-delay-3 {
+        animation: slideUp 0.6s ease 0.6s forwards;
+        opacity: 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+        .newsletter-container {
+            flex-direction: column;
+            margin: 1rem;
+            max-height: none;
+            height: auto;
+        }
+
+        .info-panel,
+        .form-panel {
+            padding: 2rem;
+            width: 100%;
+            flex: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .newsletter-page {
+            padding: 1rem;
+            min-height: auto;
+        }
+
+        .info-text h1 {
+            font-size: 2rem;
+        }
+
+        .name-group {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .input-field {
+            font-size: 16px;
+            padding: 12px;
+        }
+
+        .validation-wrapper {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .security-code {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+
+        .info-panel,
+        .form-panel {
+            padding: 2rem 1.5rem;
+        }
+
+        .form-title {
+            font-size: 1.75rem;
+        }
+
+        .benefit-item {
+            flex-direction: column;
+            text-align: center;
+            gap: 1rem;
+        }
+    }
+
+    .contact-options {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .contact-link {
+        flex: 1;
+        min-width: 200px;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(4px);
+        border-radius: 14px;
+        padding: 1.25rem;
+        box-shadow: var(--shadow-md);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-decoration: none;
+        color: #374151;
+        transition: all 0.3s ease;
+    }
+
+    .contact-link:hover {
+        background: white;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .contact-link i {
+        font-size: 24px;
+        color: #2563eb;
+        transition: transform 0.3s ease;
+    }
+
+    .contact-link:hover i {
+        transform: scale(1.1);
+    }
+
+    .contact-link span {
+        font-weight: 500;
+        font-size: 16px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .contact-options {
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-link {
+            width: 100%;
+            justify-content: center;
+        }
+    }
+
+    /* Add font-display for better performance */
+    @font-face {
+        font-family: 'Your-Font';
+        font-display: swap;
+    }
+
+    /* Add print styles */
+    @media print {
+        .newsletter-page {
+            background: none;
+        }
+
+        .submit-btn {
+            display: none;
+        }
+    }
+
+    /* Add reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+
+        .animate-up,
+        .animate-up-delay-1,
+        .animate-up-delay-2,
+        .animate-up-delay-3 {
+            animation: none;
+            opacity: 1;
+        }
+    }
+
+    /* Improve input accessibility */
+    .input-field:focus-visible {
+        outline: 2px solid var(--primary);
+        outline-offset: -2px;
+    }
+
+    /* Fix button states */
+    .submit-btn:focus-visible {
+        outline: 2px solid var(--primary-dark);
+        outline-offset: 2px;
+    }
+
+    .submit-btn:active {
+        transform: translateY(1px);
+    }
+
+    .contact-panel {
+        margin-top: 2rem;
+    }
+
+    .contact-panel h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .contact-options {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .contact-link {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 1rem;
+        border-radius: 12px;
+        text-decoration: none;
+        color: white;
+        transition: all 0.3s ease;
+    }
+
+    .contact-link:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-2px);
+    }
+
+    .contact-link i {
+        font-size: 1.1rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1200px) {
+        .info-panel {
+            padding: 3rem 2rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .info-panel {
+            padding: 2rem;
+        }
+
+        .benefits {
+            gap: 1rem;
+        }
+
+        .contact-options {
+            flex-direction: column;
+        }
+
+        .contact-link {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .benefit-item {
+            flex-direction: column;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .benefit-icon {
+            margin: 0 auto;
+        }
+    }
+</style>
+<div class="newsletter-page">
+    <div class="newsletter-container">
+        <!-- Left Section with Animation -->
+        <div class="info-panel">
+            <div class="info-content">
+                <div class="brand-header">
+                    <img src="{% static 'images/logo/logo.svg' %}" alt="Uniview Logo" class="brand-logo">
+                </div>
+
+                <div class="info-text">
+                    <h1 class="animate-up">Stay Connected with Uniview</h1>
+                    <p class="lead animate-up-delay-1">Get exclusive updates on AIoT innovations and industry insights
+                    </p>
+
+                    <div class="benefits animate-up-delay-2">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div class="benefit-text">
+                                <h3>Early Access</h3>
+                                <p>Be the first to know about new products</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="benefit-text">
+                                <h3>Exclusive Content</h3>
+                                <p>Access to premium industry insights</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <div class="benefit-text">
+                                <h3>Special Offers</h3>
+                                <p>Subscriber-only deals and promotions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-panel animate-up-delay-3">
+                    <h3>Need Assistance?</h3>
+                    <div class="contact-options" role="navigation" aria-label="Contact options">
+                        <a href="mailto:sales1@digitallink.ae" class="contact-link"
+                            aria-label="Send email for business inquiries">
+                            <i class="fas fa-envelope" style="color: #ffffff;"></i>
+                            <span>Business Inquiries</span>
+                        </a>
+                        <a href="mailto:sales1@digitallink.ae" class="contact-link"
+                            aria-label="Contact technical support">
+                            <i class="fas fa-headset" style="color: #ffffff;"></i>
+                            <span>Technical Support</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Section with Form -->
+        <!-- Add these in your HTML head section or before closing body tag -->
+
+        <!-- Your form HTML -->
+        <div class="form-panel" role="form" aria-labelledby="newsletter-form-title">
+            <form class="subscription-form" method="post" action="{% url 'contacts:newsletter_subscription' %}"
+                novalidate autocomplete="on">
+                {% csrf_token %}
+                <h2 class="form-title" id="newsletter-form-title">Join Our Newsletter</h2>
+                <p class="form-subtitle">Complete the form below to subscribe</p>
+
+                <div class="form-fields">
+                    <div class="input-group">
+                        <label for="email">
+                            <i class="fas fa-envelope"></i>
+                            Email Address*
+                        </label>
+                        <input type="email" id="email" name="email" required class="input-field"
+                            placeholder="your.email@example.com">
+                        <span class="input-focus-border"></span>
+                    </div>
+
+                    <div class="name-group">
+                        <div class="input-group">
+                            <label for="given_name">
+                                <i class="fas fa-user"></i>
+                                Given Name*
+                            </label>
+                            <input type="text" id="given_name" name="given_name" required class="input-field"
+                                placeholder="your name">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="family_name">
+                                <i class="fas fa-user"></i>
+                                Family Name*
+                            </label>
+                            <input type="text" id="family_name" name="family_name" required class="input-field"
+                                placeholder="your family name">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="company">
+                            <i class="fas fa-building"></i>
+                            Company Name*
+                        </label>
+                        <input type="text" id="company" name="company" required class="input-field"
+                            placeholder="your company name">
+                    </div>
+
+                    <div class="optional-fields">
+                        <div class="input-group">
+                            <label for="job_title">
+                                <i class="fas fa-briefcase"></i>
+                                Job Title
+                            </label>
+                            <input type="text" id="job_title" name="job_title" class="input-field"
+                                placeholder="your job title">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="phone">
+                                <i class="fas fa-phone"></i>
+                                Phone Number
+                            </label>
+                            <div class="phone-input-wrapper">
+                                <input type="tel" id="phone" name="phone" class="input-field" required
+                                    placeholder="123 456 7890">
+                            </div>
+                        </div>
+                    </div>
+
+                    {% if form.errors %}
+                    <div class="error-alert">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span>Please verify your information and try again</span>
+                        <ul>
+                            {% for field, errors in form.errors.items %}
+                            <li><strong>{{ field }}:</strong>
+                                <ul>
+                                    {% for error in errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+
+                    <button type="submit" class="submit-btn">
+                        <span>Complete Subscription</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Initialize the intl-tel-input plugin with Intersection Observer optimization -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Initialize phone input only when the input field is in the viewport
+        const initPhoneInput = () => {
+            const input = document.querySelector("#phone");
+            if (!input) return;
+
+            const iti = window.intlTelInput(input, {
+                initialCountry: "ae",  // Set UAE as default country
+                preferredCountries: ['ae', 'sa', 'om', 'bh', 'kw', 'qa'],  // GCC countries first
+                separateDialCode: true,  // Show country code separately
+                utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.8/build/js/utils.min.js",
+                autoHideDialCode: false,
+                allowDropdown: true,
+                nationalMode: false,
+            });
+
+            return iti;
+        };
+
+        // Use IntersectionObserver to initialize phone input when the phone field is visible
+        if ('IntersectionObserver' in window) {
+            const phoneInputObserver = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    initPhoneInput();
+                    phoneInputObserver.disconnect(); // Disconnect observer after initialization
+                }
+            });
+
+            phoneInputObserver.observe(document.querySelector('.phone-input-wrapper'));
+        } else {
+            initPhoneInput(); // Fallback if IntersectionObserver is not supported
+        }
+    });
+</script>
+
+<!-- Add noscript fallback -->
+<noscript>
+    <style>
+        .animate-up,
+        .animate-up-delay-1,
+        .animate-up-delay-2,
+        .animate-up-delay-3 {
+            opacity: 1;
+            animation: none;
+        }
+    </style>
+    <div class="error-alert">
+        Please enable JavaScript for the best experience.
+    </div>
+</noscript>
+
+{% endblock %}

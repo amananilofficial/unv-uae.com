@@ -1,0 +1,823 @@
+﻿{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Solutions - Uniview{% endblock %}
+{% block meta_description %}Learn more about Uniview and our innovative AIoT solutions, transforming industries and
+improving lives.{% endblock %}
+
+{% block extra_meta %}
+<!-- SEO Meta Tags -->
+<meta name="keywords"
+    content="AIoT solutions, security solutions, surveillance systems, building security, retail security, banking security, school security, hospital security, Dubai, UAE, Middle East">
+<meta name="author" content="Uniview">
+<meta name="robots" content="index, follow">
+<meta name="revisit-after" content="7 days">
+<meta name="description" content="Uniview offers innovative AIoT solutions in Dubai, UAE, enhancing security and surveillance across various industries.">
+
+<!-- Social Media Meta Tags -->
+<meta property="og:title" content="Solutions - Uniview">
+<meta property="og:description"
+    content="Explore Uniview's AIoT solutions transforming industries in Dubai and the Middle East.">
+<meta property="og:type" content="website">
+<meta property="og:image:alt" content="Uniview Solutions">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Solutions - Uniview">
+<meta name="twitter:description"
+    content="Discover Uniview's innovative AIoT solutions in Dubai, UAE, and the Middle East.">
+
+<!-- Performance & Best Practices -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
+<meta name="theme-color" content="#3498db">
+
+<!-- Accessibility -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="canonical" href="{% url 'pages:solutions' %}">
+
+<!-- Add additional performance meta tags -->
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="preload" href="{% static 'assets/img/morejt4.png' %}" as="image">
+<link rel="preload" href="{% static 'assets/img/morejt2.png' %}" as="image">
+<link rel="preload" href="{% static 'assets/fonts/your-main-font.woff2' %}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="fetch" href="{% url 'api:solutions' %}" crossorigin>
+
+<!-- Add these performance-focused meta tags right after existing meta tags in the extra_meta block -->
+<link rel="modulepreload" href="{% static 'js/solutions.js' %}">
+<link rel="preload" href="{% static 'images/solutions/1.webp' %}" as="image" fetchpriority="high">
+<link rel="preload" href="{% static 'images/solutions/2.webp' %}" as="image" fetchpriority="high">
+<meta http-equiv="Cache-Control" content="max-age=31536000, immutable">
+
+<!-- Add these meta tags in the extra_meta block -->
+<meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+<meta name="google" content="notranslate">
+{% endblock %}
+
+{% block og_image %}/static/images/about-og-image.jpg{% endblock %}
+{% block schema_url %}{% url 'pages:solutions' %}{% endblock %}
+
+{% block content %}
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Uniview UAE | Solutions | Uniview | Global AIoT Solutions Provider",
+    "url": "https://www.unv-uae.com",
+    "logo": "https://www.unv-uae.com/static/images/logo/logo.svg",
+    "description": "Leading provider of AIoT solutions including security systems, surveillance cameras, industrial automation, smart city solutions, and IoT integration in UAE",
+    "sameAs": [
+        "https://www.linkedin.com/company/digital-link-technology-uae/",
+        "https://www.instagram.com/digitallinktechnologyllc/",
+        "https://www.facebook.com/people/Digital-Link-Technology-LLC/100087290161175/?mibextid=ZbWKwL"
+    ],
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+971509162488",
+        "email": "sales1@digitallink.ae",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Arabic"],
+        "areaServed": ["AE", "OM", "BH", "SA", "KW", "QA"],
+        "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+            ],
+            "opens": "09:00",
+            "closes": "18:00"
+        }
+    },
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira",
+        "addressLocality": "Dubai",
+        "addressRegion": "Dubai",
+        "postalCode": "123421",
+        "addressCountry": "AE"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "25.2744",
+        "longitude": "55.3009"
+    }
+}
+</script>
+
+<style>
+    /* Root variables - must be at the top */
+    :root {
+        --primary-color: #3498db;
+        --secondary-color: #2ecc71;
+        --text-dark: #2c3e50;
+        --text-light: #666666;
+        --white: #ffffff;
+        --gray: #666666;
+        --dark: #2c3e50;
+        --shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        --radius: 15px;
+        --transition-smooth: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        --gradient: linear-gradient(90deg, #3498db, #2ecc71);
+    }
+
+    /* Make selectors more specific */
+    body .header-fix .sub-banner {
+        position: relative;
+        width: 100%;
+        height: 60vh;
+        overflow: hidden;
+        background-color: var(--text-dark);
+    }
+
+    body .header-fix .sub-banner .bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.8;
+    }
+
+    body .header-fix .sub-banner .txt {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 100%;
+        z-index: 2;
+        color: var(--white);
+        padding: 0 20px;
+    }
+
+    body .header-fix .sub-banner::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+    }
+
+    body .header-fix .sub-banner .unv-tit {
+        font-size: clamp(32px, 5vw, 48px);
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: var(--white);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    body .header-fix .sub-banner .unv-subtit {
+        font-size: clamp(18px, 3vw, 24px);
+        color: var(--white);
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    /* General Wrapper Styling - Consolidated */
+    .sol-b {
+        padding: clamp(40px, 5vw, 80px) 20px;
+        background: linear-gradient(to bottom, #f8f9fa, var(--white));
+        text-align: center;
+        max-width: 1400px;
+        margin: 0 auto;
+        content-visibility: auto;
+        contain-intrinsic-size: 0 500px;
+    }
+
+    /* Title Styling - Improved */
+    .sol-b .unv-tit {
+        font-size: clamp(28px, 4vw, 42px);
+        font-weight: 800;
+        margin-bottom: 30px;
+        color: var(--text-dark);
+        position: relative;
+        display: inline-block;
+    }
+
+    .sol-b .unv-tit:after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--gradient);
+        border-radius: 2px;
+    }
+
+    /* Subtitle Styling - Enhanced */
+    .sol-b .unv-subtit {
+        font-family: 'Poppins', sans-serif;
+        font-size: clamp(16px, 2vw, 18px);
+        line-height: 1.8;
+        color: var(--text-light);
+        max-width: 800px;
+        margin: 0 auto 60px;
+        text-align: center;
+    }
+
+    /* Grid Layout - Optimized */
+    .list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: clamp(20px, 2.5vw, 30px);
+        padding: 0 20px;
+        max-width: 1400px;
+        margin: 0 auto;
+        contain: layout style;
+        grid-auto-flow: column;
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    /* Card Styling - Enhanced */
+    .list a {
+        text-decoration: none;
+        display: block;
+        background: var(--white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition-smooth);
+        will-change: transform;
+        transform: translateZ(0);
+        contain: layout style paint;
+    }
+
+    .list a:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Image Container - Optimized */
+    .list .img {
+        height: 250px;
+        overflow: hidden;
+        position: relative;
+        aspect-ratio: 16/9;
+        contain: size layout style;
+    }
+
+    .list .img .bg {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.8s ease;
+        will-change: transform;
+    }
+
+    /* Image Overlay Effect */
+    .list .img:before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3));
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .list a:hover .img:before {
+        opacity: 1;
+    }
+
+    .list a:hover .img .bg {
+        transform: scale(1.1);
+    }
+
+    /* Text Content Styling */
+    .list .txt {
+        padding: 25px;
+        text-align: left;
+        background: var(--white);
+    }
+
+    .list .txt .tit-24 {
+        font-size: clamp(20px, 2.5vw, 22px);
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 15px;
+        transition: color 0.3s ease;
+    }
+
+    .list a:hover .txt .tit-24 {
+        color: var(--primary-color);
+    }
+
+    /* More Link Styling */
+    .list .txt .more {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 20px;
+        padding-top: 15px;
+        border-top: 1px solid #eee;
+    }
+
+    .list .txt .more .tit-16 {
+        color: var(--primary-color);
+        font-weight: 600;
+        font-size: 15px;
+        transition: color 0.3s ease;
+    }
+
+    /* Hero Section Styling - Enhanced */
+    .image-container {
+        position: relative;
+        width: 100%;
+        height: clamp(40vh, 60vh, 80vh);
+        overflow: hidden;
+    }
+
+    .background-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.8);
+        transition: transform 10s ease;
+        will-change: transform;
+    }
+
+    /* Text Overlay Styling */
+    .text-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: var(--white);
+        text-align: center;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .text-overlay h1 {
+        margin: 0 0 20px;
+        font-size: clamp(2rem, 5vw, 4rem);
+        font-weight: 800;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        letter-spacing: 2px;
+    }
+
+    .text-overlay p {
+        margin: 0;
+        font-size: clamp(1rem, 2.5vw, 1.8rem);
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        letter-spacing: 1px;
+    }
+
+    /* Accessibility Improvements */
+    .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: var(--primary-color);
+        color: var(--white);
+        padding: 8px;
+        z-index: 100;
+        transition: top 0.3s;
+    }
+
+    .skip-link:focus {
+        top: 0;
+    }
+
+    /* Responsive Design - Mobile First */
+    @media (max-width: 992px) {
+        .list {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: auto;
+            grid-auto-flow: row;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .list {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            grid-auto-flow: row;
+        }
+
+        .list .img {
+            height: 200px;
+        }
+    }
+
+    /* Print Styles */
+    @media print {
+        .list {
+            display: block;
+        }
+
+        .list a {
+            page-break-inside: avoid;
+            break-inside: avoid;
+            margin-bottom: 20px;
+        }
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+        .list a,
+        .list .img .bg,
+        .background-image {
+            transition: none;
+            transform: none;
+        }
+    }
+
+    /* High Contrast Mode Support */
+    @media (forced-colors: active) {
+        .list a {
+            border: 1px solid CanvasText;
+        }
+    }
+
+    /* Loading States */
+    .lazy-load {
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .lazy-load.loaded {
+        opacity: 1;
+    }
+
+    [data-loading] {
+        background: #f0f0f0;
+        animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { opacity: 0.6; }
+        50% { opacity: 1; }
+    }
+
+    /* Update the list card colors */
+    .list a {
+        background: #ffffff;
+        color: var(--text-dark);
+    }
+
+    .list .txt {
+        background: #ffffff;
+    }
+
+    .list .txt .tit-24 {
+        color: var(--text-dark);
+    }
+
+    .list .txt .more .tit-16 {
+        color: var(--primary-color);
+    }
+
+    /* Add hover state colors */
+    .list a:hover .txt .tit-24 {
+        color: var(--primary-color);
+    }
+
+    .list a:hover {
+        background: #ffffff;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Ensure text colors are explicitly set */
+    .sol-b .unv-tit {
+        color: var(--text-dark);
+    }
+
+    .sol-b .unv-subtit {
+        color: var(--text-light);
+    }
+</style>
+
+<div class="header-fix wr" role="main" id="main-content">
+    <!-- Add skip link for accessibility -->
+    <a href="#main-content" class="skip-link visually-hidden">Skip to main content</a>
+
+    <div class="sub-banner wr" role="banner" aria-label="Solutions Header">
+        <div class="bg" style="background-image: url('{% static 'images/solutions/1.webp' %}');" role="img"
+            aria-label="Solutions Banner Image">
+        </div>
+        <div class="txt">
+            <h1 class="unv-tit">Solutions</h1>
+            <p class="unv-subtit">More Professional, More Reliable</p>
+        </div>
+    </div>
+
+    <section class="sol-b wr view pordw" aria-labelledby="solutions-title">
+        <h2 id="solutions-title" class="unv-tit lh1 text-center">Solutions by Industry</h2>
+        <p class="unv-subtit text-left">UNV is the pioneer and leader of IP video surveillance...</p>
+
+        <div class="list wr f-cb" data-search="list" role="list">
+            <a href="{% url 'pages:building' %}" data-search="href" role="listitem" aria-labelledby="building-title"
+                class="solution-card" tabindex="0">
+                <div class="img" data-search="img">
+                    <div class="bg" style="background-image: url('{% static 'images/solutions/2.webp' %}');" role="img"
+                        aria-label="Building Solution Image"></div>
+                </div>
+                <div class="txt">
+                    <h3 id="building-title" class="tit-24 t1">Building</h3>
+                    <div class="more more2 more4">
+                        <span class="tit-16">Learn More</span>
+                        <span class="icon" aria-hidden="true">
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href="{% url 'pages:retail' %}" data-search="href" role="listitem" aria-labelledby="retail-title">
+                <div class="img" data-search="img">
+                    <div class="bg" style="background-image: url('{% static 'images/solutions/3.webp' %}');" role="img"
+                        aria-label="Retail Solution Image"></div>
+                </div>
+                <div class="txt">
+                    <h3 id="retail-title" class="tit-24 t1">Retail</h3>
+                    <div class="more more2 more4">
+                        <span class="tit-16">Learn More</span>
+                        <span class="icon" aria-hidden="true">
+
+
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href="{% url 'pages:bank' %}" data-search="href" role="listitem" aria-labelledby="bank-title">
+                <div class="img" data-search="img">
+                    <div class="bg" style="background-image: url('{% static 'images/solutions/4.webp' %}');" role="img"
+                        aria-label="Bank Solution Image"></div>
+                </div>
+                <div class="txt">
+                    <h3 id="bank-title" class="tit-24 t1">Bank</h3>
+                    <div class="more more2 more4">
+                        <span class="tit-16">Learn More</span>
+                        <span class="icon" aria-hidden="true">
+
+
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href="{% url 'pages:school' %}" data-search="href" role="listitem" aria-labelledby="school-title">
+                <div class="img" data-search="img">
+                    <div class="bg" style="background-image: url('{% static 'images/solutions/5.webp' %}');" role="img"
+                        aria-label="School Solution Image"></div>
+                </div>
+                <div class="txt">
+                    <h3 id="school-title" class="tit-24 t1">School</h3>
+                    <div class="more more2 more4">
+                        <span class="tit-16">Learn More</span>
+                        <span class="icon" aria-hidden="true">
+
+
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href="{% url 'pages:shoppingmall' %}" data-search="href" role="listitem"
+                aria-labelledby="shopping-title">
+                <div class="img" data-search="img">
+                    <div class="bg" style="background-image: url('{% static 'images/solutions/6.webp' %}');" role="img"
+                        aria-label="Shopping Solution Image"></div>
+                </div>
+                <div class="txt">
+                    <h3 id="shopping-title" class="tit-24 t1">Shopping</h3>
+                    <div class="more more2 more4">
+                        <span class="tit-16">Learn More</span>
+                        <span class="icon" aria-hidden="true">
+
+
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href="{% url 'pages:hospital' %}" data-search="href" role="listitem" aria-labelledby="hospital-title">
+                <div class="img" data-search="img">
+                    <div class="bg" style="background-image: url('{% static 'images/solutions/7.webp' %}');" role="img"
+                        aria-label="Hospital Solution Image"></div>
+                </div>
+                <div class="txt">
+                    <h3 id="hospital-title" class="tit-24 t1">Hospital</h3>
+                    <div class="more more2 more4">
+                        <span class="tit-16">Learn More</span>
+                        <span class="icon" aria-hidden="true">
+
+
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href="{% url 'pages:hotel' %}" data-search="href" role="listitem" aria-labelledby="hotel-title">
+                <div class="img" data-search="img">
+                    <div class="bg" style="background-image: url('{% static 'images/solutions/8.webp' %}');" role="img"
+                        aria-label="Hotel Solution Image"></div>
+                </div>
+                <div class="txt">
+                    <h3 id="hotel-title" class="tit-24 t1">Hotel</h3>
+                    <div class="more more2 more4">
+                        <span class="tit-16">Learn More</span>
+                        <span class="icon" aria-hidden="true">
+
+
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href="{% url 'pages:stadium' %}" data-search="href" role="listitem" aria-labelledby="stadium-title">
+                <div class="img" data-search="img">
+                    <div class="bg" style="background-image: url('{% static 'images/solutions/9.webp' %}');" role="img"
+                        aria-label="Stadium Solution Image"></div>
+                </div>
+                <div class="txt">
+                    <h3 id="stadium-title" class="tit-24 t1">Stadium</h3>
+                    <div class="more more2 more4">
+                        <span class="tit-16">Learn More</span>
+                        <span class="icon" aria-hidden="true">
+
+
+                        </span>
+                    </div>
+                </div>
+            </a>
+            <a href="{% url 'pages:warehouse' %}" data-search="href" role="listitem" aria-labelledby="warehouse-title">
+                <div class="img" data-search="img">
+                    <div class="bg" style="background-image: url('{% static 'images/solutions/10.webp' %}');" role="img"
+                        aria-label="Warehouse & Logistics Solution Image"></div>
+                </div>
+                <div class="txt">
+                    <h3 id="warehouse-title" class="tit-24 t1">Warehouse & Logistics</h3>
+                    <div class="more more2 more4">
+                        <span class="tit-16">Learn More</span>
+                        <span class="icon" aria-hidden="true">
+
+
+                        </span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Use requestIdleCallback with timeout
+        const lazyLoadImages = () => {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        requestIdleCallback(() => loadImage(img), { timeout: 1000 });
+                        observer.unobserve(img);
+                    }
+                });
+            }, {
+                rootMargin: '50px 0px',
+                threshold: 0.1
+            });
+
+            // Optimize image loading with connection type awareness
+            const loadImage = (img) => {
+                if ('connection' in navigator) {
+                    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+                    if (connection.saveData) {
+                        // Load lower quality image if data-saver is enabled
+                        img.style.backgroundImage = img.dataset.lowQualityImage || img.style.getPropertyValue('--bg-image');
+                        return;
+                    }
+                }
+
+                const url = img.style.getPropertyValue('--bg-image').match(/url\(['"]?(.*?)['"]?\)/)?.[1];
+                if (!url) return;
+
+                const tempImg = new Image();
+
+                // Add error handling
+                tempImg.onerror = () => {
+                    console.warn(`Failed to load image: ${url}`);
+                    img.classList.add('image-load-error');
+                };
+
+                tempImg.onload = () => {
+                    img.classList.add('loaded');
+                    img.style.backgroundImage = `url(${url})`;
+                    img.removeAttribute('data-loading');
+                };
+
+                // Add loading priority
+                tempImg.fetchPriority = 'high';
+                tempImg.loading = 'lazy';
+                tempImg.src = url;
+            };
+
+            // Observe all images
+            document.querySelectorAll('[data-image]:not(.loaded)').forEach(img => imageObserver.observe(img));
+        };
+
+        // Performance optimization for animations
+        const optimizeAnimations = () => {
+            if ('matchMedia' in window) {
+                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+                if (prefersReducedMotion.matches) {
+                    document.documentElement.style.setProperty('--transition-smooth', 'none');
+                }
+            }
+        };
+
+        // Initialize optimizations
+        if ('IntersectionObserver' in window) {
+            lazyLoadImages();
+        }
+        optimizeAnimations();
+
+        // Add passive event listeners for better scroll performance
+        document.addEventListener('scroll', () => { }, { passive: true });
+        document.addEventListener('touchstart', () => { }, { passive: true });
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Remove the complex image loading logic and keep it simple
+        const images = document.querySelectorAll('.img .bg');
+        images.forEach(img => {
+            img.style.opacity = '1';
+        });
+    });
+
+    // Add service worker registration
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js').catch(console.error);
+        });
+    }
+</script>
+
+<script type="module">
+    // ... existing script ...
+
+    // Add performance optimizations
+    const optimizePerformance = () => {
+        // Use Intersection Observer for lazy loading
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    requestIdleCallback(() => {
+                        entry.target.loading = 'eager';
+                        entry.target.classList.add('loaded');
+                    }, { timeout: 2000 });
+                }
+            });
+        }, {
+            rootMargin: '50px',
+            threshold: 0.1
+        });
+
+        // Observe all solution cards
+        document.querySelectorAll('.solution-card').forEach(card => observer.observe(card));
+
+        // Add resource hints
+        const preconnectUrls = ['https://fonts.googleapis.com', 'https://fonts.gstatic.com'];
+        preconnectUrls.forEach(url => {
+            const link = document.createElement('link');
+            link.rel = 'preconnect';
+            link.href = url;
+            link.crossOrigin = 'anonymous';
+            document.head.appendChild(link);
+        });
+
+        // Use requestAnimationFrame for smooth animations
+        const animateCards = () => {
+            requestAnimationFrame(() => {
+                document.querySelectorAll('.list a').forEach(card => {
+                    card.style.transform = 'translateZ(0)';
+                });
+            });
+        };
+
+        // Initialize optimizations
+        window.addEventListener('load', animateCards, { passive: true });
+    };
+
+    // Initialize performance optimizations
+    optimizePerformance();
+
+    // Add support for native lazy loading
+    if ('loading' in HTMLImageElement.prototype) {
+        document.querySelectorAll('.bg[data-image]').forEach(img => {
+            img.loading = 'lazy';
+            img.decoding = 'async';
+        });
+    }
+
+    // ... existing script ...
+</script>
+{% endblock content %}

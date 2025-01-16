@@ -1,0 +1,660 @@
+﻿{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Shopping Mall Security Solutions - Uniview{% endblock %}
+{% block meta_description %}Discover Uniview's comprehensive security solutions for shopping malls, featuring AI-powered
+surveillance, traffic analytics, and digital displays to enhance safety and operational efficiency.{% endblock %}
+{% block og_image %}/static/images/about-og-image.jpg{% endblock %}
+{% block schema_url %}{% url 'pages:shoppingmall' %}{% endblock %}
+{% block extra_meta %}
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="theme-color" content="#2563eb">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Uniview">
+<meta name="keywords"
+  content="shopping mall security, surveillance systems, mall safety, security cameras, retail security solutions, Uniview security, AI surveillance, Dubai, UAE, Middle East, security solutions">
+
+{# Performance & Caching #}
+<link rel="dns-prefetch" href="//static.uniview.com">
+<link rel="preconnect" href="//static.uniview.com">
+<meta http-equiv="Cache-Control" content="public, max-age=31536000">
+
+{# Social Media Tags #}
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shopping Mall Security Solutions - Uniview">
+<meta property="og:site_name" content="Uniview">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shopping Mall Security Solutions - Uniview">
+<meta property="og:description" content="Explore comprehensive security solutions for shopping malls in the UAE, featuring AI-powered surveillance and operational efficiency.">
+<meta property="og:url" content="https://www.unv-uae.com/shoppingmall">
+<meta property="og:image" content="https://www.unv-uae.com/static/images/about-og-image.jpg">
+
+{# Add CDN Resources #}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+{# Preload Critical Resources #}
+<link rel="preload" href="{% static 'images/solutions/school/1.webp' %}" as="image">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+{% endblock %}
+{% block content %}
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Uniview UAE",
+    "url": "https://www.unv-uae.com",
+    "logo": "https://www.unv-uae.com/static/images/logo/logo.svg",
+    "description": "Leading provider of AIoT solutions including security systems, surveillance cameras, industrial automation, smart city solutions, and IoT integration in UAE",
+    "sameAs": [
+        "https://www.linkedin.com/company/digital-link-technology-uae/",
+        "https://www.instagram.com/digitallinktechnologyllc/",
+        "https://www.facebook.com/people/Digital-Link-Technology-LLC/100087290161175/?mibextid=ZbWKwL"
+    ],
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+971-509162488",
+        "email": "sales1@digitallink.ae",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Arabic"],
+        "areaServed": ["AE", "OM", "BH", "SA", "KW", "QA"],
+        "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+            ],
+            "opens": "09:00",
+            "closes": "18:00"
+        }
+    },
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira",
+        "addressLocality": "Dubai",
+        "addressRegion": "Dubai",
+        "postalCode": "123421",
+        "addressCountry": "AE"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "25.2744",
+        "longitude": "55.3009"
+    }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "Shopping Mall Security Solution",
+  "description": "Comprehensive security solution for shopping malls with AI-powered surveillance",
+  "brand": {
+    "@type": "Brand",
+    "name": "Uniview"
+  },
+  "category": "Security Systems",
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "AED",
+    "availability": "https://schema.org/InStock"
+  }
+}
+</script>
+<style>
+  :root {
+    /* Enhanced color palette */
+    --primary: #0ea5e9;
+    --primary-dark: #0284c7;
+    --secondary: #3b82f6;
+    --secondary-dark: #2563eb;
+    --dark: #0f172a;
+    --light: #f8fafc;
+    --gray: #475569;
+    --white: #ffffff;
+    --shadow: rgba(17, 12, 46, 0.08) 0px 48px 100px 0px;
+    --radius: 20px;
+    
+    /* Typography */
+    --font-primary: 'Poppins', sans-serif;
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Optimized Typography */
+  h2 {
+    font-family: var(--font-primary);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+    margin-bottom: 4rem;
+    line-height: 1.2;
+  }
+
+  /* Enhanced Banner */
+  .sub-banner {
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
+    margin-bottom: 5rem;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    will-change: transform;
+  }
+
+  .sub-banner .bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.8s ease;
+    background-image: var(--bg-image);
+    will-change: transform;
+  }
+
+  /* Optimized Solution Cases */
+  .unv-solution-case-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-top: 4rem;
+    contain: content;
+  }
+
+  .solution-case-box {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    text-decoration: none;
+    cursor: pointer;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  .solution-case-box img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+    will-change: transform;
+    loading: lazy;
+    decoding: async;
+  }
+
+  /* Print Styles */
+  @media print {
+    .sub-banner {
+      height: auto;
+      margin: 2rem 0;
+    }
+
+    .solution-case-box {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+  }
+
+  /* Reduced Motion */
+  @media (prefers-reduced-motion: reduce) {
+    .sub-banner .bg,
+    .solution-case-box,
+    .solution-case-box img {
+      transition: none;
+    }
+  }
+
+  /* Core Typography */
+  h4 {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+  }
+
+  /* Navigation */
+  .adds-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem 0;
+    width: 100%;
+  }
+
+  .adds-nav .wr {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .adds-nav a {
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 100px;
+    transition: all 0.3s ease;
+    background: var(--light);
+  }
+
+  .adds-nav a:hover {
+    background: var(--primary);
+    color: var(--white);
+    transform: translateY(-3px);
+  }
+
+  /* Solution Overview */
+  .solution-overview-three-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .overview-three-box {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+  }
+
+  .overview-three-box:hover {
+    transform: translateY(-5px);
+  }
+
+  .overview-three-box img {
+    width: 80px;
+    height: auto;
+    margin: 0 auto 1rem;
+    display: block;
+  }
+
+  .overview-three-box h4 {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .overview-three-box p {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  /* Solution List */
+  .solution-list-wrap {
+    display: grid;
+    gap: 3rem;
+    margin: 4rem 0;
+  }
+
+  .solution-list-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+  }
+
+  .solution-list-box:hover {
+    transform: translateY(-5px);
+  }
+
+  .solution-list-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: calc(var(--radius) / 2);
+  }
+
+  /* Container */
+  .wr {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .solution-list-box {
+      gap: 2rem;
+      padding: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .solution-list-box {
+      grid-template-columns: 1fr;
+    }
+
+    .adds-nav {
+      margin: 2rem 0;
+    }
+
+    .adds-nav .wr {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .adds-nav a {
+      width: 100%;
+      max-width: 300px;
+      text-align: center;
+    }
+
+    .sub-banner {
+      height: 60vh;
+    }
+
+    .wr {
+      padding: 0 1rem;
+    }
+  }
+
+  .inc-box {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .inc-box p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--gray);
+  }
+
+  /* Add will-change hints for smoother animations */
+  .solution-case-box {
+    will-change: transform;
+    contain: content;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  /* Optimize image loading */
+  img {
+    loading: lazy;
+    decoding: async;
+    width: 100%;
+    height: auto;
+    aspect-ratio: attr(width) / attr(height);
+  }
+
+  /* Use modern CSS properties for better performance */
+  .sub-banner .bg {
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    contain: paint;
+  }
+
+  /* Improve color contrast for accessibility */
+  :root {
+    --primary: #0284c7;
+    --secondary: #2563eb;
+    --dark: #0f172a;
+    --gray: #475569;
+  }
+
+  .txt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .unv-tit {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--white) !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+
+  .unv-subtit {
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    font-weight: 500;
+    color: var(--white) !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+
+  /* Add a semi-transparent overlay to improve text readability */
+  .sub-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 1;
+  }
+</style>
+<div class="header-fix wr" style="padding-left: 0; padding-right: 0;">
+  <div class="sub-banner wr" role="banner" aria-label="Shopping Mall Security Banner">
+    <div class="bg pc" role="img" aria-label="Shopping mall interior view" style="background-image: url({% static 'images/solutions/shoppingmall/1.webp' %})">
+    </div>
+    <div class="bg mb" style="background-image: url({% static 'images/solutions/shoppingmall/1.webp' %});">
+    </div>
+    <div class="txt col-fff">
+      <div class="unv-tit lh1" style="color: white;">Uniview Solution for Shopping Mall</div>
+      <div class="unv-subtit" style="color: white;">Protect Every Shopper: Cutting-Edge Security Solution</div>
+    </div>
+  </div>
+  <nav class="adds-nav wr" aria-label="Page Navigation" style="margin-top: 2rem;">
+    <div class="wr" style="width: 100%;">
+      <a href="#shopping-mall-solution" onclick="scrollToSection('shopping-mall-solution')" aria-label="Navigate to Shopping Mall Solution section">
+        Shopping Mall Solution
+      </a>
+      <a href="#success-cases" onclick="scrollToSection('success-cases')" aria-label="Navigate to Success Cases section">
+        Success Cases
+      </a>
+    </div>
+  </nav>
+  <a href="#main-content" class="skip-link" style="position:absolute; left:-9999px; top:0; z-index:999">
+    Skip to main content
+  </a>
+  <div class="wr" style="padding-left: 0; padding-right: 0;">
+    <div class="view">
+      <div class="unv-solution-wrap pordw" id="shopping-mall-solution">
+        <h2>Shopping Mall Solution</h2>
+        <div class="inc-box">
+          <P>A shopping mall is a vibrant hub of activity, comprising large buildings or interconnected structures that
+            house a variety of shops, stores, restaurants, and entertainment venues. It’s a destination where people
+            come to shop, dine, and enjoy leisure activities. Ensuring a secure shopping experience for consumers and
+            facilitating smooth operations for store owners to boost revenue are top priorities for any mall.
+          <P>We specialize in providing comprehensive security solutions tailored for shopping malls worldwide. Our
+            integrated systems have been implemented in lots of malls globally, reinforcing our commitment to creating
+            safe and enjoyable experiences for all. Discover how UNV's solution can elevate security and operational
+            efficiency in your mall today.</P>
+        </div>
+        <div class="solution-overview-three-wrap">
+          <div class="overview-three-box" role="article">
+            <img src="{% static 'images/solutions/shoppingmall/2.webp' %}"
+              alt="Enhanced shopper safety icon representing security measures" loading="lazy" width="80" height="80"
+              decoding="async">
+            <h4>Ensure Shopper Safety</h4>
+            <p>Protect shoppers from theft, vandalism, and other security threats </p>
+          </div>
+          <div class="overview-three-box">
+            <img src="{% static 'images/solutions/shoppingmall/3.webp' %}" alt="">
+            <h4>Enhance Operational Efficiency</h4>
+            <p>Streamlined security operations that allow store owners to focus on their business </p>
+          </div>
+          <div class="overview-three-box">
+            <img src="{% static 'images/solutions/shoppingmall/4.webp' %}" alt="">
+            <h4>Drive Higher Sales</h4>
+            <p>By creating a safe and welcoming environment, we help increase foot traffic and encourage longer stays
+            </p>
+          </div>
+        </div>
+        <div class="solution-list-wrap">
+          <div class="solution-list-box" role="article">
+            <div class="img-box">
+              <img src="{% static 'images/solutions/shoppingmall/5.webp' %}"
+                alt="Comprehensive shopping mall security coverage" loading="lazy" width="600" height="400">
+            </div>
+            <div class="ft-box">
+              <h4>Protect every area and corner of your shopping mall</h4>
+              <p>Find our diverse range of products designed to fit every area of the shopping mall, from outdoor spaces
+                and entrances to atriums, elevators, escalators, and warehouses. Capture every moment with
+                high-definition video, ensuring clarity whether day or night, panoramic or detailed, without missing any
+                details. </p>
+            </div>
+          </div>
+          <div class="solution-list-box">
+            <div class="/assets/img/-box"> <img src="{% static 'images/solutions/shoppingmall/6.webp' %}" alt=""></div>
+            <div class="ft-box">
+              <h4>Master the customer flow data across each area of the mall</h4>
+              <p>By understanding foot traffic patterns, shopping malls can optimize their layout to enhance flow and
+                improve customer experience. Data on peak traffic times helps in efficiently allocating staff resources,
+                ensuring adequate customer service and security. This helps enhance operational efficiency, improve
+                customer satisfaction, and drive revenue growth through informed decision-making. </p>
+            </div>
+          </div>
+          <div class="solution-list-box">
+            <div class="/assets/img/-box"> <img src="{% static 'images/solutions/shoppingmall/7.webp' %}" alt=""></div>
+            <div class="ft-box">
+              <h4>UNV display & control products brings immersive experience</h4>
+              <p>In shopping malls, visibility is key to showcasing quality products and conveying essential messages.
+                UNV offers colorful LED and LCD solutions for different scenarios. Whether highlighting star products on
+                mall exteriors or at checkout counters to tell your brand story, or providing safety information and
+                emergency notices promptly in inner mall corridors, our displays ensure optimal communication and
+                customer engagement. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="unv-solution-wrap pordw" id="success-cases">
+        <h2>Success Cases</h2>
+        <div class="unv-solution-case-wrap">
+          <a href="#" class="solution-case-box" role="article">
+            <img src="{% static 'images/solutions/shoppingmall/8.webp' %}"
+              alt="Flamingo Park Mall security implementation" loading="lazy" width="300" height="250">
+            <h4>Flamingo Park Mall in Saudi Arabia</h4>
+          </a>
+          <a class="solution-case-box">
+            <img src="{% static 'images/solutions/shoppingmall/9.webp' %}" alt="">
+            <h4>Saudi Arabia Riyadh Park Mall</h4>
+          </a>
+          <a class="solution-case-box">
+            <img src="{% static 'images/solutions/shoppingmall/10.webp' %}" alt="">
+            <h4>Shopping Mall in Kosovo</h4>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+
+    requestAnimationFrame(() => {
+      const offset = section.getBoundingClientRect().top + window.pageYOffset - 100;
+      window.scrollTo({
+        top: offset,
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+      });
+    });
+  }
+</script>
+
+<!-- JavaScript Libraries -->
+<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      once: true,
+      disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    });
+
+    // Performance optimizations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '50px'
+    });
+
+    document.querySelectorAll('.solution-case-box').forEach(box => {
+      observer.observe(box);
+    });
+
+    // Add keyboard navigation
+    const caseBoxes = document.querySelectorAll('.solution-case-box');
+    caseBoxes.forEach((box, index) => {
+      box.setAttribute('tabindex', '0');
+      box.setAttribute('role', 'article');
+      box.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          box.click();
+        }
+      });
+    });
+
+    // Optimize image loading
+    const imageObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          if (img.dataset.src) {
+            img.src = img.dataset.src;
+            img.removeAttribute('data-src');
+          }
+          imageObserver.unobserve(img);
+        }
+      });
+    }, {
+      rootMargin: '50px 0px',
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('img[data-src]').forEach(img => {
+      imageObserver.observe(img);
+    });
+  });
+</script>
+{% endblock content %}

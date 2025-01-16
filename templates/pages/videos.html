@@ -1,0 +1,310 @@
+﻿{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Videos - Uniview{% endblock %}
+{% block meta_description %}Learn more about Uniview and our innovative AIoT Videos, transforming industries and
+improving lives.{% endblock %}
+{% block og_image %}/static/images/about-og-image.jpg{% endblock %}
+{% block schema_url %}{% url 'pages:video' %}{% endblock %}
+{% block content %}
+
+<!-- Improved Schema markup with additional properties -->
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Uniview UAE | Videos | Uniview | Global AIoT Solutions Provider",
+    "url": "https://www.unv-uae.com",
+    "logo": "https://www.unv-uae.com/static/images/logo/logo.svg",
+    "description": "Leading provider of AIoT solutions including security systems, surveillance cameras, industrial automation, smart city solutions, and IoT integration in UAE",
+    "sameAs": [
+        "https://www.linkedin.com/company/digital-link-technology-uae/",
+        "https://www.instagram.com/digitallinktechnologyllc/",
+        "https://www.facebook.com/people/Digital-Link-Technology-LLC/100087290161175/?mibextid=ZbWKwL"
+    ],
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+971-509162488",
+        "email": "sales1@digitallink.ae",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Arabic"],
+        "areaServed": ["AE", "OM", "BH", "SA", "KW", "QA"],
+        "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+            ],
+            "opens": "09:00",
+            "closes": "18:00"
+        }
+    },
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira",
+        "addressLocality": "Dubai",
+        "addressRegion": "Dubai",
+        "postalCode": "123421",
+        "addressCountry": "AE"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "25.2744",
+        "longitude": "55.3009"
+    }
+}
+</script>
+
+<!-- Add additional meta tags for SEO -->
+<meta name="keywords" content="AIoT, Videos, Uniview, Dubai, UAE, Security Systems, Surveillance Cameras, Industrial Automation, Smart City Solutions, IoT Integration">
+<meta name="author" content="Uniview UAE">
+<meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Uniview Videos - AIoT Solutions in UAE">
+<meta property="og:description" content="Explore our innovative AIoT videos showcasing security systems, surveillance cameras, and more.">
+<meta property="og:image" content="/static/images/about-og-image.jpg">
+<meta property="og:url" content="https://www.unv-uae.com/videos">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Uniview Videos - AIoT Solutions in UAE">
+<meta name="twitter:description" content="Explore our innovative AIoT videos showcasing security systems, surveillance cameras, and more.">
+<meta name="twitter:image" content="/static/images/about-og-image.jpg">
+
+<!-- Move styles to external stylesheet and add critical styles inline -->
+<style>
+  /* Critical styles only */
+  .wr {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    overflow: hidden;
+    contain: layout size;
+    /* Add CSS containment for better performance */
+  }
+
+  .video-list {
+    display: grid;
+    /* Change to grid for better performance */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1400px;
+    /* Add max-width for larger screens */
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .video-item {
+    will-change: transform;
+    contain: content;
+    /* Add containment */
+    transform: translateZ(0);
+    /* Hardware acceleration */
+  }
+
+  /* Add print styles */
+  @media print {
+    .video-embed {
+      display: none;
+    }
+
+    .video-item {
+      break-inside: avoid;
+    }
+  }
+
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .bg.pc {
+    display: block;
+  }
+
+  .bg.mb {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .bg.pc {
+      display: none;
+    }
+
+    .bg.mb {
+      display: block;
+    }
+  }
+
+  .txt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+    max-width: 1400px;
+    padding: 0 40px;
+    z-index: 1;
+  }
+
+  /* Adjust text sizing for larger banner */
+  .txt .unv-tit {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .txt .unv-subtit {
+    font-size: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .wr {
+      height: 600px;
+    }
+
+    .txt {
+      width: 95%;
+      padding: 0 20px;
+    }
+
+    .txt .unv-tit {
+      font-size: 2.5rem;
+    }
+
+    .txt .unv-subtit {
+      font-size: 1.2rem;
+    }
+  }
+
+  /* Video list container */
+  .video-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* Video item styles */
+  .video-item {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease;
+  }
+
+  .video-item:hover {
+    transform: translateY(-5px);
+  }
+
+  /* Video embed container */
+  .video-embed {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+  }
+
+  .video-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  /* Video title */
+  .video-item .tit {
+    padding: 1rem;
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333 !important;
+    /* Override inline style */
+    line-height: 1.4;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .video-list {
+      grid-template-columns: 1fr;
+      /* Single column on mobile */
+      gap: 1.5rem;
+      padding: 1rem;
+    }
+
+    .video-item .tit {
+      font-size: 1rem;
+    }
+  }
+
+  /* Medium screens */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .video-list {
+      grid-template-columns: repeat(2, 1fr);
+      /* Two columns on medium screens */
+    }
+  }
+
+  /* Large screens */
+  @media (min-width: 1025px) {
+    .video-list {
+      grid-template-columns: repeat(3, 1fr);
+      /* Three columns on large screens */
+    }
+  }
+
+  /* Loading state */
+  .video-embed.loading {
+    background: #f5f5f5;
+  }
+</style>
+
+<!-- Add preload for critical resources -->
+<link rel="preload" href="{% static 'images/videos/1.webp' %}" as="image" />
+
+<!-- Update main section with better semantics -->
+<main id="main-content" class="video-page">
+  <div class="sub-banner wr" role="banner">
+    <div class="bg pc" style="background-image: url('{% static 'images/videos/1.webp' %}');" aria-hidden="true"
+      loading="lazy" decoding="async"></div>
+    <div class="bg mb" style="background-image: url('{% static 'images/videos/1.webp' %}');" aria-hidden="true"></div>
+    <div class="txt col-fff" style="position: relative; z-index: 1;">
+      <h1 class="unv-tit lh1" style="color: white;">Videos</h1>
+      <p class="unv-subtit" style="color: white;">Experience the latest product videos and event video</p>
+    </div>
+  </div>
+
+  <section class="video-list" aria-label="Video Gallery">
+    {% for video in videos %}
+    <article class="video-item" itemscope itemtype="http://schema.org/VideoObject">
+      <div class="video-embed">
+        <iframe src="{{ video.youtube_url }}" title="{{ video.title }}" loading="lazy"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <h2 class="tit" itemprop="name">{{ video.title }}</h2>
+      <meta itemprop="uploadDate" content="{{ video.upload_date|date:'Y-m-d' }}" />
+      <meta itemprop="thumbnailUrl" content="{{ video.thumbnail_url }}" />
+    </article>
+    {% empty %}
+    <div class="no-videos">
+      <p>No videos available at the moment.</p>
+    </div>
+    {% endfor %}
+  </section>
+</main>
+
+{% endblock content %}

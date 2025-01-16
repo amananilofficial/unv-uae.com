@@ -1,0 +1,313 @@
+{% extends "base.html" %}
+
+{% load humanize %}
+{% load static %}
+{% block title %}Search Products - Uniview | AIoT Solutions{% endblock %}
+{% block meta_description %}Search through Uniview's extensive catalog of over 500+ innovative AIoT products. Find
+industrial automation solutions, smart city technologies, and healthcare IoT integrations.{% endblock %}
+{% block og_image %}/static/images/about-og-image.jpg{% endblock %}
+{% block schema_url %}{% url 'products:search' %}{% endblock %}
+{% block extra_meta %}
+<!-- SEO Meta Tags -->
+<meta name="robots" content="index, follow">
+<meta name="keywords"
+  content="AIoT products, industrial automation, smart city solutions, IoT integration, Uniview products, Dubai, UAE, Middle East">
+<meta name="author" content="Uniview">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Explore innovative AIoT solutions in Dubai, UAE. Contact us for industrial automation, smart city technologies, and healthcare IoT integrations.">
+
+<!-- Open Graph / Social Media Meta Tags -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Search Products - Uniview | AIoT Solutions">
+<meta property="og:site_name" content="Uniview">
+<meta property="og:locale" content="en_US">
+<meta property="og:description" content="Discover AIoT products and solutions in Dubai, UAE.">
+<meta property="og:url" content="{% url 'products:search' %}">
+<meta property="og:image" content="{% static 'images/about-og-image.jpg' %}">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Search Products - Uniview | AIoT Solutions">
+<meta name="twitter:description" content="Explore our extensive catalog of AIoT products in Dubai, UAE.">
+<meta name="twitter:image" content="{% static 'images/about-og-image.jpg' %}">
+
+<!-- Performance & Security Meta Tags -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Security-Policy"
+  content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline';">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="preconnect" href="//fonts.googleapis.com">
+
+<!-- Apple Meta Tags -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Uniview Products">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{% url 'products:search' %}">
+
+<!-- Language and Direction -->
+<meta property="og:locale" content="en_US">
+<meta http-equiv="Content-Language" content="en">
+
+<!-- Cache Control -->
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+<!-- Performance Improvements -->
+<link rel="preload" href="{{ product.photo_main.url }}" as="image">
+<link rel="preload" href="{% static 'images/about-og-image.jpg' %}" as="image">
+<meta name="theme-color" content="#007bff">
+{% endblock %}
+{% block content %}
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Uniview UAE | Search Products | Uniview | Global AIoT Solutions Provider",
+    "url": "https://www.unv-uae.com",
+    "logo": "https://www.unv-uae.com/static/images/logo/logo.svg",
+    "description": "Leading provider of AIoT solutions including security systems, surveillance cameras, industrial automation, smart city solutions, and IoT integration in UAE",
+    "sameAs": [
+        "https://www.linkedin.com/company/digital-link-technology-uae/",
+        "https://www.instagram.com/digitallinktechnologyllc/",
+        "https://www.facebook.com/people/Digital-Link-Technology-LLC/100087290161175/?mibextid=ZbWKwL"
+    ],
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+971509162488",
+        "email": "sales1@digitallink.ae",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Arabic"],
+        "areaServed": ["AE", "OM", "BH", "SA", "KW", "QA"],
+        "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+            ],
+            "opens": "09:00",
+            "closes": "18:00"
+        }
+    },
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira",
+        "addressLocality": "Dubai",
+        "addressRegion": "Dubai",
+        "postalCode": "123421",
+        "addressCountry": "AE"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "25.2744",
+        "longitude": "55.3009"
+    }
+}
+</script>
+
+<style media="screen">
+  .view-details-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    pointer-events: auto;
+    z-index: 10;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    will-change: background-color;
+  }
+
+  .view-details-btn:hover {
+    background-color: #0056b3;
+  }
+
+  .view-details-btn:active {
+    background-color: #003f7f;
+  }
+
+  .view-details-btn:focus {
+    outline-color: #0056b3;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+  }
+
+  @media print {
+    .view-details-btn {
+      display: none;
+    }
+  }
+
+  .card {
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-body {
+    position: relative;
+    z-index: 2;
+  }
+
+  .card-img-top {
+    position: relative;
+    z-index: 1;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+
+  .card-img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+  }
+
+  @media print {
+
+    .search_box_section,
+    .pagination {
+      display: none;
+    }
+  }
+</style>
+
+<section class="home_banner_area hero" id="about" role="banner" aria-label="Page Header">
+  <div class="banner_inner d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+          <div class="banner_content d-flex flex-md-row flex-column">
+            <div class="banner-left text-md-right">
+              <h1 class="text-uppercase">products</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Search Box Section -->
+<section class="search_box_section py-5" role="search" aria-label="Product Search">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h2 id="search-heading" style="color: #1a365d;">Search for Products</h2>
+        <form method="get" action="{% url 'products:search' %}" class="search-form needs-validation" role="search"
+          aria-labelledby="search-heading" novalidate>
+          <div class="input-group mb-3">
+            <label for="search-input" class="sr-only" style="color: #1a365d;">Search by Product Name</label>
+            <input type="text" id="search-input" class="form-control" name="keywords"
+              placeholder="Search by Product Name" value="{{ request.GET.keywords|escape }}"
+              aria-label="Search products" required minlength="2" autocomplete="off">
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="submit" aria-label="Submit search">Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="appartments" class="py-5" aria-label="Product Listings">
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="text-center mb-4" style="color: #1a365d;">Available products</h2>
+      </div>
+    </div>
+    <div class="row">
+
+      {% if products %}
+      {% for product in products %}
+      <div class="col-md-4 col-lg-3 mb-4">
+        <article class="card products-preview h-100">
+          <img class="card-img-top" src="{{ product.photo_main.url }}" alt="{{ product.name }}" loading="lazy"
+            width="300" height="200" decoding="async" fetchpriority="high">
+          <div class="card-img-overlay"></div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" role="presentation">
+                <tbody>
+                  <tr>
+                    <th scope="row">Name of the Product</th>
+                    <td>{{ product.name }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Category of the Product</th>
+                    <td>{{ product.category.name }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <a href="{% url 'products:product_detail' product.slug %}" class="view-details-btn"
+              aria-label="View details for {{ product.name }}">
+              View Details
+            </a>
+          </div>
+        </article>
+      </div>
+      {% endfor %}
+      {% else %}
+      <div class="col-md-12">
+        <p class="text-center" role="alert" style="color: #1a365d;">No products available at the moment.</p>
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        {% if products.has_other_pages %}
+        <nav aria-label="Product navigation" class="mt-4">
+          <ul class="pagination justify-content-center">
+            {% if products.has_previous %}
+            <li class="page-item">
+              <a href="?page={{ products.previous_page_number }}{% if request.GET.keywords %}&keywords={{ request.GET.keywords|urlencode }}{% endif %}"
+                class="page-link" rel="prev" aria-label="Go to previous page">
+                &laquo; Previous
+              </a>
+            </li>
+            {% endif %}
+            {% for i in products.paginator.page_range %}
+            {% if products.number == i %}
+            <li class="page-item active">
+              <a class="page-link">{{ i }}</a>
+            </li>
+            {% else %}
+            <li class="page-item">
+              <a href="?page={{ i }}{% if request.GET.keywords %}&keywords={{ request.GET.keywords|urlencode }}{% endif %}"
+                class="page-link">{{ i }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+            {% if products.has_next %}
+            <li class="page-item">
+              <a href="?page={{ products.next_page_number }}{% if request.GET.keywords %}&keywords={{ request.GET.keywords|urlencode }}{% endif %}"
+                class="page-link">Next &raquo;</a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+              <a class="page-link">Next &raquo;</a>
+            </li>
+            {% endif %}
+          </ul>
+        </nav>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

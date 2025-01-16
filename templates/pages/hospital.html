@@ -1,0 +1,561 @@
+﻿{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Hospital Security Solutions | Uniview AIoT Hospital Systems{% endblock %}
+{% block meta_description %}Discover Uniview's comprehensive hospital security solutions featuring AIoT integration,
+24/7 protection, and smart access control for healthcare facilities.{% endblock %}
+{% block og_image %}/static/images/about-og-image.jpg{% endblock %}
+{% block schema_url %}{% url 'pages:hospital' %}{% endblock %}
+
+{% block extra_meta %}
+<meta name="keywords"
+  content="hospital security, AIoT hospital, healthcare security, patient protection, medical facility security, hospital surveillance, access control, Dubai hospital security, UAE healthcare solutions, Middle East hospital security">
+<meta name="author" content="Uniview">
+<meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Uniview offers comprehensive hospital security solutions in the UAE, integrating AIoT technology for enhanced safety and efficiency.">
+<meta property="og:title" content="Hospital Security Solutions | Uniview AIoT Hospital Systems">
+<meta property="og:description" content="Discover Uniview's comprehensive hospital security solutions featuring AIoT integration, 24/7 protection, and smart access control for healthcare facilities in the UAE.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.uniview.ae/pages/hospital">
+<meta property="og:image" content="/static/images/about-og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hospital Security Solutions | Uniview">
+<meta name="twitter:description" content="Comprehensive hospital security solutions with AIoT integration in the UAE.">
+<meta name="twitter:image" content="/static/images/about-og-image.jpg">
+<meta name="address" content="Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira, Dubai, United Arab Emirates, P.O.Box: 123421">
+<meta name="telephone" content="+971509162488">
+<meta name="email" content="sales1@digitallink.ae">
+
+{# Social Media Meta Tags #}
+<meta property="og:title" content="Hospital Security Solutions | Uniview AIoT Hospital Systems">
+<meta property="og:description"
+  content="Discover Uniview's comprehensive hospital security solutions featuring AIoT integration, 24/7 protection, and smart access control for healthcare facilities.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hospital Security Solutions | Uniview">
+<meta name="twitter:description" content="Comprehensive hospital security solutions with AIoT integration">
+
+{# Performance & Security Meta Tags #}
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Security-Policy"
+  content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline';">
+<link rel="dns-prefetch" href="//static.uniview.com">
+<link rel="preconnect" href="//static.uniview.com">
+
+{# Accessibility Meta Tags #}
+<meta name="theme-color" content="#00b4d8">
+<link rel="canonical" href="{% url 'pages:hospital' %}">
+{% endblock %}
+
+{% block content %}
+<script type="application/ld+json">
+  {
+      "@context": "http://schema.org",
+      "@type": "Hospital",
+      "name": "Uniview AIoT Hospital Solutions",
+      "url": "{% url 'pages:hospital' %}",
+      "description": "Comprehensive hospital security solutions featuring AIoT integration, 24/7 protection, and smart access control for healthcare facilities in the UAE.",
+      "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira",
+          "addressLocality": "Dubai",
+          "addressRegion": "Dubai",
+          "postalCode": "123421",
+          "addressCountry": "AE"
+      },
+      "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+971509162488",
+          "contactType": "Sales",
+          "email": "sales1@digitallink.ae"
+      },
+      "provider": {
+          "@type": "Organization",
+          "name": "Uniview",
+          "logo": {
+              "@type": "ImageObject",
+              "url": "/static/images/logo.png",
+              "width": "112",
+              "height": "112"
+          },
+          "description": "Leading provider of innovative AIoT hospital security solutions in the UAE."
+      },
+      "medicalSpecialty": "Hospital Security",
+      "areaServed": "UAE"
+  }
+</script>
+<style>
+  :root {
+    --primary: #00b4d8;
+    --secondary: #0077b6;
+    --accent: #48cae4;
+    --dark: #1e293b;
+    --light: #f8fafc;
+    --white: #ffffff;
+    --gray: #64748b;
+    --shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+    --radius: 16px;
+  }
+
+  /* Typography */
+  h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--dark);
+    text-align: center;
+    margin: 3rem 0;
+    position: relative;
+  }
+
+  h2:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--primary);
+    margin: 1rem auto;
+    border-radius: 2px;
+  }
+
+  h4 {
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Hero Banner */
+  .sub-banner {
+    position: relative;
+    height: 70vh;
+    width: 100%;
+    margin: 0 calc(-50vw + 50%);
+  }
+
+  .sub-banner .bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.85);
+    transition: transform 0.5s ease;
+  }
+
+  .sub-banner:hover .bg {
+    transform: scale(1.05);
+  }
+
+  .sub-banner .txt {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+    padding: 2rem;
+    color: var(--white);
+  }
+
+  .sub-banner .unv-tit {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .sub-banner .unv-subtit {
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    color: var(--white);
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Navigation */
+  .adds-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem 0;
+    padding: 1rem;
+  }
+
+  .adds-nav a {
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 100px;
+    transition: all 0.3s ease;
+    background: var(--light);
+  }
+
+  .adds-nav a:hover {
+    background: var(--primary);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 180, 216, 0.2);
+  }
+
+  /* Solution List */
+  .solution-list-wrap {
+    display: grid;
+    gap: 2.5rem;
+    margin: 3rem auto;
+    max-width: 1400px;
+  }
+
+  .solution-list-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: all 0.4s ease;
+  }
+
+  .solution-list-box:hover {
+    transform: translateY(-8px);
+  }
+
+  .solution-list-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius);
+  }
+
+  /* Success Cases */
+  .unv-solution-case-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem auto;
+  }
+
+  .solution-case-box {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .solution-case-box:hover {
+    transform: translateY(-8px);
+  }
+
+  .solution-case-box img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .solution-case-box:hover img {
+    transform: scale(1.05);
+  }
+
+  .solution-case-box h4 {
+    padding: 1.5rem;
+    margin: 0;
+    text-align: center;
+    color: var(--dark);
+  }
+
+  /* Container */
+  .wr {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .solution-list-box {
+      gap: 2rem;
+      padding: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .solution-list-box {
+      grid-template-columns: 1fr;
+    }
+
+    .adds-nav {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .adds-nav a {
+      text-align: center;
+    }
+
+    .sub-banner {
+      height: 50vh;
+    }
+
+    .wr {
+      padding: 0 1rem;
+    }
+  }
+
+  /* Updated/New Mobile Responsive Styles */
+  @media (max-width: 768px) {
+
+    /* Container adjustments */
+    .header-fix.wr {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+
+    /* Banner adjustments */
+    .sub-banner {
+      height: 50vh;
+    }
+
+    .sub-banner .unv-tit {
+      font-size: clamp(2rem, 5vw, 3rem);
+      padding: 0 1rem;
+    }
+
+    .sub-banner .unv-subtit {
+      font-size: clamp(1rem, 1.5vw, 1.4rem);
+      text-align: center;
+    }
+
+    /* Solution list adjustments */
+    .solution-list-box {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem;
+    }
+
+    .solution-list-box img {
+      height: 250px;
+    }
+
+    /* Success cases adjustments */
+    .unv-solution-case-wrap {
+      grid-template-columns: 1fr;
+    }
+
+    .solution-case-box {
+      margin: 0 1rem;
+    }
+
+    /* Typography adjustments */
+    h2 {
+      font-size: clamp(2rem, 3vw, 2.5rem);
+      margin: 2rem 0;
+    }
+
+    h4 {
+      font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Navigation adjustments */
+    .adds-nav {
+      flex-direction: column;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .adds-nav a {
+      width: 100%;
+      padding: 0.8rem 1rem;
+    }
+  }
+
+  /* Additional small screen adjustments */
+  @media (max-width: 480px) {
+    .sub-banner {
+      height: 40vh;
+    }
+
+    .solution-list-box {
+      padding: 1rem;
+    }
+
+    .solution-case-box {
+      margin: 0;
+    }
+  }
+
+  /* Add solution overview grid */
+  .solution-overview-three-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .overview-three-box {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+  }
+
+  /* Add prefers-reduced-motion support */
+  @media (prefers-reduced-motion: reduce) {
+
+    .sub-banner:hover .bg,
+    .solution-list-box,
+    .solution-case-box,
+    .solution-case-box img {
+      transition: none;
+      transform: none;
+    }
+  }
+
+  /* Improve color contrast for accessibility */
+  p {
+    color: #4b5563;
+    /* Darker gray for better contrast */
+  }
+</style>
+<div class="header-fix" role="main">
+  <div class="sub-banner" role="banner" aria-label="Hospital Solutions Banner">
+    <div class="bg" style="background-image: url({% static 'images/solutions/hospital/1.webp' %});" role="img"
+      aria-label="Hospital Banner Image"></div>
+    <div class="txt">
+      <h1 class="unv-tit">Uniview Solution for Hospital</h1>
+      <div class="unv-subtit">Protecting Patients, Securing Care</div>
+    </div>
+  </div>
+
+  <nav class="adds-nav" role="navigation" aria-label="Page Navigation">
+    <a href="#hospital-solution">Hospital Solution</a>
+    <a href="#success-cases">Success Cases</a>
+  </nav>
+
+  <main class="view">
+    <section id="hospital-solution" class="unv-solution-wrap" aria-labelledby="hospital-solution-title">
+      <h2 id="hospital-solution-title">Hospital Solution</h2>
+      <div class="inc-box">
+        <p>Hospitals manage a constant flow of people and urgent situations daily. The diverse environments within
+          hospitals require adaptable security solutions. A robust hospital security system is essential to maintain a
+          safe environment for patients, staff and visitors.</p>
+        <p>UNV integrated security solution enhances the safety and operational efficiency of the hospital, contributing
+          to better patient care and a more secure working environment for staff.</p>
+      </div>
+
+      <!-- Solution list boxes -->
+      <div class="solution-list-wrap">
+        <div class="solution-list-box" role="article" tabindex="0">
+          <div class="img-box">
+            <img 
+              src="{% static 'images/solutions/hospital/2.webp' %}"
+              alt="Hospital monitoring system showing real-time surveillance"
+              loading="lazy"
+              decoding="async"
+              width="800"
+              height="600"
+              onerror="this.onerror=null;this.src='{% static 'images/fallback.jpg' %}'"
+            >
+          </div>
+          <div class="ft-box">
+            <h4>Around-the-clock uninterrupted protection</h4>
+            <p>- Real-time monitoring of multiple areas such as inpatient wards, outpatient hall, and medical area to
+              prevent potential harm or abuse, and ensuring compliance with safety protocols<br>
+              - Safeguarding expensive medical equipment and pharmaceuticals from theft or misuse, ensuring that
+              critical resources are available when needed<br>
+              - Provide hospital people traffic statistics and detect when the number of people in an area exceeds the
+              limit, thereby ensuring the safety of public areas </p>
+          </div>
+        </div>
+        <div class="solution-list-box">
+          <div class="img-box"> <img src="{% static 'images/solutions/hospital/3.webp' %}" alt="">
+          </div>
+          <div class="ft-box">
+            <h4>Protecting healthcare workers and patients</h4>
+            <p>- Support emergency response by providing real-time video feeds to first responders, helping them
+              assess situations accurately and respond appropriately<br>
+              - Timely notification of various abnormal events such as people falling in the ward, special area
+              intrusion, fighting, smoking, etc.<br>
+              - Make sure a safety environment and guarantee privacy protection for staff and patient </p>
+          </div>
+        </div>
+        <div class="solution-list-box">
+          <div class="img-box"> <img src="{% static 'images/solutions/hospital/4.webp' %}" alt="">
+          </div>
+          <div class="ft-box">
+            <h4>Reasonable access control management</h4>
+            <p>- Integrating access control subsystem to monitor and manage entry and exit points, ensuring that only
+              authorized personnel have access to sensitive areas such as operating rooms, medication storage, and
+              data centers.<br>
+              - Monitor and control visitor access, ensuring that visitors are properly identified, and preventing
+              unauthorized individuals from entering restricted areas. </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="success-cases" class="unv-solution-wrap" aria-labelledby="success-cases-title">
+      <h2 id="success-cases-title">Success Cases</h2>
+      <div class="unv-solution-case-wrap">
+        <a class="solution-case-box" href="#" rel="noopener">
+          <img src="{% static 'images/solutions/hospital/5.webp' %}"
+            alt="Songkhla Rajanagarindra Psychiatric Hospital building" loading="lazy">
+          <h4>Songkhla Rajanagarindra Psychiatric Hospital in Thailand</h4>
+        </a>
+        <a class="solution-case-box">
+          <img src="{% static 'images/solutions/hospital/6.webp' %}" alt="">
+          <h4>Queen Elizabeth Hospital in Hong Kong China</h4>
+        </a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.adds-nav a');
+
+    navLinks.forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const sectionId = this.getAttribute('href').substring(1);
+        const section = document.getElementById(sectionId);
+
+        if (section) {
+          const offset = 80;
+          const elementPosition = section.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
+</script>
+{% endblock content %}

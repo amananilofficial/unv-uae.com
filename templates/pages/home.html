@@ -1,0 +1,1797 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Uniview | Leading AIoT Solutions Provider{% endblock %}
+
+{% block meta_description %}Uniview delivers cutting-edge AIoT security solutions, from smart surveillance to industrial automation, backed by innovative technology. Serving the UAE and Middle Eastern markets.{% endblock %}
+
+{% block og_image %}/static/images/about-og-image.jpg{% endblock %}
+{% load static %}
+{% load humanize %}
+
+{% block header %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta name="theme-color" content="#2a5298" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1e3c72" media="(prefers-color-scheme: dark)">
+
+<!-- SEO Meta Tags -->
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="AIoT, security solutions, smart city, industrial automation, IoT integration, Uniview">
+<meta name="author" content="Uniview Technologies">
+<meta property="og:title" content="Uniview - Leading AIoT Solutions Provider">
+<meta property="og:description"
+  content="Uniview: Global AIoT leader offering smart security technology, industrial automation, smart city solutions, and innovative healthcare systems.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Uniview">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Uniview - Leading AIoT Solutions Provider">
+<meta name="twitter:description"
+  content="Uniview: Global AIoT leader offering smart security technology, industrial automation, smart city solutions, and innovative healthcare systems.">
+
+<!-- Performance Meta Tags -->
+<link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- Accessibility Meta Tags -->
+<meta name="language" content="English">
+<link rel="alternate" hreflang="x-default" href="{{ request.build_absolute_uri }}">
+<meta name="format-detection" content="telephone=no">
+
+<!-- Apple Meta Tags -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Uniview">
+
+<!-- PWA Meta Tags -->
+<meta name="application-name" content="Uniview">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="{% static 'manifest.json' %}">
+
+<!-- Security Meta Tags -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+<meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+
+<!-- Add preload for critical resources -->
+<link rel="preload" href="{% static 'images/home/1.webp' %}" as="image">
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css" as="style">
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js" as="script">
+
+<!-- Add font display swap for better font loading -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Uniview UAE | Home | Uniview | Global AIoT Solutions Provider",
+    "url": "https://www.unv-uae.com",
+    "logo": "https://www.unv-uae.com/static/images/logo/logo.svg",
+    "description": "Leading provider of AIoT solutions including security systems, surveillance cameras, industrial automation, smart city solutions, and IoT integration in UAE",
+    "sameAs": [
+        "https://www.linkedin.com/company/digital-link-technology-uae/",
+        "https://www.instagram.com/digitallinktechnologyllc/",
+        "https://www.facebook.com/people/Digital-Link-Technology-LLC/100087290161175/?mibextid=ZbWKwL",
+    ],
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+971-xxx-xxx-xxxx",
+        "email": "info@unv-uae.com",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Arabic"],
+        "areaServed": ["AE", "OM", "BH", "SA", "KW", "QA"],
+        "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+            ],
+            "opens": "09:00",
+            "closes": "18:00"
+        }
+    },
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Baghlaf Building Shop No.11 Satellite Market, Naif, Deira",
+        "addressLocality": "Dubai",
+        "addressRegion": "Dubai",
+        "postalCode": "123241",
+        "addressCountry": "AE"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "25.2744",
+        "longitude": "55.3009"
+    }
+  }
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css">
+<style>
+  /* Update color variables */
+  :root {
+    --primary-blue: #0066ff;
+    /* Bright blue */
+    --primary-dark: #0052cc;
+    /* Darker blue */
+    --primary-light: #3399ff;
+    /* Light blue */
+    --primary-hover: #1a75ff;
+    /* Hover blue */
+    --text-dark: #1a1a1a;
+    /* Near black for text */
+    --text-light: #666666;
+    /* Gray for secondary text */
+    --background-light: #f8f9fa;
+    /* Light background */
+    --white: #ffffff;
+    /* Pure white */
+    --overlay-dark: rgba(0, 0, 0, 0.7);
+    /* Dark overlay */
+    --overlay-light: rgba(255, 255, 255, 0.9);
+    /* Light overlay */
+  }
+
+  /* Update text colors */
+  .section-title h2,
+  .section-header h1,
+  .product-card h3,
+  .tabs button {
+    color: var(--text-dark);
+  }
+
+  .section-subtitle,
+  .product-card p {
+    color: var(--text-light);
+  }
+
+  /* Update button colors */
+  .learn-more-btn,
+  .explore-btn,
+  .product-card a {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
+    color: var(--white);
+  }
+
+  .learn-more-btn:hover,
+  .explore-btn:hover {
+    background: var(--primary-hover);
+    color: var(--white);
+  }
+
+  /* Update overlay colors */
+  .property-details {
+    background: var(--overlay-light);
+  }
+
+  /* Update hover states */
+  .section-title:hover h2,
+  .section-header h1:hover,
+  .section-subtitle:hover,
+  .product-card:hover h3,
+  .tabs button:hover,
+  .tabs button.active {
+    color: var(--primary-hover);
+  }
+
+  /* Update background colors */
+  /* Update navigation colors */
+  .swiper-button-next,
+  .swiper-button-prev {
+    background: rgba(255, 255, 255, 0.3);
+    color: var(--primary-blue);
+  }
+
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  /* Update gradient overlay */
+  .featured-properties .property-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: none;
+    z-index: 1;
+  }
+
+  /* Update box shadows */
+  .product-card:hover {
+    box-shadow: 0 15px 40px rgba(0, 102, 255, 0.1);
+  }
+
+  .product-card a:hover {
+    box-shadow: 0 5px 15px rgba(0, 102, 255, 0.3);
+  }
+
+  /* Update active tab indicator */
+  .tabs button.active::after {
+    background: var(--primary-blue);
+  }
+
+  /* Update text shadows */
+  .overlay-title-small,
+  .overlay-title-large {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Update explore content colors */
+  .explore-content h3,
+  .explore-content p {
+    color: var(--white);
+  }
+
+  /* Add will-change for smoother animations */
+  .swiper-slide {
+    will-change: transform;
+  }
+
+  /* Add content-visibility for better performance */
+  .product-section,
+  .explore-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 5000px;
+  }
+
+  /* Add loading="lazy" to non-critical images */
+  img:not(.responsive-img) {
+    loading: lazy;
+    decoding: async;
+  }
+
+  /* Add print styles */
+  @media print {
+
+    .swiper-container,
+    .navigation-controls {
+      display: none !important;
+    }
+  }
+
+  /* Add reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+
+    .swiper-slide,
+    .product-card,
+    .explore-card {
+      transition: none !important;
+    }
+  }
+
+  /* Swiper Styles */
+  .swiper-container {
+    width: 100%;
+    padding: 50px 0;
+    background: var(--light-bg);
+  }
+
+  .swiper-slide {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease;
+    height: auto;
+  }
+
+  .swiper-slide:hover {
+    transform: translateY(-10px);
+  }
+
+  /* Property Card Styles */
+  .property-card {
+    position: relative;
+  }
+
+  .property-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .property-details {
+    padding: 1.25rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .property-price {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: bold;
+    color: var(--text-primary);
+    z-index: 2;
+  }
+
+  .image-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .overlay-title-small {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    opacity: 0.9;
+  }
+
+  .overlay-title-large {
+    font-size: 56px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
+  }
+
+  .learn-more-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 16px;
+    border: 2px solid white;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 3;
+    position: relative;
+  }
+
+  .learn-more-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .property-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+
+  /* Property Features Styles */
+  .property-features {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.625rem 0;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .feature {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--text-secondary);
+  }
+
+  .featured-tag {
+    position: absolute;
+    top: 20px;
+    left: -35px;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 5px 40px;
+    transform: rotate(-45deg);
+    font-size: 0.8rem;
+    z-index: 1;
+  }
+
+  /* Blog Section Styles */
+  .blog-section {
+    padding: 5rem 0;
+    background: var(--light-bg);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 2.5rem;
+  }
+
+  .blog-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .blog-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .blog-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .blog-category {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.625rem;
+    text-transform: uppercase;
+  }
+
+  .blog-title {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .blog-excerpt {
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+    flex-grow: 1;
+  }
+
+  .blog-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .blog-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .author-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .author-name {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+  }
+
+  .blog-date {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-title h2 {
+    font-size: 2.5rem;
+    color: #000000;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+  }
+
+  .section-title:hover h2 {
+    color: var(--primary-blue);
+  }
+
+  .section-title p {
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Navigation Controls */
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: var(--primary-blue);
+  }
+
+  .swiper-pagination-bullet-active {
+    background: var(--primary-blue);
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .blog-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+    }
+  }
+
+  .explore-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 400px;
+  }
+
+  .explore-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .explore-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .explore-content {
+    text-align: center;
+    color: white;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+  }
+
+  .explore-content h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #ffffff;
+    transition: color 0.3s ease;
+  }
+
+  .explore-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .explore-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background: var(--primary-blue);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    border: none;
+  }
+
+  .explore-btn:hover {
+    background: var(--primary-hover);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  .explore-card:hover img {
+    transform: scale(1.1);
+  }
+
+  .explore-card:hover .explore-overlay {
+    opacity: 1;
+  }
+
+  .explore-card:hover .explore-content {
+    transform: translateY(0);
+  }
+
+  .explore-card:hover .explore-btn {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .product-section {
+    background-color: #f8f9fa;
+    padding: 80px 0;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .section-header h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+  }
+
+  .section-header h1:hover {
+    color: var(--primary-blue);
+  }
+
+  .section-subtitle {
+    font-size: 1.1em;
+    color: #000000;
+    max-width: 600px;
+    margin: 0 auto;
+    transition: color 0.3s ease;
+  }
+
+  .section-subtitle:hover {
+    color: var(--primary-blue);
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .tabs button {
+    padding: 12px 25px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #000000;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    background: transparent;
+    border: none;
+    outline: none;
+  }
+
+  .tabs button:hover {
+    color: var(--primary-blue);
+    background: transparent;
+  }
+
+  .tabs button.active {
+    color: var(--primary-blue);
+    font-weight: 600;
+    position: relative;
+  }
+
+  .tabs button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 2px;
+    background: var(--primary-blue);
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .product-card {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    min-height: 450px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .product-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  .product-card h3 {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+  }
+
+  .product-card:hover h3 {
+    color: var(--primary-blue);
+  }
+
+  .product-card p {
+    font-size: 1em;
+    color: #6c757d;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+
+  .product-card a {
+    margin-top: auto;
+    display: inline-block;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-align: center;
+    border: none;
+    align-self: flex-start;
+  }
+
+  .product-card a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 82, 204, 0.3);
+  }
+
+
+  @media (max-width: 768px) {
+    .product-section {
+      padding: 60px 20px;
+    }
+
+    .section-header h1 {
+      font-size: 2em;
+    }
+
+    .tabs {
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .tabs::after {
+      display: none;
+    }
+
+    .product-grid {
+      grid-template-columns: 1fr;
+      padding: 10px;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  /* Custom Swiper Navigation */
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  /* Custom Swiper Pagination */
+  .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #ffffff;
+    transform: scale(1.2);
+  }
+
+  @media (max-width: 768px) {
+    .overlay-title-small {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .overlay-title-large {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .learn-more-btn {
+      padding: 12px 25px;
+      font-size: 14px;
+    }
+
+    .image-overlay p {
+      font-size: 14px;
+      margin-bottom: 20px;
+      padding: 0 15px;
+    }
+
+    .product-card {
+      height: auto;
+      min-height: 380px;
+    }
+
+    .product-card img {
+      height: 250px;
+    }
+
+    .product-card h3 {
+      font-size: 1.1em;
+    }
+
+    .product-card p {
+      font-size: 0.9em;
+    }
+
+    .section-header h1 {
+      font-size: 1.8em;
+    }
+
+    .section-subtitle {
+      font-size: 1em;
+      padding: 0 15px;
+    }
+
+    .explore-card {
+      height: 300px;
+    }
+
+    .explore-content h3 {
+      font-size: 20px;
+    }
+
+    .explore-content p {
+      font-size: 14px;
+    }
+
+    .explore-btn {
+      padding: 8px 20px;
+      font-size: 14px;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: 35px;
+      height: 35px;
+      transform: scale(0.8);
+    }
+
+    .swiper-pagination {
+      bottom: 15px !important;
+    }
+
+    .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .overlay-title-large {
+      font-size: 24px;
+    }
+
+    .product-grid {
+      gap: 15px;
+    }
+
+    .explore-section {
+      padding: 3rem 0;
+    }
+
+    .section-title h2 {
+      font-size: 1.8rem;
+    }
+
+    .section-title p {
+      font-size: 0.9rem;
+    }
+
+    .tabs span {
+      padding: 8px 20px;
+      font-size: 0.9em;
+    }
+  }
+
+  /* Add landscape mode optimization */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .property-card img {
+      height: 100vh;
+    }
+
+    .image-overlay {
+      padding: 0 20px;
+    }
+
+    .overlay-title-small {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .overlay-title-large {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .image-overlay p {
+      margin-bottom: 10px;
+    }
+
+    .learn-more-btn {
+      padding: 8px 20px;
+    }
+  }
+
+  /* Base styles for the swiper container */
+  .swiper-container {
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .swiper-slide {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+  }
+
+  .property-card {
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+
+  /* Responsive image with auto-cropping */
+  .responsive-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: none;
+  }
+
+  /* Image overlay styles */
+  .image-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 90%;
+    max-width: 600px;
+    z-index: 2;
+  }
+
+  .overlay-title-small {
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  .overlay-title-large {
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .learn-more-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 16px;
+    border: 2px solid white;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .learn-more-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Mobile view adjustments */
+  @media (max-width: 768px) {
+    .swiper-container {
+      height: 60vh;
+    }
+
+    .responsive-img {
+      height: 60vh;
+      /* Adjust image height for mobile */
+    }
+
+    .overlay-title-small {
+      font-size: 14px;
+    }
+
+    .overlay-title-large {
+      font-size: 24px;
+    }
+
+    .learn-more-btn {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  }
+
+  /* Enhanced Swiper Container styles */
+  .featured-properties {
+    width: 100vw;
+    height: 100vh;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    overflow: hidden;
+    position: relative;
+    padding-top: 80px;
+  }
+
+  .featured-properties .swiper-container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .featured-properties .swiper-slide {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  /* Enhanced image cropping and positioning */
+  .featured-properties .property-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .featured-properties .responsive-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+  }
+
+  /* Optimize overlay positioning */
+  .featured-properties .image-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    z-index: 2;
+    padding: 20px;
+  }
+
+  /* Add a subtle gradient overlay */
+  .featured-properties .property-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: none;
+    z-index: 1;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .featured-properties {
+      height: 60vh;
+      padding-top: 60px;
+    }
+
+    .featured-properties .overlay-title-large {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .featured-properties .overlay-title-small {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+  }
+
+  /* Landscape mode optimization */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .featured-properties {
+      height: 100vh;
+    }
+
+    .featured-properties .image-overlay {
+      padding: 10px;
+    }
+
+    .featured-properties .overlay-title-large {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+  }
+
+  /* Add mobile performance optimizations */
+  @media (max-width: 768px) {
+
+    /* Optimize paint operations */
+    .swiper-slide,
+    .product-card,
+    .explore-card {
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+      will-change: transform;
+    }
+
+    /* Reduce repaints for animations */
+    .learn-more-btn,
+    .explore-btn {
+      transform: translateZ(0);
+      transition: transform 0.2s ease;
+    }
+
+    /* Optimize image rendering */
+    .responsive-img {
+      content-visibility: auto;
+      contain: layout paint style;
+    }
+
+    /* Reduce layout shifts */
+    .image-overlay {
+      contain: layout;
+      content-visibility: auto;
+    }
+
+    /* Optimize transitions */
+    .product-card,
+    .explore-card {
+      transition: transform 0.2s ease;
+    }
+  }
+
+  /* Add containment for better performance */
+  .featured-properties,
+  .product-section,
+  .explore-section {
+    contain: content;
+    content-visibility: auto;
+  }
+</style>
+{{ block.super }}
+{% endblock header %}
+
+{% block content %}
+<!-- Featured Properties Swiper -->
+<section class="featured-properties" role="banner" aria-label="Featured Properties Slideshow">
+  <div class="swiper-container" aria-roledescription="carousel">
+    <div class="swiper-wrapper">
+      <!-- Sample Property 1 -->
+      <div class="swiper-slide" role="group" aria-roledescription="slide">
+        <div class="property-card">
+          <img src="{% static 'images/home/d1.png' %}"
+            srcset="{% static 'images/home/m1.png' %} 600w, {% static 'images/home/d1.png' %} 1200w"
+            alt="Smart security system showcasing innovative AIoT solutions" class="responsive-img" width="1920"
+            height="1080" fetchpriority="high">
+          <div class="image-overlay">
+            <h2 class="overlay-title-small">Wewly Released</h2>
+            <h1 class="overlay-title-large">2025 CCTV Product</h1>
+            <p>Guide to the latest CCTV products for 2025</p>
+            <a href="{% url 'pages:solutions' %}" class="learn-more-btn">Explore Solutions</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sample Property 2 -->
+      <div class="swiper-slide">
+        <div class="property-card">
+          <img src="{% static 'images/home/d2.png' %}"
+            srcset="{% static 'images/home/m2.png' %} 600w, {% static 'images/home/d2.png' %} 1200w"
+            alt="Smart security system showcasing innovative AIoT solutions" class="responsive-img" width="1920"
+            height="1080" fetchpriority="high">
+          <div class="image-overlay">
+            <h2 class="overlay-title-small">Uniview Sustainability Report</h2>
+            <h1 class="overlay-title-large">Growing Towards Goodness</h1>
+            <p>Revolutionizing the landscape of AIoT, we deliver state-of-the-art technology and holistic security
+              solutions that empower your future.</p>
+            <a href="{% url 'pages:solutions' %}" class="learn-more-btn">Explore Solutions</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sample Property 3 -->
+      <div class="swiper-slide">
+        <div class="property-card">
+          <img src="{% static 'images/home/d3.png' %}"
+            srcset="{% static 'images/home/m3.png' %} 600w, {% static 'images/home/d3.png' %} 1200w"
+            alt="Smart security system showcasing innovative AIoT solutions" class="responsive-img" width="1920"
+            height="1080" fetchpriority="high">
+          <div class="image-overlay">
+            <h2 class="overlay-title-small">Dual-lens Wi-Fi PT Camera</h2>
+            <h1 class="overlay-title-large">Uniarch Panda S Series Inquire Now</h1>
+            <p>Revolutionizing the AIoT landscape, we deliver unparalleled technology and holistic security solutions
+              that redefine the future.</p>
+            <a href="{% url 'pages:solutions' %}" class="learn-more-btn">Explore Solutions</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sample Property 4 -->
+      <div class="swiper-slide">
+        <div class="property-card">
+          <img src="{% static 'images/home/d4.png' %}"
+            srcset="{% static 'images/home/m4.png' %} 600w, {% static 'images/home/d4.png' %} 1200w"
+            alt="Smart security system showcasing innovative AIoT solutions" class="responsive-img" width="1920"
+            height="1080" fetchpriority="high">
+          <div class="image-overlay">
+            <h2 class="overlay-title-small">Hot selling in over 60 countries and regions</h2>
+            <h1 class="overlay-title-large">UNV OwlView Series</h1>
+            <p>Transforming the landscape of AIoT with innovative technology and all-encompassing security solutions
+              that inspire confidence.</p>
+            <a href="{% url 'pages:solutions' %}" class="learn-more-btn">Explore Solutions</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sample Property 5 -->
+      <div class="swiper-slide">
+        <div class="property-card">
+          <img src="{% static 'images/home/d5.png' %}"
+            srcset="{% static 'images/home/m5.png' %} 600w, {% static 'images/home/d5.png' %} 1200w"
+            alt="Smart security system showcasing innovative AIoT solutions" class="responsive-img" width="1920"
+            height="1080" fetchpriority="high">
+          <div class="image-overlay">
+            <h2 class="overlay-title-small">Simplify On-site Configuration and Maintenance for Installers</h2>
+            <h1 class="overlay-title-large">UNV-Link Pro APP</h1>
+            <p>Shaping the future of AIoT with revolutionary technology and all-encompassing security solutions that
+              redefine possibilities.</p>
+            <a href="{% url 'pages:solutions' %}" class="learn-more-btn">Explore Solutions</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sample Property 6 -->
+      <div class="swiper-slide">
+        <div class="property-card">
+          <img src="{% static 'images/home/d6.png' %}"
+            srcset="{% static 'images/home/m6.png' %} 600w, {% static 'images/home/d6.png' %} 1200w"
+            alt="Smart security system showcasing innovative AIoT solutions" class="responsive-img" width="1920"
+            height="1080" fetchpriority="high">
+          <div class="image-overlay">
+            <h2 class="overlay-title-small">The Engineering Helper Makes Your Business Easy</h2>
+            <h1 class="overlay-title-large">UNV-Box App</h1>
+            <p>Empowering the AIoT revolution with state-of-the-art technology and holistic security solutions that
+              inspire trust and innovation.</p>
+            <a href="{% url 'pages:solutions' %}" class="learn-more-btn">Explore Solutions</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Navigation arrows with custom styling -->
+    <button class="swiper-button-next" aria-label="Next slide"></button>
+    <button class="swiper-button-prev" aria-label="Previous slide"></button>
+
+    <!-- Custom pagination -->
+    <div class="swiper-pagination" role="tablist" aria-label="Slides"></div>
+  </div>
+</section>
+
+<div class="product-section">
+  <div class="container">
+    <div class="section-header">
+      <h1 id="product-section-title">Meet Our Products</h1>
+      <p class="section-subtitle">Discover our innovative security solutions</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Product Categories">
+      <button id="productSeriesTab" role="tab" aria-selected="true" aria-controls="productSeries" class="active"
+        onclick="showSection('productSeries', this)">
+        Product Series
+      </button>
+      <button id="technologiesTab" role="tab" aria-selected="false" aria-controls="technologies"
+        onclick="showSection('technologies', this)">
+        Solutions
+      </button>
+    </div>
+
+    <div id="productSeries" role="tabpanel" aria-labelledby="productSeriesTab" class="product-grid">
+      {% for product in featured_products %}
+      <div class="product-card" onclick="window.location.href='#'" style="cursor: pointer;">
+        <img src="{{ product.photo_main.url }}" alt="{{ product.name }}">
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.description }}</p>
+        <a href="{% url 'products:product_detail' product.slug %}" onclick="event.stopPropagation()">Learn More ></a>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div id="technologies" role="tabpanel" aria-labelledby="technologiesTab" class="product-grid hidden">
+      <!-- Existing technology products can be added here -->
+      <div class="product-card" onclick="window.location.href='#'" style="cursor: pointer;">
+        <img src="{% static 'images/solutions/1.webp' %}" alt="Tech 1">
+        <h3>Building</h3>
+        <a href="{% url 'pages:building' %}" onclick="event.stopPropagation()">Learn More ></a>
+      </div>
+      <div class="product-card" onclick="window.location.href='#'" style="cursor: pointer;">
+        <img src="{% static 'images/solutions/2.webp' %}" alt="Tech 2">
+        <h3>School</h3>
+        <a href="{% url 'pages:school' %}" onclick="event.stopPropagation()">Learn More ></a>
+      </div>
+      <div class="product-card" onclick="window.location.href='#'" style="cursor: pointer;">
+        <img src="{% static 'images/solutions/3.webp' %}" alt="Tech 3">
+        <h3>Hotel</h3>
+        <a href="{% url 'pages:hotel' %}" onclick="event.stopPropagation()">Learn More ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- New Explore Section -->
+<section class="explore-section" style="padding: 5rem 0; margin-top: 100px;">
+  <div class="container">
+    <div class="section-title">
+      <h2>Explore New Horizons</h2>
+      <p style="color: blue;">Invite you to discover the latest information for the first time</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="explore-card position-relative">
+          <img src="{% static 'images/solutions/4.webp' %}" alt="Events" class="w-100" height="100">
+          <div class="explore-overlay">
+            <div class="explore-content">
+              <h3>Retail</h3>
+              <a href="{% url 'pages:retail' %}" class="explore-btn">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="explore-card position-relative">
+          <img src="{% static 'images/solutions/5.webp' %}" alt="Events" class="w-100">
+          <div class="explore-overlay">
+            <div class="explore-content">
+              <h3>Warehouse</h3>
+              <a href="{% url 'pages:warehouse' %}" class="explore-btn">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="explore-card position-relative">
+          <img src="{% static 'images/solutions/6.webp' %}" alt="Events" class="w-100">
+          <div class="explore-overlay">
+            <div class="explore-content">
+              <h3>Hospital</h3>
+              <a href="{% url 'pages:hospital' %}" class="explore-btn">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+<script>
+  // Add intersection observer for lazy loading
+  const lazyLoadObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const section = entry.target;
+        section.classList.add('visible');
+        lazyLoadObserver.unobserve(section);
+      }
+    });
+  });
+
+  document.querySelectorAll('.product-section, .explore-section').forEach(section => {
+    lazyLoadObserver.observe(section);
+  });
+
+  // Update Swiper initialization for mobile
+  document.addEventListener('DOMContentLoaded', function () {
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+      // Mobile-specific optimizations
+      document.querySelectorAll('img').forEach(img => {
+        img.decoding = 'async';
+        img.loading = 'lazy';
+        if (!img.classList.contains('responsive-img')) {
+          img.setAttribute('importance', 'low');
+        }
+      });
+
+      // Optimize Swiper for mobile
+      const featuredSwiper = new Swiper('.swiper-container', {
+        // ... existing swiper config ...
+
+        // Mobile performance optimizations
+        watchSlidesProgress: false, // Disable on mobile
+        watchSlidesVisibility: false,
+        observer: false,
+        observeParents: false,
+        resizeObserver: false,
+        preloadImages: false,
+        updateOnWindowResize: false,
+        lazy: {
+          loadPrevNext: true,
+          loadPrevNextAmount: 1,
+          loadOnTransitionStart: true,
+          elementClass: 'swiper-lazy',
+          loadingClass: 'swiper-lazy-loading',
+          loadedClass: 'swiper-lazy-loaded',
+          preloaderClass: 'swiper-lazy-preloader',
+        },
+        speed: 400, // Faster transitions for mobile
+        virtualTranslate: true,
+        cssMode: true, // Use native scroll for better performance
+        touchReleaseOnEdges: true,
+        simulateTouch: false, // Disable simulation for better performance
+        threshold: 10, // Increase threshold for better performance
+      });
+
+      // Add intersection observer for better performance
+      const lazyLoadObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const element = entry.target;
+            if (element.classList.contains('product-card') ||
+              element.classList.contains('explore-card')) {
+              element.style.visibility = 'visible';
+              element.style.transform = 'translateZ(0)';
+            }
+            lazyLoadObserver.unobserve(element);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '50px'
+      });
+
+      // Observe cards for lazy loading
+      document.querySelectorAll('.product-card, .explore-card').forEach(card => {
+        card.style.visibility = 'hidden';
+        lazyLoadObserver.observe(card);
+      });
+
+      // Optimize event listeners
+      const optimizedScroll = debounce(() => {
+        // Handle scroll events
+      }, 100);
+
+      const optimizedResize = debounce(() => {
+        // Handle resize events
+      }, 250);
+
+      window.addEventListener('scroll', optimizedScroll, { passive: true });
+      window.addEventListener('resize', optimizedResize, { passive: true });
+
+      // Monitor FPS
+      let lastTime = performance.now();
+      let frames = 0;
+
+      requestAnimationFrame(function measure() {
+        const now = performance.now();
+        frames++;
+
+        if (now >= lastTime + 1000) {
+          const fps = Math.round((frames * 1000) / (now - lastTime));
+          console.log(`FPS: ${fps}`);
+          frames = 0;
+          lastTime = now;
+        }
+
+        requestAnimationFrame(measure);
+      });
+
+      // Monitor memory usage
+      if (window.performance && performance.memory) {
+        setInterval(() => {
+          const memory = performance.memory;
+          console.log(`Memory: ${Math.round(memory.usedJSHeapSize / 1048576)}MB`);
+        }, 2000);
+      }
+    }
+  });
+
+  // Debounce helper function
+  function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+
+  function showSection(sectionId, selectedTab) {
+    const sections = document.querySelectorAll('.product-grid');
+    const tabs = document.querySelectorAll('.tabs button');
+
+    requestAnimationFrame(() => {
+      sections.forEach(section => {
+        section.classList.add('hidden');
+        section.setAttribute('aria-hidden', 'true');
+      });
+
+      tabs.forEach(tab => {
+        tab.classList.remove('active');
+        tab.setAttribute('aria-selected', 'false');
+      });
+
+      const selectedSection = document.getElementById(sectionId);
+      selectedSection.classList.remove('hidden');
+      selectedSection.setAttribute('aria-hidden', 'false');
+
+      // Set the clicked tab as active
+      selectedTab.classList.add('active');
+      selectedTab.setAttribute('aria-selected', 'true');
+    });
+
+    // Add focus management
+    selectedTab.focus();
+
+    // Announce section change to screen readers
+    const announcer = document.getElementById('a11y-announcer') ||
+      document.createElement('div');
+    announcer.setAttribute('aria-live', 'polite');
+    announcer.textContent = `Showing ${sectionId} section`;
+  }
+
+  // Add passive event listeners
+  document.addEventListener('touchstart', function () { }, { passive: true });
+  document.addEventListener('touchmove', function () { }, { passive: true });
+
+  // Optimize image loading
+  if ('loading' in HTMLImageElement.prototype) {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    images.forEach(img => {
+      img.loading = 'lazy';
+    });
+  }
+
+  // Initialize Swiper
+  document.addEventListener('DOMContentLoaded', function () {
+    const swiper = new Swiper('.swiper-container', {
+      // Enable loop mode
+      loop: true,
+
+      // Enable autoplay
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+
+      // Configure navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+
+      // Configure pagination
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+
+      // Enable smooth transitions
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+
+      // Responsive breakpoints
+      breakpoints: {
+        // Mobile
+        320: {
+          height: '60vh'
+        },
+        // Desktop
+        768: {
+          height: '100vh'
+        }
+      },
+
+      // Performance optimizations
+      preloadImages: false,
+      lazy: {
+        loadPrevNext: true,
+        loadPrevNextAmount: 2
+      },
+      watchSlidesProgress: true,
+      watchSlidesVisibility: true,
+    });
+  });
+</script>
+
+<!-- Add noscript fallback -->
+<noscript>
+  <style>
+    .swiper-container {
+      display: block;
+    }
+
+    .swiper-slide {
+      display: block;
+      margin-bottom: 2rem;
+    }
+
+    .product-grid.hidden {
+      display: grid;
+    }
+  </style>
+</noscript>
+
+<!-- Add resource hints -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+<link rel="preload" href="{% static 'images/home/1.webp' %}" as="image" type="image/webp">
+
+<!-- Add structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Uniview - Leading AIoT Solutions Provider",
+  "description": "Welcome to Uniview, a global leader in AIoT solutions...",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Uniview Technologies",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://www.unv-uae.com/static/images/logo/logo.svg"
+    }
+  }
+}
+</script>
+
+<!-- Additional SEO Meta Tags -->
+<meta name="geo.region" content="AE-DU">
+<meta name="geo.placename" content="Dubai">
+<meta name="geo.position" content="25.2744;55.3009">
+<meta name="ICBM" content="25.2744, 55.3009">
+<meta name="author" content="Uniview Technologies">
+<meta name="publisher" content="Uniview Technologies">
+<meta name="copyright" content="Uniview Technologies">
+<meta name="language" content="en-US">
+<meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#2a5298" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1e3c72" media="(prefers-color-scheme: dark)">
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.unv-uae.com">
+<meta property="og:title" content="Uniview - Leading AIoT Solutions Provider">
+<meta property="og:description" content="Uniview: Global AIoT leader offering smart security technology, industrial automation, smart city solutions, and innovative healthcare systems in the UAE.">
+<meta property="og:image" content="/static/images/about-og-image.jpg">
+<meta property="og:site_name" content="Uniview">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Uniview - Leading AIoT Solutions Provider">
+<meta name="twitter:description" content="Uniview: Global AIoT leader offering smart security technology, industrial automation, smart city solutions, and innovative healthcare systems in the UAE.">
+<meta name="twitter:image" content="/static/images/about-og-image.jpg">
+
+<!-- Contact Information -->
+<meta name="contact:email" content="sales1@digitallink.ae">
+<meta name="contact:phone" content="+971509162488">
+<meta name="contact:address" content="Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira, Dubai, United Arab Emirates, P.O.Box: 123421">
+
+<!-- Structured Data for Local Business -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Uniview Technologies",
+  "image": "https://www.unv-uae.com/static/images/logo/logo.svg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira",
+    "addressLocality": "Dubai",
+    "addressRegion": "Dubai",
+    "postalCode": "123421",
+    "addressCountry": "AE"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+971509162488",
+    "contactType": "customer service",
+    "areaServed": "AE",
+    "availableLanguage": ["English", "Arabic"]
+  },
+  "url": "https://www.unv-uae.com",
+  "sameAs": [
+    "https://www.linkedin.com/company/digital-link-technology-uae/",
+    "https://www.instagram.com/digitallinktechnologyllc/",
+    "https://www.facebook.com/people/Digital-Link-Technology-LLC/100087290161175/?mibextid=ZbWKwL"
+  ]
+}
+</script>
+
+{{ block.super }}
+{% endblock content %}

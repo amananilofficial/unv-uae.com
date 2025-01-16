@@ -1,0 +1,363 @@
+{% extends "base.html" %}
+
+{% load humanize %}
+{% load static %}
+{% block title %}Products - Uniview{% endblock %}
+{% block meta_description %}Learn more about Uniview and our innovative AIoT Products, transforming industries and improving lives.{% endblock %}
+{% block og_image %}/static/images/about-og-image.jpg{% endblock %}
+{% block schema_url %}{% url 'products:products' %}{% endblock %}
+
+<!-- SEO Meta Tags -->
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="AIoT products, industrial automation, smart cities, healthcare IoT, Uniview products, UAE, Middle East">
+<meta name="author" content="Uniview UAE">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Open Graph / Social Media Meta Tags -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Products - Uniview">
+<meta property="og:description" content="Learn more about Uniview and our innovative AIoT Products, transforming industries and improving lives.">
+<meta property="og:site_name" content="Uniview">
+<meta property="og:locale" content="en_US">
+<meta property="og:region" content="Middle East">
+<meta property="og:country" content="UAE">
+<meta property="og:email" content="sales1@digitallink.ae">
+<meta property="og:phone" content="+971509162488">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Products - Uniview">
+<meta name="twitter:description" content="Learn more about Uniview and our innovative AIoT Products, transforming industries and improving lives.">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'images/about-og-image.jpg' %}">
+
+<!-- Performance & Security Meta Tags -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';">
+<meta name="referrer" content="no-referrer-when-downgrade">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+
+<!-- Accessibility Meta Tags -->
+<meta name="theme-color" content="#007bff">
+<link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{% url 'products:products' %}">
+
+<!-- Apple Mobile Meta Tags -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+
+{% block content %}
+<!-- Enhanced Schema Markup -->
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Uniview UAE",
+    "url": "https://www.unv-uae.com",
+    "logo": "https://www.unv-uae.com/static/images/logo/logo.svg",
+    "description": "Leading provider of AIoT solutions including security systems, surveillance cameras, industrial automation, smart city solutions, and IoT integration in UAE",
+    "sameAs": [
+        "https://www.linkedin.com/company/digital-link-technology-uae/",
+        "https://www.instagram.com/digitallinktechnologyllc/",
+        "https://www.facebook.com/people/Digital-Link-Technology-LLC/100087290161175/?mibextid=ZbWKwL"
+    ],
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+971509162488",
+        "email": "sales1@digitallink.ae",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Arabic"],
+        "areaServed": ["AE", "OM", "BH", "SA", "KW", "QA"],
+        "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+            ],
+            "opens": "09:00",
+            "closes": "18:00"
+        }
+    },
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira",
+        "addressLocality": "Dubai",
+        "addressRegion": "Dubai",
+        "postalCode": "123421",
+        "addressCountry": "AE"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "25.2744",
+        "longitude": "55.3009"
+    }
+}
+</script>
+
+<!-- Hero Section with improved accessibility -->
+<section class="hero-section" id="products-hero" aria-label="Products Hero Section">
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 tabindex="0">Product</h1>
+        <p tabindex="0">More Than 500+ Product For Sales</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Products Section with improved accessibility -->
+<section class="products-section" aria-label="Products Grid">
+  <div class="container">
+    <div class="products-grid" role="grid">
+      {% if products %}
+        {% for product in products %}
+        <article class="product-card" role="gridcell">
+          <div class="product-image">
+            <img src="{{ product.photo_main.url }}" 
+                 alt="{{ product.name }}"
+                 loading="lazy"
+                 width="300"
+                 height="200">
+          </div>
+          <div class="product-details">
+            <h2 class="product-name">{{ product.name }}</h2>
+            <a href="{% url 'products:product_detail' product.slug %}" 
+               class="view-details-btn"
+               aria-label="View details of {{ product.name }}">
+               View Details
+            </a>
+          </div>
+        </article>
+        {% endfor %}
+      {% else %}
+        <div class="no-products" role="alert">
+          <p>No products available.</p>
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- Pagination with improved accessibility -->
+    {% if products.has_other_pages %}
+    <nav class="pagination-container" aria-label="Products pagination">
+      <div class="pagination">
+        {% if products.has_previous %}
+          <a href="?page={{ products.previous_page_number }}" 
+             class="page-nav" 
+             aria-label="Previous page">&laquo;</a>
+        {% else %}
+          <span class="page-nav disabled" 
+                aria-hidden="true">&laquo;</span>
+        {% endif %}
+
+        {% for i in products.paginator.page_range %}
+          {% if products.number == i %}
+            <span class="page-number active" 
+                  aria-current="page">{{ i }}</span>
+          {% else %}
+            <a href="?page={{ i }}" 
+               class="page-number" 
+               aria-label="Go to page {{ i }}">{{ i }}</a>
+          {% endif %}
+        {% endfor %}
+
+        {% if products.has_next %}
+          <a href="?page={{ products.next_page_number }}" 
+             class="page-nav" 
+             aria-label="Next page">&raquo;</a>
+        {% else %}
+          <span class="page-nav disabled" 
+                aria-hidden="true">&raquo;</span>
+        {% endif %}
+      </div>
+    </nav>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+/* Optimized CSS with performance improvements */
+.hero-section {
+    background: url('{% static "images/product/1.webp" %}') center/cover;
+    height: 500px;
+    padding: 100px 0;
+    color: white;
+    will-change: transform;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.breadcrumb a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+  color: #007bff;
+}
+
+/* Products Section Styles */
+.products-section {
+  padding: 80px 0;
+  background-color: #f8f9fa;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.product-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  will-change: transform;
+  contain: content;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  contain: paint;
+}
+
+.product-details {
+  padding: 20px;
+}
+
+
+.view-details-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.view-details-btn:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
+/* Pagination Styles */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.pagination {
+  display: flex;
+  gap: 5px;
+}
+
+.page-nav, .page-number {
+  padding: 8px 16px;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  color: #007bff;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.page-nav:hover, .page-number:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.page-number.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.page-nav.disabled {
+  color: #6c757d;
+  pointer-events: none;
+  background-color: #e9ecef;
+}
+
+.no-products {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  background: white;
+  border-radius: 10px;
+}
+
+/* Accessibility improvements */
+.view-details-btn:focus,
+.page-nav:focus,
+.page-number:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-card,
+  .view-details-btn,
+  .page-nav,
+  .page-number {
+    transition: none;
+  }
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+  .product-card {
+    border: 1px solid CanvasText;
+  }
+  
+  .view-details-btn {
+    border: 1px solid ButtonText;
+  }
+}
+
+.product-name {
+  font-size: 1.25rem;
+  margin-bottom: 15px;
+  color: #333;
+  font-weight: 600;
+}
+</style>
+{% endblock content %}

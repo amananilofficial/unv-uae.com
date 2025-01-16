@@ -1,0 +1,648 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block title %}{{ meta_title|default:category.name }} - Uniview{% endblock %}
+{% block meta_description %}{{ meta_description|default:category.description }}{% endblock %}
+
+{% block meta_tags %}
+<!-- SEO Meta Tags -->
+<meta name="keywords" content="{{ meta_keywords }}">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Uniview">
+<meta name="description" content="{{ meta_description|default:category.description }}">
+
+<!-- Open Graph / Social Media Meta Tags -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ category.name|default:'All Products' }} - Uniview">
+<meta property="og:description"
+    content="{% if category %}{{ category.description }}{% else %}Explore Uniview's complete collection of innovative AIoT products{% endif %}">
+<meta property="og:image" content="{% static 'images/product/og-image.jpg' %}">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:locale" content="en_AE">
+<meta property="og:site_name" content="Uniview UAE">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ category.name|default:'All Products' }} - Uniview">
+<meta name="twitter:description"
+    content="{% if category %}{{ category.description }}{% else %}Explore Uniview's complete collection of innovative AIoT products{% endif %}">
+<meta name="twitter:image" content="{% static 'images/product/og-image.jpg' %}">
+
+<!-- Accessibility Meta Tags -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="theme-color" content="#2193b0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<!-- Performance Meta Tags -->
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+<meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- PWA Meta Tags -->
+<link rel="manifest" href="{% static 'manifest.json' %}">
+<meta name="application-name" content="Uniview Products">
+<meta name="apple-mobile-web-app-title" content="Uniview Products">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+<!-- Additional Meta Tags for UAE -->
+<meta name="geo.region" content="AE-DU">
+<meta name="geo.placename" content="Dubai">
+<meta name="geo.position" content="25.2744;55.3009">
+<meta name="ICBM" content="25.2744, 55.3009">
+{% endblock %}
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Uniview UAE",
+    "url": "https://www.unv-uae.com",
+    "logo": "https://www.unv-uae.com/static/images/logo/logo.svg",
+    "description": "Leading provider of AIoT solutions including security systems, surveillance cameras, industrial automation, smart city solutions, and IoT integration in UAE",
+    "sameAs": [
+        "https://www.linkedin.com/company/digital-link-technology-uae/",
+        "https://www.instagram.com/digitallinktechnologyllc/",
+        "https://www.facebook.com/people/Digital-Link-Technology-LLC/100087290161175/?mibextid=ZbWKwL"
+    ],
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+971-509162488",
+        "email": "sales1@digitallink.ae",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Arabic"],
+        "areaServed": ["AE", "OM", "BH", "SA", "KW", "QA"],
+        "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+            ],
+            "opens": "09:00",
+            "closes": "18:00"
+        }
+    },
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira",
+        "addressLocality": "Dubai",
+        "addressRegion": "Dubai",
+        "postalCode": "123421",
+        "addressCountry": "AE"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "25.2744",
+        "longitude": "55.3009"
+    },
+    "CategoryType": "AIoT-based industrial automation, Smart city Categories, Healthcare IoT integration, Custom development"
+}
+</script>
+{% block content %}
+<style>
+    /* Color Variables */
+    :root {
+        --primary-gradient: linear-gradient(135deg, #084aa0 0%, #0e52b9 100%);
+        --primary-color: #ffffff;
+        --secondary-color: #000000;
+        --text-dark: #2c3e50;
+        --text-light: #6c757d;
+        --white: #ffffff;
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+        --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+    }
+
+    /* Banner Styles */
+    .banner_inner {
+        min-height: 300px;
+        background: transparent;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Products Section */
+    #products {
+        background-color: #f8f9fa;
+        padding: 4rem 0;
+    }
+
+    /* Product Card */
+    .product-card {
+        background: var(--white);
+        border-radius: 12px;
+        border: none;
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition);
+        overflow: hidden;
+    }
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-md);
+    }
+
+    .product-image {
+        height: 240px;
+        object-fit: cover;
+        transition: var(--transition);
+    }
+
+    .product-card:hover .product-image {
+        transform: scale(1.05);
+    }
+
+    .product-title {
+        font-weight: 600;
+        color: var(--text-dark);
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .product-description {
+        color: var(--text-light);
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    /* Category Sidebar */
+    .category-sidebar {
+        background: var(--white);
+        border-radius: 15px;
+        box-shadow: var(--shadow-md);
+        padding: 25px;
+    }
+
+    .category-header {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 1.8rem;
+        padding-bottom: 1.2rem;
+        border-bottom: 2px solid #eef2f7;
+        position: relative;
+    }
+
+    .category-header:after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 60px;
+        height: 2px;
+        background: var(--primary-color);
+    }
+
+    /* Category Items */
+    .category-item {
+        padding: 16px 20px;
+        margin-bottom: 12px;
+        border-radius: 10px;
+        color: var(--text-dark);
+        background: #f8f9fa;
+        text-decoration: none;
+        transition: var(--transition);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid transparent;
+    }
+
+    .category-content {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .category-icon {
+        font-size: 1.2rem;
+        color: var(--primary-color);
+        width: 24px;
+        text-align: center;
+    }
+
+    .category-text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .category-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 2px;
+    }
+
+    .category-subtitle {
+        font-size: 0.85rem;
+        color: var(--text-light);
+    }
+
+    .category-count {
+        background: rgba(33, 147, 176, 0.1);
+        color: var(--primary-color);
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        min-width: 45px;
+        text-align: center;
+    }
+
+    .category-item:hover {
+        background: var(--white);
+        border-color: var(--primary-color);
+        transform: translateX(5px);
+    }
+
+    .category-item.active {
+        background: var(--primary-gradient);
+        color: var(--white);
+    }
+
+    .category-item.active .category-icon,
+    .category-item.active .category-name,
+    .category-item.active .category-subtitle,
+    .category-item.active .category-count {
+        color: var(--white);
+    }
+
+    .category-item.active .category-count {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Search Input */
+    .category-search input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        font-size: 0.95rem;
+        transition: var(--transition);
+    }
+
+    .category-search input:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(33, 147, 176, 0.1);
+        outline: none;
+    }
+
+    /* View Details Button */
+    .view-details-btn {
+        background: var(--primary-gradient);
+        color: var(--white);
+        border: none;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-weight: 500;
+        transition: var(--transition);
+    }
+
+    .view-details-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(33, 147, 176, 0.2);
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 992px) {
+        .category-sidebar {
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .banner_inner {
+            min-height: 250px;
+        }
+
+        .product-card {
+            margin-bottom: 1.5rem;
+        }
+
+        .category-sidebar {
+            position: relative;
+            top: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .mobile-filters-toggle {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            background: var(--primary-gradient);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .mobile-filters-toggle i {
+            float: right;
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-filters-toggle.active i {
+            transform: rotate(180deg);
+        }
+
+        .category-sidebar {
+            display: none;
+        }
+
+        .category-sidebar.show {
+            display: block;
+        }
+
+        .categories-list {
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        .categories-list::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .categories-list::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        .categories-list::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+    }
+</style>
+
+<section class="home_banner_area hero" id="about">
+    <div class="banner_inner d-flex align-items-center" style="min-height: 400px; position: relative; o">
+        <div
+            style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('{% static 'images/product/1.webp' %}') center/cover; opacity: 1;">
+        </div>
+        <div class="container position-relative">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center text-white">
+                    <h1 class="text-uppercase mb-4"
+                        style="font-size: 3rem; font-weight: 800; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                        {% if category %}
+                        {{ category.name }}
+                        {% else %}
+                        All Products
+                        {% endif %}
+                    </h1>
+                    <p class="lead mb-4"
+                        style="font-size: 1.3rem; font-weight: 300; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);">
+                        {% if category %}
+                        {{ category.description }}
+                        {% else %}
+                        Explore our complete collection of amazing products
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="products" class="py-5" style="background-color: #f8f9fa;">
+    <div class="container">
+        <div class="row">
+            <!-- Categories Sidebar -->
+            <div class="col-lg-3 mb-4">
+                <button class="mobile-filters-toggle d-lg-none">
+                    Filters & Categories <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="category-sidebar" style="color: black;">
+                    <h3 class="category-header">Browse Categories</h3>
+
+                    <!-- Add search input -->
+                    <div class="category-search mb-4">
+                        <input type="text" id="categorySearch" class="form-control" placeholder="Search categories..."
+                            aria-label="Search categories">
+                    </div>
+
+                    <div class="categories-list">
+                        <a href="{% url 'products:category_list' %}" 
+                           class="category-item {% if not category %}active{% endif %}">
+                            <div class="category-content">
+                                <i class="fas fa-th-large category-icon" style="color: black;"></i>
+                                <div class="category-text">
+                                    <span class="category-name">All Products</span>
+                                    <span class="category-subtitle">Browse our complete collection</span>
+                                </div>
+                            </div>
+                            <span class="category-count">{{ total_products_count }}</span>
+                        </a>
+
+                        {% for cat in categories %}
+                        <a href="{% url 'products:category' cat.id %}"
+                            class="category-item {% if cat.id == category.id %}active{% endif %}">
+                            <div class="category-content">
+                                <i class="fas fa-folder category-icon" style="color: black;"></i>
+                                <div class="category-text">
+                                    <span class="category-name">{{ cat.name }}</span>
+                                    <span class="category-subtitle">Explore {{ cat.name }}</span>
+                                </div>
+                            </div>
+                            <span class="category-count">{{ cat.product_count }}</span>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="col-lg-9">
+                <h2 class="mb-4" style="font-weight: 700; color: #333;">
+                    {% if category %}
+                    Products in "{{ category.name }}"
+                    {% else %}
+                    All Products
+                    {% endif %}
+                    <div style="width: 50px; height: 3px; background: #2193b0; margin-top: 15px;"></div>
+                </h2>
+                <div class="row">
+                    {% if all_products %}
+                        {% for product in all_products %}
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="card product-card h-100">
+                                <div class="product-image-wrapper">
+                                    <img src="{{ product.photo_main.url }}" alt="{{ product.name }}"
+                                        class="card-img-top product-image" loading="lazy">
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <span class="text-muted small text-uppercase mb-2">{{ product.category.name }}</span>
+                                    <h5 class="product-title">{{ product.name }}</h5>
+                                    <p class="product-description flex-grow-1">{{ product.description|truncatechars:100 }}</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <a href="{% url 'products:product_detail' product.slug %}"
+                                            class="btn btn-primary view-details-btn">
+                                            View Details
+                                        </a>
+                                        <div class="product-meta">
+                                            <span class="text-muted me-2"><i class="fas fa-star"></i> 4.5</span>
+                                            <span class="text-muted"><i class="fas fa-comment"></i> 12</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="col-12 text-center py-5">
+                            <div style="background: white; border-radius: 15px; padding: 3rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                                <i class="fas fa-box-open mb-3" style="font-size: 3rem; color: #2193b0;"></i>
+                                <p style="color: #666; font-size: 1.3rem; margin-bottom: 0;">
+                                    No products found.
+                                </p>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Use efficient selectors
+        const searchInput = document.getElementById('categorySearch');
+        const categoryItems = document.querySelectorAll('.category-item');
+        const filtersToggle = document.querySelector('.mobile-filters-toggle');
+        const sidebar = document.querySelector('.category-sidebar');
+
+        // Debounce search for better performance
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Optimized search function
+        const handleSearch = debounce(function (e) {
+            const searchTerm = e.target.value.toLowerCase().trim();
+
+            requestAnimationFrame(() => {
+                categoryItems.forEach(item => {
+                    const categoryName = item.querySelector('.category-name').textContent.toLowerCase();
+                    const categorySubtitle = item.querySelector('.category-subtitle').textContent.toLowerCase();
+                    const isMatch = categoryName.includes(searchTerm) || categorySubtitle.includes(searchTerm);
+                    item.style.display = isMatch ? 'flex' : 'none';
+                });
+            });
+        }, 150);
+
+        searchInput?.addEventListener('input', handleSearch);
+
+        // Mobile filters toggle with touch events
+        if (filtersToggle) {
+            filtersToggle.addEventListener('click', () => {
+                requestAnimationFrame(() => {
+                    sidebar.classList.toggle('show');
+                    filtersToggle.classList.toggle('active');
+                });
+            });
+        }
+
+        // Updated loadAllProducts function to prevent redirect and update content
+        window.loadAllProducts = function (e) {
+            if (e) e.preventDefault();  // Prevent default link behavior (redirection)
+
+            fetch('{% url "products:products" %}')
+                .then(response => response.json())
+                .then(data => {
+                    // Update products dynamically
+                    const productsContainer = document.querySelector('.row:has(.product-card)');
+                    if (productsContainer) {
+                        if (data.products.length > 0) {
+                            // Populate product cards
+                            productsContainer.innerHTML = data.products.map(product => `
+                                <div class="col-md-6 col-lg-4 mb-4">
+                                    <div class="card product-card h-100">
+                                        <div class="product-image-wrapper">
+                                            <img src="${product.photo_main}" alt="${product.name}"
+                                                 class="card-img-top product-image" loading="lazy">
+                                        </div>
+                                        <div class="card-body d-flex flex-column">
+                                            <span class="text-muted small text-uppercase mb-2">${product.category_name}</span>
+                                            <h5 class="product-title">${product.name}</h5>
+                                            <p class="product-description flex-grow-1">${product.description.substring(0, 100)}...</p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <a href="/products/${product.id}" class="btn btn-primary view-details-btn">
+                                                    View Details
+                                                </a>
+                                                <div class="product-meta">
+                                                    <span class="text-muted me-2"><i class="fas fa-star"></i> 4.5</span>
+                                                    <span class="text-muted"><i class="fas fa-comment"></i> 12</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('');
+                        } else {
+                            // No products found
+                            productsContainer.innerHTML = `
+                                <div class="col-12 text-center py-5">
+                                    <div style="background: white; border-radius: 15px; padding: 3rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                                        <i class="fas fa-box-open mb-3" style="font-size: 3rem; color: #2193b0;"></i>
+                                        <p style="color: #666; font-size: 1.3rem; margin-bottom: 0;">
+                                            No products found.
+                                        </p>
+                                    </div>
+                                </div>
+                            `;
+                        }
+
+                        // Update count in the sidebar
+                        const countElement = document.querySelector('[onclick="loadAllProducts(event)"] .category-count');
+                        if (countElement) {
+                            countElement.textContent = data.total_count;
+                        }
+
+                        // Update active state
+                        document.querySelectorAll('.category-item').forEach(item => {
+                            item.classList.remove('active');
+                        });
+                        document.querySelector('[onclick="loadAllProducts(event)"]').classList.add('active');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading products:', error);
+                    // Handle any error gracefully (show a message or similar)
+                });
+        };
+    });
+
+    function showAllProducts(event) {
+        event.preventDefault();
+        // Show all products that might be hidden
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.closest('.col-md-6').style.display = 'block';
+        });
+        
+        // Update active state
+        document.querySelectorAll('.category-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        event.currentTarget.classList.add('active');
+    }
+</script>
+
+
+{% endblock content %}

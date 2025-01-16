@@ -1,0 +1,587 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Hotel - Uniview{% endblock %}
+{% block meta_description %}Learn more about Uniview's AIoT Hotels - Providing smart security solutions, staff monitoring, and enhanced guest experiences for modern hospitality.{% endblock %}
+{% block og_image %}/static/images/about-og-image.jpg{% endblock %}
+{% block schema_url %}{% url 'pages:hotel' %}{% endblock %}
+
+{% block extra_meta %}
+<!-- SEO Meta Tags -->
+<meta name="keywords" content="hotel security, AIoT hotels, smart hotel solutions, hotel surveillance, staff monitoring, guest experience, Dubai hotels, UAE hospitality, Middle East hotels">
+<meta name="author" content="Uniview">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{% url 'pages:hotel' %}">
+<meta name="description" content="Discover Uniview's AIoT Hotels in Dubai, providing smart security solutions, staff monitoring, and enhanced guest experiences for modern hospitality.">
+
+<!-- Open Graph / Social Media -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Smart Hotel Solutions - Uniview">
+<meta property="og:site_name" content="Uniview">
+<meta property="og:locale" content="en_US">
+<meta property="og:description" content="Explore our AIoT hotel solutions in Dubai, enhancing security and guest experiences.">
+<meta property="og:url" content="https://www.unv-uae.com/pages/hotel">
+<meta property="og:image" content="/static/images/about-og-image.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Smart Hotel Solutions - Uniview">
+<meta name="twitter:description" content="Learn more about Uniview's AIoT Hotels - Providing smart security solutions, staff monitoring, and enhanced guest experiences.">
+<meta name="twitter:image" content="/static/images/about-og-image.jpg">
+
+<!-- Performance & Security -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline';">
+
+<!-- PWA -->
+<meta name="theme-color" content="#2c2c2c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<!-- Preload Critical Resources -->
+<link rel="preload" href="{% static 'images/solutions/hotel/1.webp' %}" as="image">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+
+<!-- Performance & Resource Hints -->
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+<!-- Modern Font Loading -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</noscript>
+
+<!-- Critical CSS remains inline, rest moved to external -->
+<link rel="stylesheet" href="{% static 'css/hotel.min.css' %}" media="print" onload="this.media='all'">
+{% endblock %}
+
+{% block content %}
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Uniview UAE | Hotel | Uniview | Global AIoT Solutions Provider",
+    "url": "https://www.unv-uae.com",
+    "logo": "https://www.unv-uae.com/static/images/logo/logo.svg",
+    "description": "Leading provider of AIoT solutions including security systems, surveillance cameras, industrial automation, smart city solutions, and IoT integration in UAE",
+    "sameAs": [
+        "https://www.linkedin.com/company/digital-link-technology-uae/",
+        "https://www.instagram.com/digitallinktechnologyllc/",
+        "https://www.facebook.com/people/Digital-Link-Technology-LLC/100087290161175/?mibextid=ZbWKwL"
+    ],
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+971-509162488",
+        "email": "sales1@digitallink.ae",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Arabic"],
+        "areaServed": ["AE", "OM", "BH", "SA", "KW", "QA"],
+        "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+            ],
+            "opens": "09:00",
+            "closes": "18:00"
+        }
+    },
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira",
+        "addressLocality": "Dubai",
+        "addressRegion": "Dubai",
+        "postalCode": "123421",
+        "addressCountry": "AE"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "25.2744",
+        "longitude": "55.3009"
+    }
+}
+</script>
+<style>
+  :root {
+    --primary: #007bff;
+    --dark: #2c2c2c;
+    --light: #f9f7f4;
+    --white: #ffffff;
+    --gray: #666666;
+    --shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    --radius: 12px;
+    
+    /* System font stack */
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  }
+
+  /* Critical CSS only */
+  body {
+    font-family: var(--font-family);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--dark);
+    text-align: center;
+    margin: 3rem 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--dark);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--gray);
+    margin-bottom: 1rem;
+  }
+
+  /* Hero Banner */
+  .sub-banner {
+    position: relative;
+    height: 60vh;
+    background-color: var(--dark);
+  }
+
+  .sub-banner .bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    transition: transform 1.2s ease;
+  }
+
+  .sub-banner:hover .bg {
+    transform: scale(1.05);
+  }
+
+  .sub-banner .txt {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .sub-banner .unv-tit {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .sub-banner .unv-subtit {
+    font-size: 1.2rem;
+    color: var(--white);
+    letter-spacing: 1px;
+    font-weight: 300;
+  }
+
+  /* Navigation */
+  .adds-nav {
+    background: var(--light);
+    padding: 1rem 0;
+  }
+
+  .adds-nav a {
+    display: block;
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0.75rem 1.5rem;
+    margin: 0.5rem 0;
+    letter-spacing: 1px;
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .adds-nav a:hover {
+    color: var(--primary);
+  }
+
+  .unv-solution-challenges-wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .Challenges-box {
+    background: var(--white);
+    padding: 0.75rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+
+  .Challenges-box img {
+    width: 70%;
+    height: 250px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+
+  .Challenges-box h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .Challenges-box p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  /* Solution List */
+  .solution-list-wrap {
+    display: grid;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .solution-list-box {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: all 0.4s ease;
+    margin: 0 1rem;
+  }
+
+  .solution-list-box:hover {
+    transform: translateY(-10px);
+  }
+
+  .solution-list-box img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--radius);
+  }
+
+  /* Success Cases */
+  .unv-solution-case-wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    padding: 0 1rem;
+  }
+
+  .solution-case-box {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.4s ease;
+    text-decoration: none;
+    display: block;
+  }
+
+  .solution-case-box:hover {
+    transform: translateY(-10px);
+  }
+
+  .solution-case-box img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+  }
+
+  .solution-case-box:hover img {
+    transform: scale(1.05);
+  }
+
+  .solution-case-box h4 {
+    padding: 1rem;
+    margin: 0;
+    text-align: center;
+    background: var(--white);
+  }
+
+  /* Container */
+  .wr {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .header-fix {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  @media (min-width: 768px) {
+    .adds-nav a {
+      display: inline-block;
+      margin: 0 0.5rem;
+    }
+
+    .unv-solution-challenges-wrap {
+      grid-template-columns: repeat(3, 1fr);
+      padding: 0;
+    }
+
+    .solution-list-box {
+      grid-template-columns: 1fr;
+      margin: 0;
+    }
+
+    .unv-solution-case-wrap {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .solution-list-box {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .unv-solution-case-wrap {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    h2 {
+      font-size: 3rem;
+    }
+  }
+
+  /* Performance optimizations for images */
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    content-visibility: auto;
+  }
+  
+  /* Accessibility improvements */
+  .adds-nav a:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+  
+  .solution-case-box {
+    position: relative;
+  }
+  
+  .solution-case-box:focus {
+    outline: none;
+  }
+  
+  .solution-case-box:focus-visible {
+    outline: 2px solid var(--primary);
+  }
+</style>
+
+<!-- Rest of the previous template content remains the same -->
+<div class="header-fix wr" role="main">
+  <div class="sub-banner wr">
+    <div class="bg pc" 
+         data-image 
+         style="background-image: url({% static 'images/solutions/hotel/1.webp' %})"
+         role="img" 
+         aria-label="Hotel banner image"
+         loading="lazy"
+         decoding="async"
+         fetchpriority="high">
+    </div>
+    <div class="bg mb" data-image style="background-image: url({% static 'images/solutions/hotel/1.webp' %});">
+    </div>
+    <div class="txt col-fff">
+      <div class="unv-tit lh1">Uniview Solution for Hotel</div>
+      <div class="unv-subtit">Better Customer Experience, Better Hotel Operation</div>
+    </div>
+  </div>
+  <nav class="adds-nav wr" aria-label="Page sections">
+    <div class="wr">
+      <a href="#challenges" onclick="scrollToSection('challenges')">Challenges</a>
+      <a href="#hotel-solution" onclick="scrollToSection('hotel-solution')">Hotel Solution</a>
+      <a href="#success-cases" onclick="scrollToSection('success-cases')">Success Cases</a>
+    </div>
+  </nav>
+  <div class="wr">
+    <div class="view">
+      <h2>Challenges</h2>
+
+      <div class="unv-solution-challenges-wrap">
+        <div class="Challenges-box">
+          <img src="{% static 'images/solutions/hotel/2.webp' %}" alt="Staff monitoring illustration" loading="lazy">
+          <h4>Staff Monitoring</h4>
+          <p>Non-compliance with safety procedures and job duties may lead to customer conflicts.</p>
+        </div>
+        <div class="Challenges-box">
+          <img src="{% static 'images/solutions/hotel/3.webp' %}" alt="">
+          <h4>Unauthorized Access</h4>
+          <p>Unauthorized access to restricted or hazardous areas can disrupt hotel operations.</p>
+        </div>
+        <div class="Challenges-box">
+          <img src="{% static 'images/solutions/hotel/4.webp' %}" alt="">
+          <h4>Theft and Vandalism</h4>
+          <p>Property loss, poor guest experience, and damage to your hotel’s reputation</p>
+        </div>
+      </div>
+
+      <div class="unv-solution-wrap pordw" id="hotel-solution">
+        <h2>Hotel Solution</h2>
+        <div class="inc-box">
+          <P>The hotel serves as a prime destination for travelers, offering essential transit points and places of
+            relaxation. In today's digital age, alongside advancements in transportation systems and a rising demand for
+            accommodation, the hospitality industry is flourishing. Ensuring a comfortable environment for guests has
+            never been more crucial.</P>
+          <P>By addressing critical security challenges, UNV hotel security solution creates a safer environment for
+            guests and staff, ultimately enhancing the overall guest experience and reinforcing the hotel's reputation
+            for safety and reliability.</P>
+        </div>
+        <div class="solution-list-wrap">
+          <div class="solution-list-box">
+            <div class="img-box"> <img src="{% static 'images/solutions/hotel/5.webp' %}" alt="">
+            </div>
+            <div class="ft-box">
+              <h4>Optimizing duty performance for better hotel operation</h4>
+              <p>Effective staff monitoring is crucial for ensuring adherence to safety protocols and optimizing duty
+                performance. UNV offers advanced solutions like No Work Clothes Detection, On-duty Detection and
+                Sleep-on-duty Detection, which are essential for maintaining seamless hotel operations. </p>
+            </div>
+          </div>
+          <div class="solution-list-box">
+            <div class="img-box"> <img src="{% static 'images/solutions/hotel/6.webp' %}" alt="">
+            </div>
+            <div class="ft-box">
+              <h4>All-round protection,every detail from the entrance to the elevator</h4>
+              <p>UNV hotel security solution offers comprehensive protection by continuously monitoring key areas such
+                as corridors and elevators. It facilitates real-time monitoring and instant alarms for incidents such as
+                smoking, fighting, or people falling, enabling prompt incident responses to ensure the safety of guests
+                property. </p>
+            </div>
+          </div>
+          <div class="solution-list-box">
+            <div class="img-box"> <img src="{% static 'images/solutions/hotel/7.webp' %}" alt="">
+            </div>
+            <div class="ft-box">
+              <h4>More enjoyable and worry-free experience for guests</h4>
+              <p>Customer flow counting can help hotels optimize staffing, improve processes like check-in and
+                check-out, reduce wait times and improve overall guest convenience. In order to provide a better
+                customer experience, we provide VIP notification function and can protect user privacy through privacy
+                mask and face mosaic. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="unv-solution-wrap pordw" id="success-cases">
+        <h2>Success Cases</h2>
+        <div class="unv-solution-case-wrap">
+          <a class="solution-case-box" href="#" aria-label="View Pyramids Regency Hotel case study">
+            <img src="{% static 'images/solutions/hotel/8.webp' %}" alt="Pyramids Regency Hotel" loading="lazy">
+            <h4>Pyramids Regency Hotel in Egypt</h4>
+          </a>
+          <a class="solution-case-box">
+            <img src="{% static 'images/solutions/hotel/9.webp' %}" alt="">
+            <h4>Fraser Suites in Saudi Arabia</h4>
+          </a>
+          <a class="solution-case-box">
+            <img src="{% static 'images/solutions/hotel/10.webp' %}" alt="">
+            <h4>Andaz Hotel in Qatar</h4>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script defer>
+  // Intersection Observer for lazy loading
+  const observerOptions = {
+    root: null,
+    rootMargin: '50px',
+    threshold: 0.1
+  };
+
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        if (img.dataset.src) {
+          img.src = img.dataset.src;
+          img.removeAttribute('data-src');
+        }
+        observer.unobserve(img);
+      }
+    });
+  }, observerOptions);
+
+  // Smooth scroll with better performance
+  function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+
+    const offset = 50;
+    const elementPosition = section.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+    requestAnimationFrame(() => {
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    });
+  }
+
+  // Performance optimization for scroll events
+  let scrollTimeout;
+  window.addEventListener('scroll', () => {
+    if (scrollTimeout) {
+      window.cancelAnimationFrame(scrollTimeout);
+    }
+    scrollTimeout = window.requestAnimationFrame(() => {
+      // Scroll handling code
+    });
+  }, { passive: true });
+
+  // Initialize observers when DOM is ready
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('img[data-src]').forEach(img => {
+      imageObserver.observe(img);
+    });
+  });
+</script>
+{% endblock content %}

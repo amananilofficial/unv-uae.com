@@ -1,0 +1,1077 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% load static %}
+
+{# Merge meta blocks #}
+{% block meta %}
+    <title>{{ meta_title|default:product.name }}</title>
+    <meta name="description" content="{{ meta_description|default:product.description }}">
+    <meta name="keywords" content="{{ meta_keywords }}">
+{% endblock %}
+
+{# Meta tags for SEO, Accessibility, Performance and Best Practices #}
+{% block extra_head %}
+{# Basic SEO #}
+<meta name="title" content="{{ product.name }} - Uniview Products">
+<meta name="description" content="{{ product.description|truncatewords:30 }}">
+<meta name="keywords" content="security camera, {{ product.name }}, {{ product.category.name }}, Uniview, surveillance">
+<meta name="robots" content="index, follow">
+<meta name="language" content="English">
+<meta name="revisit-after" content="7 days">
+
+{# Open Graph / Facebook #}
+<meta property="og:type" content="product">
+<meta property="og:title" content="{{ product.name }} - Uniview Products">
+<meta property="og:description" content="{{ product.description|truncatewords:30 }}">
+<meta property="og:image" content="{{ product.photo_main.url }}">
+<meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:site_name" content="Uniview Products">
+
+{# Twitter #}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ product.name }} - Uniview Products">
+<meta name="twitter:description" content="{{ product.description|truncatewords:30 }}">
+<meta name="twitter:image" content="{{ product.photo_main.url }}">
+
+{# Accessibility #}
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="alternate" type="application/rss+xml" title="Product Feed" href="{% url 'products:products' %}">
+<meta name="theme-color" content="#2c5282">
+
+{# Performance #}
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+{% if product.photo_main %}
+<link rel="preload" as="image" href="{{ product.photo_main.url }}">
+{% endif %}
+
+{# Best Practices #}
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="canonical" href="{{ request.build_absolute_uri }}">
+
+<meta name="author" content="Digital Link Technology">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="theme-color" content="#2c5282">
+<meta name="robots" content="index, follow">
+<meta name="language" content="English">
+<meta name="revisit-after" content="7 days">
+<meta name="geo.region" content="AE-DU">
+<meta name="geo.placename" content="Dubai">
+<meta name="geo.position" content="25.2744;55.3009">
+<meta name="ICBM" content="25.2744, 55.3009">
+<meta property="og:locale" content="en_AE">
+<meta property="og:type" content="product">
+<meta property="og:site_name" content="Uniview Products">
+<meta property="og:email" content="sales1@digitallink.ae">
+<meta property="og:phone" content="+971509162488">
+<meta property="og:address" content="Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira, Dubai, United Arab Emirates, P.O.Box: 123421">
+<meta property="og:country" content="United Arab Emirates">
+{% endblock %}
+
+{# Improved SEO meta tags #}
+{% block title %}{{ product.name }} - Uniview Products{% endblock %}
+{% block meta_description %}{{ product.description|truncatewords:30 }} - Learn more about {{ product.name }} and our
+innovative AIoT solutions.{% endblock %}
+{% block og_image %}{{ product.photo_main.url }}{% endblock %}
+
+{# Enhanced Schema.org markup #}
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Product",
+    "name": "{{ product.name }}",
+    "description": "{{ product.description }}",
+    "image": "{{ product.photo_main.url }}",
+    "url": "{% url 'products:product_detail' product.id %}",
+    "brand": {
+        "@type": "Organization",
+        "name": "Uniview UAE | {{ product.name }} | Uniview | Global AIoT Solutions Provider",
+        "url": "https://www.unv-uae.com",
+        "logo": "https://www.unv-uae.com/static/images/logo/logo.svg",
+        "description": "Leading provider of AIoT solutions including security systems, surveillance cameras, industrial automation, smart city solutions, and IoT integration in UAE",
+        "sameAs": [
+            "https://www.linkedin.com/company/digital-link-technology-uae/",
+            "https://www.instagram.com/digitallinktechnologyllc/",
+            "https://www.facebook.com/people/Digital-Link-Technology-LLC/100087290161175/?mibextid=ZbWKwL"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+971509162488",
+            "email": "sales1@digitallink.ae",
+            "contactType": "customer service",
+            "availableLanguage": ["English", "Arabic"],
+            "areaServed": ["AE", "OM", "BH", "SA", "KW", "QA"],
+            "hoursAvailable": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                ],
+                "opens": "09:00",
+                "closes": "18:00"
+            }
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira",
+            "addressLocality": "Dubai",
+            "addressRegion": "Dubai",
+            "postalCode": "123421",
+            "addressCountry": "AE"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "25.2744",
+            "longitude": "55.3009"
+        }
+    },
+    "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock"
+    },
+    "CategoryType": "AIoT-based industrial automation, Smart city Categorys, Healthcare IoT integration, Custom development"
+}
+</script>
+{% block content %}
+<style>
+    /* Professional color palette */
+    :root {
+        --primary-color: #2c5282;
+        --secondary-color: #2b6cb0;
+        --accent-color: #4299e1;
+        --text-dark: #2d3748;
+        --text-light: #718096;
+        --background-light: #f7fafc;
+        --border-color: #e2e8f0;
+        --success-color: #28a745;
+        --hover-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Main Image Styles */
+    .img-main {
+        max-width: 600px;
+        width: 70%;
+        height: auto;
+        display: block;
+        margin-left: 60px;
+        margin-bottom: 20px;
+        border-radius: 12px;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        border: 1px solid var(--border-color);
+    }
+
+    .img-main:hover {
+        transform: scale(1.02);
+    }
+
+    /* Thumbnail Styles */
+    .thumbs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 15px;
+        padding: 20px 0;
+    }
+
+    .thumbs .col-md-2 {
+        flex: 0 0 90px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .thumbs img {
+        width: 90px;
+        height: 90px;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+        padding: 5px;
+        cursor: pointer;
+    }
+
+    .thumbs img:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--hover-shadow);
+    }
+
+    .thumbnail.active {
+        border-color: var(--primary-color);
+        transform: scale(1.05);
+    }
+
+    /* Product Info Card */
+    .product-info-card {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        width: 400px;
+        margin-left: 10px;
+    }
+
+    .description-title {
+        color: var(--primary-color);
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .description-content {
+        color: var(--text-light);
+        line-height: 1.4;
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Features List */
+    .features-title {
+        color: var(--text-dark);
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    .features-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .features-list li {
+        margin-bottom: 0.5rem;
+        color: var(--text-light);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.9rem;
+    }
+
+    .features-list i {
+        color: var(--success-color);
+        font-size: 1rem;
+    }
+
+    /* Specifications List */
+    .list-group-item {
+        padding: 16px 20px;
+        border: 1px solid var(--border-color);
+        margin-bottom: 8px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        border-left: 4px solid transparent;
+        background: linear-gradient(to right, #ffffff, #f8f9fa);
+    }
+
+    .list-group-item:hover {
+        border-left: 4px solid var(--success-color);
+        transform: translateX(5px);
+        background: linear-gradient(to right, #f8f9fa, #ffffff);
+    }
+
+    .list-group-item strong {
+        color: var(--text-dark);
+        font-weight: 600;
+    }
+
+    /* Button Styles */
+    .main-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 28px;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        border: none;
+        box-shadow: 0 8px 20px rgba(44, 82, 130, 0.25);
+        margin: 40px 0 20px;
+        width: 140px;
+    }
+
+    .main-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--hover-shadow);
+    }
+
+    /* Slider Controls */
+    .slider-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
+        color: white;
+        border: none;
+        padding: 20px;
+        cursor: pointer;
+        font-size: 18px;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s ease;
+    }
+
+    .prev {
+        left: 10px;
+        margin-left: -2%;
+    }
+
+    .next {
+        right: 10px;
+        margin-right: 25%;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+        .img-main {
+            width: 100%;
+            margin: 0 auto 20px;
+            max-height: 400px;
+            object-fit: contain;
+        }
+
+        .thumbs {
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .thumbs .col-md-2 {
+            flex: 0 0 70px;
+        }
+
+        .thumbs img {
+            width: 70px;
+            height: 70px;
+            padding: 3px;
+        }
+
+        .product-info-card {
+            width: 100%;
+            margin: 15px 0;
+        }
+
+        .col-md-3 {
+            margin-left: 0 !important;
+            padding: 0 15px;
+        }
+
+        .slider-btn {
+            width: 40px;
+            height: 40px;
+            padding: 10px;
+        }
+
+        .list-group-item {
+            font-size: 0.9rem;
+        }
+    }
+
+    /* Extra Small Devices */
+    @media (max-width: 576px) {
+        .thumbs .col-md-2 {
+            flex: 0 0 60px;
+        }
+
+        .thumbs img {
+            width: 60px;
+            height: 60px;
+            padding: 2px;
+        }
+
+        .description-title {
+            font-size: 1.2rem;
+        }
+
+        .description-content {
+            font-size: 0.9rem;
+        }
+
+        .features-list li {
+            font-size: 0.85rem;
+        }
+
+        .list-group-item {
+            padding: 10px 15px;
+            font-size: 0.9rem;
+        }
+    }
+
+    /* Modern Image Gallery Styles */
+    .product-gallery {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 30px;
+    }
+
+    .main-image-container {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        margin-bottom: 20px;
+    }
+
+    #mainImage {
+        width: 100%;
+        height: 400px;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+    }
+
+    .image-nav-buttons {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
+    .nav-button {
+        background: rgba(255, 255, 255, 0.9);
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-button:hover {
+        background: #fff;
+        transform: scale(1.1);
+    }
+
+    .thumbnails {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        padding: 10px 0;
+        scrollbar-width: thin;
+    }
+
+    .thumbnail {
+        width: 80px;
+        height: 80px;
+        border-radius: 6px;
+        cursor: pointer;
+        object-fit: cover;
+        transition: all 0.3s ease;
+        opacity: 0.7;
+    }
+
+    .thumbnail:hover {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    .thumbnail.active {
+        opacity: 1;
+        border: 2px solid #2563eb;
+    }
+
+    /* Modern Form Styles */
+    .inquiry-form {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        font-weight: 500;
+        color: #374151;
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #e5e7eb;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        outline: none;
+    }
+
+    textarea.form-control {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    .btn-secondary {
+        background: #2563eb;
+        color: #fff;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 6px;
+        font-weight: 500;
+        width: 100%;
+        transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+        background: #1d4ed8;
+        transform: translateY(-1px);
+    }
+
+    hr {
+        margin: 24px 0;
+        border: none;
+        border-top: 1px solid #e5e7eb;
+    }
+
+    /* Add new styles for rating */
+    .product-rating {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 15px 0;
+        color: var(--text-dark);
+    }
+
+    .rating {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .review-count {
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+
+    /* Review Section Styles */
+    .review-card {
+        background: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        border: 1px solid var(--border-color);
+    }
+
+    .rating-input {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+    }
+
+    .rating-input input {
+        display: none;
+    }
+
+    .star-label {
+        cursor: pointer;
+        padding: 0 5px;
+        font-size: 24px;
+    }
+
+    .star-label:hover,
+    .star-label:hover ~ .star-label,
+    .rating-input input:checked ~ .star-label {
+        color: #ffc107;
+    }
+
+    .star-label:hover i,
+    .star-label:hover ~ .star-label i,
+    .rating-input input:checked ~ .star-label i {
+        content: "\f005";
+        font-weight: 900;
+    }
+
+    .review-header {
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 10px;
+    }
+
+    .reviewer-info small {
+        font-size: 0.85rem;
+    }
+
+    .rating-display {
+        font-size: 1.1rem;
+    }
+
+    .review-content {
+        color: var(--text-light);
+        line-height: 1.6;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+        .review-card {
+            padding: 15px;
+        }
+        
+        .star-label {
+            font-size: 20px;
+        }
+    }
+
+    /* Add these styles to your existing stylesheet */
+    @media (min-width: 992px) {
+        #reviews, #contact-form-section {
+            padding: 2rem;
+            height: 100%;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        #reviews {
+            margin-right: 1rem;
+        }
+
+        #contact-form-section {
+            margin-left: 1rem;
+        }
+    }
+
+    @media (max-width: 991px) {
+        #reviews, #contact-form-section {
+            margin-bottom: 2rem;
+            padding: 1rem;
+        }
+    }
+
+    /* Optional: Add a separator line between sections on mobile */
+    @media (max-width: 991px) {
+        #reviews {
+            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+        }
+    }
+
+    /* Specifications Table Styles */
+    .specs-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        background: #fff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .specs-table th {
+        background: var(--primary-color);
+        color: white;
+        padding: 15px;
+        text-align: left;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+
+    .specs-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid var(--border-color);
+        color: var(--text-light);
+    }
+
+    .specs-table tr:last-child td {
+        border-bottom: none;
+    }
+
+    .specs-table tr:hover {
+        background: linear-gradient(to right, #f8f9fa, #ffffff);
+    }
+
+    .specs-category {
+        font-weight: 600;
+        color: var(--primary-color);
+        background: var(--background-light);
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+        .specs-table {
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+            font-size: 14px;  /* Slightly smaller font size */
+            width: 90%;      /* Reduced width */
+            margin: 20px auto; /* Center the table */
+        }
+
+        .specs-table th,
+        .specs-table td {
+            padding: 8px 12px;
+            min-width: 120px; /* Ensure minimum width for content */
+        }
+
+        .container {
+            padding: 0 10px; /* Reduce container padding */
+            width: 100%;
+        }
+    }
+
+    /* Extra Small Devices */
+    @media (max-width: 576px) {
+        .specs-table {
+            width: 95%;     /* Even more width on very small devices */
+            font-size: 13px; /* Slightly smaller font */
+        }
+
+        .specs-table th,
+        .specs-table td {
+            padding: 6px 10px;
+            min-width: 100px;
+        }
+    }
+</style>
+
+<!-- Product Section -->
+<section id="product" class="py-5">
+    <div class="container my-5">
+        <a href="{% url 'products:products' %}" class="btn main-btn pointer text-center animate mb-4">Back to
+            Products</a>
+        <div class="row">
+            <div class="col-md-9">
+                <!-- Main Image -->
+                <div class="position-relative">
+                    <img src="{{ product.photo_main.url }}" alt="{{ product.name }}" class="img-main img-fluid mb-3"
+                        id="mainImage">
+                    <!-- Slider Controls -->
+                    <button class="slider-btn prev" onclick="changeImage(-1)">❮</button>
+                    <button class="slider-btn next" onclick="changeImage(1)">❯</button>
+                </div>
+
+                <!-- Thumbnails Section -->
+                <div class="row mb-5 thumbs">
+                    {% if product.photo_main %}
+                    <div class="col-md-2">
+                        <img src="{{ product.photo_main.url }}" alt="Product Main" class="img-fluid thumbnail active"
+                            onclick="updateMainImage(this.src)">
+                    </div>
+                    {% endif %}
+                    {% if product.photo_1 %}
+                    <div class="col-md-2">
+                        <img src="{{ product.photo_1.url }}" alt="Product Thumbnail 1" class="img-fluid thumbnail"
+                            onclick="updateMainImage(this.src)">
+                    </div>
+                    {% endif %}
+                    {% if product.photo_2 %}
+                    <div class="col-md-2">
+                        <img src="{{ product.photo_2.url }}" alt="Product Thumbnail 2" class="img-fluid thumbnail"
+                            onclick="updateMainImage(this.src)">
+                    </div>
+                    {% endif %}
+                    {% if product.photo_3 %}
+                    <div class="col-md-2">
+                        <img src="{{ product.photo_3.url }}" alt="Product Thumbnail 3" class="img-fluid thumbnail"
+                            onclick="updateMainImage(this.src)">
+                    </div>
+                    {% endif %}
+                    {% if product.photo_4 %}
+                    <div class="col-md-2">
+                        <img src="{{ product.photo_4.url }}" alt="Product Thumbnail 4" class="img-fluid thumbnail"
+                            onclick="updateMainImage(this.src)">
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-3" style="margin-left: -250px;">
+                <div class="product-info-card">
+                    <h5 class="description-title">Product Overview</h5>
+                    <div class="name-content">
+                        {{ product.name }}
+                    </div>
+                    <div class="description-content">
+                        {{ product.description }}
+                    </div>
+                    <!-- Key features section -->
+                    <div class="key-features mt-4">
+                        <h6 class="features-title">Key Features</h6>
+                        <ul class="features-list">
+                            {% if product.max_resolution %}
+                            <li><i class="fas fa-check-circle"></i> {{ product.max_resolution }} Resolution</li>
+                            {% endif %}
+                            {% if product.day_night %}
+                            <li><i class="fas fa-check-circle"></i> {{ product.day_night }} Vision</li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    <div class="rating-summary">
+                        <h6 class="features-title" style="color: black;">Customer Reviews</h6>
+                        <div class="product-rating">
+                            <div class="rating">{{ average_rating|default:"0" }}/5</div>
+                            <div class="stars">
+                                {% for i in "12345"|make_list %}
+                                    {% if forloop.counter <= average_rating %}
+                                        <i class="fas fa-star text-warning"></i>
+                                    {% else %}
+                                        <i class="far fa-star text-warning"></i>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            <span class="review-count">({{ reviews.count|default:"0" }} reviews)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Specifications -->
+<section id="specifications" class="py-5">
+    <div class="container my-5">
+        <table class="specs-table">
+            <tr>
+                <th colspan="2">Camera</th>
+                <th colspan="2">Video & Audio</th>
+            </tr>
+            <tr>
+                <td><strong>Max Resolution</strong></td>
+                <td>{{ product.max_resolution }}</td>
+                <td><strong>Video Compression</strong></td>
+                <td>{{ product.video_compression }}</td>
+            </tr>
+            <tr>
+                <td><strong>Sensor</strong></td>
+                <td>{{ product.sensor }}</td>
+                <td><strong>Frame Rate</strong></td>
+                <td>{{ product.frame_rate }}</td>
+            </tr>
+            <tr>
+                <td><strong>Day/Night</strong></td>
+                <td>{{ product.day_night }}</td>
+                <td><strong>Audio Compression</strong></td>
+                <td>{{ product.audio_compression }}</td>
+            </tr>
+            <tr>
+                <td><strong>WDR</strong></td>
+                <td>{{ product.wdr }}</td>
+                <td><strong>Two-Way Audio</strong></td>
+                <td>{{ product.two_way_audio }}</td>
+            </tr>
+
+            <tr>
+                <th colspan="2">Lens</th>
+                <th colspan="2">General</th>
+            </tr>
+            <tr>
+                <td><strong>Focal Length</strong></td>
+                <td>{{ product.focal_length }}</td>
+                <td><strong>Power</strong></td>
+                <td>{{ product.power }}</td>
+            </tr>
+            <tr>
+                <td><strong>Adjustment Angle</strong></td>
+                <td>{{ product.adjustment_angle }}</td>
+                <td><strong>Dimensions</strong></td>
+                <td>{{ product.dimensions }}</td>
+            </tr>
+            <tr>
+                <td><strong>Shutter</strong></td>
+                <td>{{ product.shutter }}</td>
+                <td><strong>Weight</strong></td>
+                <td>{{ product.weight }}</td>
+            </tr>
+        </table>
+    </div>
+</section>
+
+<!-- Reviews and Contact Section -->
+<div class="container my-5">
+    <div class="row">
+        <!-- Reviews Section - Left Side -->
+        <div class="col-md-6">
+            <section id="reviews" class="py-5">
+                <h3 class="mb-4" style="color: black;">Customer Reviews</h3>
+                
+                <!-- Review Form -->
+                <div class="review-form-container mb-5">
+                    <h4 style="color: black;">Write a Review</h4>
+                    <form method="POST" action="{% url 'products:add_review' product.id %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label>Rating</label>
+                            <div class="rating-input mb-3">
+                                {% for i in "54321"|make_list %}
+                                    <input type="radio" name="rating" value="{{ i }}" id="star{{ i }}" required>
+                                    <label for="star{{ i }}" class="star-label">
+                                        <i class="far fa-star"></i>
+                                    </label>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="name" class="form-control" required 
+                                {% if user.is_authenticated %}value="{{ user.username }}"{% endif %}>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" name="email" class="form-control" required
+                                {% if user.is_authenticated %}value="{{ user.email }}"{% endif %}>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" name="phone" class="form-control"
+                                {% if user.is_authenticated %}value="{{ user.phone }}"{% endif %} required>
+                        </div>
+                        <div class="form-group">
+                            <label>Review</label>
+                            <textarea name="review" class="form-control" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                    </form>
+                </div>
+
+                <!-- Reviews List -->
+                <div class="reviews-list" style="color: black;">
+                    {% for review in reviews %}
+                    <div class="review-card mb-4">
+                        <div class="review-header d-flex justify-content-between align-items-center">
+                            <div class="reviewer-info">
+                                <h5 class="mb-0">{{ review.name }}</h5>
+                                <small class="text-muted">{{ review.created_at|date:"F d, Y" }}</small>
+                            </div>
+                            <div class="rating-display">
+                                {% for i in "12345"|make_list %}
+                                    {% if forloop.counter <= review.rating %}
+                                        <i class="fas fa-star text-warning"></i>
+                                    {% else %}
+                                        <i class="far fa-star text-warning"></i>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="review-content mt-3">
+                            <p>{{ review.review }}</p>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <p class="text-muted">No reviews yet. Be the first to review this product!</p>
+                    {% endfor %}
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact Form Section - Right Side -->
+        <div class="col-md-6">
+            <section id="contact-form-section" class="py-5">
+                <h3 class="text-center" style="color: black;">Send Inquiry</h3>
+                <h4 class="text-center mb-4" style="color: black;">{{ product.name }}</h4>
+                <form method="POST" action="{% url 'products:detail_contact_form' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="category_id" value="{{ product.category.id }}">
+                    <input type="hidden" name="product_id" value="{{ product.id }}">
+
+                    <div class="form-group">
+                        <label for="name" class="col-form-label">Name:</label>
+                        <input {% if user.is_authenticated %} value="{{ user.username }}" {% endif %} type="text" name="name"
+                            class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="col-form-label">Email:</label>
+                        <input {% if user.is_authenticated %} value="{{ user.email }}" {% endif %} type="email" name="email"
+                            class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone" class="col-form-label">Phone:</label>
+                        <input {% if user.is_authenticated %} value="{{ user.phone }}" {% endif %} type="text" name="phone"
+                            class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="col-form-label">Message:</label>
+                        <textarea {% if user.is_authenticated %} value="{{ user.message }}" {% endif %} name="message"
+                            class="form-control"></textarea>
+                    </div>
+
+                    <hr>
+                    <input type="submit" value="Send Inquiry" class="btn btn-block btn-secondary">
+                </form>
+            </section>
+        </div>
+    </div>
+</div>
+
+<!-- Add this script section before the closing body tag -->
+<script>
+    const images = [
+        {% if product.photo_main %}
+            "{{ product.photo_main.url }}"{% if product.photo_1 or product.photo_2 or product.photo_3 or product.photo_4 %},{% endif %}
+        {% endif %}
+        {% if product.photo_1 %}
+            "{{ product.photo_1.url }}"{% if product.photo_2 or product.photo_3 or product.photo_4 %},{% endif %}
+        {% endif %}
+        {% if product.photo_2 %}
+            "{{ product.photo_2.url }}"{% if product.photo_3 or product.photo_4 %},{% endif %}
+        {% endif %}
+        {% if product.photo_3 %}
+            "{{ product.photo_3.url }}"{% if product.photo_4 %},{% endif %}
+        {% endif %}
+        {% if product.photo_4 %}
+            "{{ product.photo_4.url }}"
+        {% endif %}
+    ].filter(Boolean);
+
+    let currentImageIndex = 0;
+
+    function updateMainImage(src) {
+        const mainImage = document.getElementById('mainImage');
+        mainImage.style.opacity = '0';
+        setTimeout(() => {
+            mainImage.src = src;
+            mainImage.style.opacity = '1';
+        }, 200);
+        currentImageIndex = images.indexOf(src);
+        updateThumbnailActive();
+    }
+
+    function changeImage(direction) {
+        currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
+        updateMainImage(images[currentImageIndex]);
+    }
+
+    function updateThumbnailActive() {
+        document.querySelectorAll('.thumbnail').forEach((thumb, index) => {
+            thumb.classList.toggle('active', index === currentImageIndex);
+        });
+    }
+
+    // Add smooth fade transition to main image
+    document.getElementById('mainImage').style.transition = 'opacity 0.2s ease-in-out';
+</script>
+
+{% endblock %}

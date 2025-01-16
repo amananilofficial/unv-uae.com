@@ -1,0 +1,730 @@
+﻿{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Career Opportunities at Uniview - Join Our Global Team{% endblock %}
+{% block meta_description %}Join Uniview's innovative team in AIoT and video surveillance. Explore exciting career
+opportunities in technology, sales, and technical support. Be part of our global mission to create safer, smarter
+solutions.{% endblock %}
+
+{% block meta_tags %}
+<meta name="keywords"
+  content="Uniview careers, technology jobs, AIoT jobs, video surveillance careers, tech company jobs, global opportunities, Dubai jobs, UAE careers, Middle East technology jobs">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Uniview">
+<meta name="description" content="Explore exciting career opportunities at Uniview in Dubai, UAE. Join our innovative team in AIoT and video surveillance.">
+
+<meta property="og:title" content="Career Opportunities at Uniview - Join Our Global Team">
+<meta property="og:type" content="website">
+<meta property="og:image" content="{% static 'images/about-og-image.jpg' %}">
+<meta property="og:url" content="{% url 'pages:careers' %}">
+<meta property="og:description" content="Join Uniview's innovative team in AIoT and video surveillance. Explore exciting career opportunities in Dubai, UAE.">
+<meta property="og:locale" content="en_AE">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Career Opportunities at Uniview">
+<meta name="twitter:description"
+  content="Join Uniview's innovative team in AIoT and video surveillance. Explore exciting career opportunities in Dubai, UAE.">
+<meta name="twitter:image" content="{% static 'images/about-og-image.jpg' %}">
+<meta name="twitter:site" content="@Uniview">
+<meta name="twitter:creator" content="@Uniview">
+
+<meta http-equiv="X-DNS-Prefetch-Control" content="on">
+<link rel="dns-prefetch" href="//www.uniview.com">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta name="theme-color" content="#0066cc">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="Uniview Careers">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Uniview Careers">
+
+<meta name="language" content="English">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block og_image %}/static/images/about-og-image.jpg{% endblock %}
+{% block schema_url %}{% url 'pages:careers' %}{% endblock %}
+{% block content %}
+<script type="application/ld+json">
+  {
+      "@context": "http://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "Uniview UAE",
+          "url": "https://www.unv-uae.com",
+          "logo": "https://www.unv-uae.com/static/images/logo/logo.svg",
+          "description": "Leading provider of AIoT solutions including security systems, surveillance cameras, industrial automation, smart city solutions, and IoT integration in UAE",
+          "sameAs": [
+              "https://www.linkedin.com/company/digital-link-technology-uae/",
+              "https://www.instagram.com/digitallinktechnologyllc/",
+              "https://www.facebook.com/people/Digital-Link-Technology-LLC/100087290161175/?mibextid=ZbWKwL"
+          ],
+          "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+971509162488",
+              "email": "sales1@digitallink.ae",
+              "contactType": "customer service",
+              "availableLanguage": ["English", "Arabic"],
+              "areaServed": ["AE", "OM", "BH", "SA", "KW", "QA"],
+              "hoursAvailable": {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday"
+                  ],
+                  "opens": "09:00",
+                  "closes": "18:00"
+              }
+          },
+          "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira",
+              "addressLocality": "Dubai",
+              "addressRegion": "Dubai",
+              "postalCode": "123421",
+              "addressCountry": "AE"
+          },
+          "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "25.2744",
+              "longitude": "55.3009"
+          }
+        },
+        {
+          "@type": "JobPosting",
+          "title": "Careers at Uniview UAE",
+          "description": "Join Uniview's innovative team in AIoT and video surveillance",
+          "url": "https://www.unv-uae.com/careers",
+          "hiringOrganization": {
+              "@type": "Organization",
+              "name": "Uniview UAE",
+              "logo": "https://www.unv-uae.com/static/images/logo/logo.svg",
+              "sameAs": [
+                  "https://www.linkedin.com/company/digital-link-technology-uae/",
+                  "https://www.instagram.com/digitallinktechnologyllc/",
+                  "https://www.facebook.com/people/Digital-Link-Technology-LLC/100087290161175/?mibextid=ZbWKwL"
+              ]
+          },
+          "jobLocation": {
+              "@type": "Place",
+              "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira",
+                  "addressLocality": "Dubai",
+                  "addressRegion": "Dubai",
+                  "postalCode": "123421",
+                  "addressCountry": "AE"
+              }
+          },
+          "industry": "Technology",
+          "employmentType": "FULL_TIME",
+          "workHours": "Full-time",
+          "datePosted": "2024-01-01",
+          "validThrough": "2024-12-31",
+          "jobBenefits": [
+              "Health Insurance",
+              "Annual Leave",
+              "Professional Development"
+          ]
+        }
+      ]
+  }
+</script>
+<style>
+  .sub-banner {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+  }
+
+  .sub-banner .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+  }
+
+  .sub-banner .bg.pc {
+    display: block;
+    /* Default for larger screens */
+  }
+
+  .sub-banner .bg.mb {
+    display: none;
+    /* Hidden by default on larger screens */
+  }
+
+  .sub-banner .txt {
+    position: relative;
+    z-index: 2;
+    /* Ensure text appears above the background image */
+    text-align: center;
+    color: #fff;
+  }
+
+  .sub-banner .unv-tit {
+    font-size: 36px;
+    /* Main title size */
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .sub-banner .unv-subtit {
+    font-size: 18px;
+    /* Subtitle size */
+    line-height: 1.5;
+  }
+
+  /* Responsive Styling */
+  @media (max-width: 768px) {
+    .sub-banner .bg.pc {
+      display: none;
+      /* Hide PC image on smaller screens */
+    }
+
+    .sub-banner .bg.mb {
+      display: block;
+      /* Show MB image on smaller screens */
+    }
+
+    .sub-banner {
+      height: 250px;
+      /* Reduce height for smaller screens */
+    }
+
+    .sub-banner .unv-tit {
+      font-size: 28px;
+    }
+
+    .sub-banner .unv-subtit {
+      font-size: 14px;
+    }
+  }
+
+  .adds-nav {
+    text-align: center;
+    margin: 20px 0;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 100;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .adds-nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    margin-right: 30px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #0066cc;
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  .careers-a {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 80px 20px;
+    color: #000;
+    min-height: 500px;
+    background-attachment: fixed;
+  }
+
+  .careers-a .view {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .careers-a .unv-tit {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .careers-a .tit-24 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+
+  .careers-a .tit-16 {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+  }
+
+  .careers-a .tit-16 p {
+    margin: 10px 0;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .adds-nav .wr {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .careers-a {
+      padding: 40px 15px;
+    }
+
+    .careers-a .unv-tit {
+      font-size: 28px;
+    }
+
+    .careers-a .tit-24 {
+      font-size: 20px;
+    }
+
+    .careers-a .tit-16 {
+      font-size: 14px;
+    }
+  }
+
+  #why-join-us {
+    padding: 50px 15px;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+
+  #why-join-us .unv-tit {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #333;
+    text-align: center;
+    width: 100%;
+  }
+
+  #why-join-us .list {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  #why-join-us .li {
+    flex: 1;
+    min-width: 300px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  #why-join-us .li:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+  }
+
+  #why-join-us .img {
+    margin-bottom: 20px;
+  }
+
+  #why-join-us .bg {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+  }
+
+  #why-join-us .tit-24 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 15px 0 10px;
+    color: #333;
+  }
+
+  #why-join-us .tit-16 {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+  }
+
+  .careers-c {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .careers-c .list {
+    margin-top: 40px;
+  }
+
+  .careers-c .li {
+    margin-bottom: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  .careers-c .li:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  .careers-c .litop {
+    width: 100%;
+    padding: 20px 30px;
+    background: #0066ff;
+    color: white;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+  }
+
+  .careers-c .litop:hover {
+    background: #0052cc;
+  }
+
+  .careers-c .litop h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .careers-c .litop::after {
+    content: '+';
+    font-size: 24px;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+  }
+
+  .careers-c .litop.active::after {
+    content: '−';
+    transform: rotate(180deg);
+  }
+
+  .careers-c .li-content {
+    padding: 30px;
+    background: white;
+    display: none;
+  }
+
+  .careers-c .tit-24 {
+    color: #333;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 20px 0 15px;
+  }
+
+  .careers-c .tit-24:first-child {
+    margin-top: 0;
+  }
+
+  .careers-c .tit-16 ul {
+    padding-left: 20px;
+    margin: 0;
+  }
+
+  .careers-c .tit-16 li {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .careers-c .tit-16.mt-4 {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    text-align: center;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .careers-c {
+      padding: 40px 15px;
+    }
+
+    .careers-c .litop {
+      padding: 15px 20px;
+    }
+
+    .careers-c .litop h3 {
+      font-size: 16px;
+    }
+
+    .careers-c .li-content {
+      padding: 20px;
+    }
+
+    .careers-c .tit-24 {
+      font-size: 18px;
+    }
+
+    .careers-c .tit-16 li {
+      font-size: 14px;
+    }
+  }
+
+  .unv-tit {
+    margin-bottom: 30px !important;
+    position: relative;
+    display: inline-block;
+  }
+
+  .unv-tit:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #0066cc;
+    border-radius: 2px;
+  }
+
+  .tit-16 p {
+    margin: 15px 0;
+    line-height: 1.8;
+  }
+
+  /* Add background image handling */
+  [data-image] {
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+  }
+</style>
+
+<div class="header-fix wr">
+  <div class="sub-banner wr" role="banner" aria-label="Career Banner">
+    <div class="bg pc" data-image style="--bg-image: url({% static 'images/careers/1.webp' %});" role="img"
+      aria-label="Career Banner Image">
+    </div>
+    <div class="bg mb" data-image style="--bg-image: url({% static 'images/careers/1.webp' %});">
+    </div>
+    <div class="txt col-fff">
+      <div class="unv-tit lh1">Career</div>
+      <div class="unv-subtit">Uniview is the pioneer and leader of IP video surveillance.</div>
+    </div>
+  </div>
+  <div class="adds-nav wr">
+    <div class="wr">
+      <a href="javascript:;" onclick="scrollToElement('who-we-are')" class="on">Who We Are </a>
+      <a href="javascript:;" onclick="scrollToElement('why-join-us')">Why Join Us </a>
+      <a href="javascript:;" onclick="scrollToElement('job-posting')">Job Posting </a>
+    </div>
+  </div>
+  <div class="wr">
+    <div class="careers-a wr pordw img-cover" data-image style="--bg-image: url({% static 'images/careers/2.webp' %});">
+      <div class="wr view">
+        <div class="unv-tit lh1 text-center" id="who-we-are">Who We Are
+        </div>
+        <div class="tit-24 col-000 t1">
+        </div>
+        <div class="tit-16">
+        </div>
+        <div class="tit-16 t3">
+          <p>With 16 years of unlimited exploration, Uniview evolves from video surveillance to AIoT, taking Big data,
+            Cloud and IoT technology as the core: the video surveillance product lines include IP cameras, NVR, Encoder,
+            Decoder, Storage, Client Software and app, the AIoT ranges from display, intelligent access control to smart
+            office and smart home. </p>
+          <p>With the pragmatic attitude and continuous innovation, from 2011 to 2021, Uniview achieved 20 times revenue
+            growth, established 17 branch offices worldwide and is still growing fast.</p>
+        </div>
+      </div>
+    </div>
+    <div class="careers-b wr view cf pordw" id="why-join-us">
+      <div class="unv-tit lh1 text-center">Why Join Us
+      </div>
+      <div class="list wr f-cb">
+        <div class="li text-center">
+          <div class="img">
+            <div class="bg" data-image style="--bg-image: url({% static 'images/careers/3.webp' %});">
+            </div>
+          </div>
+          <div class="tit-24 t1">Common Goal </div>
+          <div class="tit-16 col-666 t2">
+            Working together with us, you’ll be part of a diverse global culture that creates a safer and better life.
+            At Uniview we’ve always been driven to improve lives, innovate sustainably, create change.
+          </div>
+        </div>
+        <div class="li text-center">
+          <div class="img">
+            <div class="bg" data-image style="--bg-image: url({% static 'images/careers/4.webp' %});">
+            </div>
+          </div>
+          <div class="tit-24 t1">Professional Training </div>
+          <div class="tit-16 col-666 t2">
+            Uniview provides employees with an occupational platform for personal development and value
+            realization.<br>And everybody who’s part of our team should be supported training to develop to their
+            fullest potential.
+          </div>
+        </div>
+        <div class="li text-center">
+          <div class="img">
+            <div class="bg" data-image style="--bg-image: url({% static 'images/careers/5.webp' %});">
+            </div>
+          </div>
+          <div class="tit-24 t1">Equal opportunity </div>
+          <div class="tit-16 col-666 t2">
+            Uniview values diversity. Employment selection and related decisions are made without regard to gender,
+            ethnicity, age, disability, religion, national origin, or any other protected class.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="careers-c wr view cf pordw" id="job-posting">
+      <h2 class="unv-tit lh1 text-center" style="color: black;">Job Posting</h2>
+      <div class="list" role="list">
+        <div class="li" role="listitem">
+          <button class="litop" onclick="toggleJob(this)" aria-expanded="false" aria-controls="job-content-1">
+            <h3>Uniview-Overseas Technical Supporter</h3>
+          </button>
+          <div class="li-content" id="job-content-1" aria-hidden="true">
+            <div class="tit-24">Job Requirements:</div>
+            <div class="tit-16">
+              <ul>
+                <li>Responsible for the promotion of the company in overseas markets, including building product brands,
+                  expanding and maintaining customers;</li>
+                <li>Responsible for project support and tracking of regional customers;</li>
+                <li>Complete the overseas market sales target and collect the sales payment;</li>
+                <li>Follow up the after-sales service of products and make sales forecast.</li>
+              </ul>
+            </div>
+            <div class="tit-24">Responsibilities:</div>
+            <div class="tit-16">
+              <ul>
+                <li>Responsible for the promotion of the company in overseas markets, including building product brands,
+                  expanding and maintaining customers;</li>
+                <li>Responsible for project support and tracking of regional customers;</li>
+                <li>Complete the overseas market sales target and collect the sales payment;</li>
+                <li>Follow up the after-sales service of products and make sales forecast.</li>
+              </ul>
+            </div>
+            <div class="tit-16 mt-4" style="color: #0066ff;">
+              Apply now for our positions below by sending your resume to <a href="mailto:zhangxuying02@uniview.com"
+                style="color: #0066ff; text-decoration: underline;">zhangxuying02@uniview.com</a><br>
+              (Please note your applied position & resident country in the email)
+            </div>
+          </div>
+        </div>
+        <div class="li">
+          <div class="litop" onclick="toggleJob(this)">
+            <h3>Uniview-Overseas Sales Manager</h3>
+          </div>
+          <div class="li-content">
+            <div class="tit-24">Job Requirements:</div>
+            <div class="tit-16">
+              <ul>
+                <li>Responsible for the promotion of the company in overseas markets, including building product brands,
+                  expanding and maintaining customers;</li>
+                <li>Responsible for project support and tracking of regional customers;</li>
+                <li>Complete the overseas market sales target and collect the sales payment;</li>
+                <li>Follow up the after-sales service of products and make sales forecast.</li>
+              </ul>
+            </div>
+            <div class="tit-24">Responsibilities:</div>
+            <div class="tit-16">
+              <ul>
+                <li>Responsible for the promotion of the company in overseas markets, including building product brands,
+                  expanding and maintaining customers;</li>
+                <li>Responsible for project support and tracking of regional customers;</li>
+                <li>Complete the overseas market sales target and collect the sales payment;</li>
+                <li>Follow up the after-sales service of products and make sales forecast.</li>
+              </ul>
+            </div>
+            <div class="tit-16 mt-4" style="color: #0066ff;">
+              Apply now for our positions below by sending your resume to <a href="mailto:zhangxuying02@uniview.com"
+                style="color: #0066ff; text-decoration: underline;">zhangxuying02@uniview.com</a><br>
+              (Please note your applied position & resident country in the email)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function scrollToElement(elementId) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+    const headerOffset = 100;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  }
+  function toggleJob(element) {
+    const isExpanded = element.getAttribute('aria-expanded') === 'true';
+    element.setAttribute('aria-expanded', !isExpanded);
+    const content = element.nextElementSibling;
+    content.style.display = isExpanded ? 'none' : 'block';
+    content.setAttribute('aria-hidden', isExpanded);
+    element.classList.toggle('active');
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggleButtons = document.querySelectorAll('.careers-c .litop');
+    toggleButtons.forEach(button => {
+      button.addEventListener('click', function () {
+        this.classList.toggle('active');
+        const content = this.nextElementSibling;
+        $(content).slideToggle();
+      });
+    });
+  });
+</script>
+{% endblock content %}

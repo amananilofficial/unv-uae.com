@@ -1,0 +1,372 @@
+{% extends "base.html" %}
+
+{% load humanize %}
+{% load static %}
+{% block title %}Privacy Policy - Uniview | AIoT Solutions{% endblock %}
+{% block meta_description %}Privacy Policy for Uniview's AIoT solutions and services. Learn how we protect your personal
+data and ensure compliance with UAE's data protection regulations.{% endblock %}
+{% block og_image %}/static/images/about-og-image.jpg{% endblock %}
+{% block schema_url %}{% url 'pages:privacy' %}{% endblock %}
+
+{% block extra_meta %}{% endblock %}
+<!-- SEO Meta Tags -->
+<meta name="robots" content="index, follow">
+<meta name="keywords"
+    content="privacy policy, data protection, PDPL, UAE privacy law, Uniview privacy, data security UAE">
+<meta name="author" content="Uniview">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Open Graph / Social Media Meta Tags -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Privacy Policy - Uniview | AIoT Solutions">
+<meta property="og:description"
+    content="Learn about Uniview's commitment to protecting your personal data and ensuring compliance with UAE's data protection regulations.">
+<meta property="og:site_name" content="Uniview">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Privacy Policy - Uniview | AIoT Solutions">
+<meta name="twitter:description"
+    content="Learn about Uniview's commitment to protecting your personal data and ensuring compliance with UAE's data protection regulations.">
+
+<!-- Preload Critical Resources -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" as="style">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{% url 'pages:privacy' %}">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Privacy Policy - Uniview",
+  "description": "Privacy Policy for Uniview's AIoT solutions and services",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Uniview",
+    "logo": "https://www.unv-uae.com/static/images/logo.png"
+  },
+  "dateModified": "2024-03-15"
+}
+</script>
+
+<!-- Additional SEO Meta Tags -->
+<meta name="description" content="Comprehensive Privacy Policy for Uniview's AIoT solutions, ensuring compliance with UAE data protection laws.">
+<meta name="robots" content="index, follow">
+<meta name="keywords" content="UAE privacy policy, data protection UAE, Uniview AIoT, personal data security, privacy rights UAE">
+<meta name="author" content="Uniview">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Privacy Policy - Uniview | AIoT Solutions">
+<meta property="og:description" content="Learn about Uniview's commitment to protecting your personal data and ensuring compliance with UAE's data protection regulations.">
+<meta property="og:site_name" content="Uniview">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="{% url 'pages:privacy' %}">
+<meta property="og:image" content="/static/images/about-og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Privacy Policy - Uniview | AIoT Solutions">
+<meta name="twitter:description" content="Learn about Uniview's commitment to protecting your personal data and ensuring compliance with UAE's data protection regulations.">
+<meta name="twitter:image" content="/static/images/about-og-image.jpg">
+
+<!-- Structured Data for Local Business -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Uniview",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira",
+    "addressLocality": "Dubai",
+    "addressRegion": "Dubai",
+    "postalCode": "123421",
+    "addressCountry": "AE"
+  },
+  "telephone": "+971509162488",
+  "email": "sales1@digitallink.ae",
+  "url": "{% url 'pages:privacy' %}",
+  "logo": "https://www.unv-uae.com/static/images/logo.png",
+  "sameAs": [
+    "https://www.facebook.com/uniview",
+    "https://twitter.com/uniview",
+    "https://www.linkedin.com/company/uniview"
+  ]
+}
+</script>
+
+<!-- Accessibility Improvements -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"></noscript>
+
+<!-- Add this CSS -->
+<style>
+    .main-content {
+        background-color: #e0e0e4;
+        max-width: 1200px;
+        margin: 120px auto;
+        padding: 5px 20px;
+        border-radius: 8px;
+        color: #1a365d;
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+    }
+
+    .main-content h1 {
+        font-size: 2.5rem;
+        color: #1a365d;
+        margin-bottom: 2rem;
+        border-bottom: 3px solid #4299e1;
+        padding-bottom: 1rem;
+    }
+
+    .main-content h2 {
+        font-size: 1.8rem;
+        color: #2b6cb0;
+        margin-top: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .section {
+        background: #ffffff;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease;
+    }
+
+    .section:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .section p {
+        margin-bottom: 1.2rem;
+        font-size: 1.1rem;
+    }
+
+    .section ul {
+        padding-left: 1.5rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .section li {
+        margin-bottom: 0.8rem;
+        font-size: 1.1rem;
+    }
+
+    strong {
+        color: #2c5282;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+        .main-content {
+            margin: 80px auto;
+        }
+
+        .main-content h1 {
+            font-size: 2.2rem;
+        }
+
+        .main-content h2 {
+            font-size: 1.6rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .main-content {
+            margin: 60px auto;
+            padding: 0 16px;
+        }
+
+        .section {
+            padding: 1.5rem;
+        }
+
+        .main-content h1 {
+            font-size: 2rem;
+        }
+
+        .main-content h2 {
+            font-size: 1.4rem;
+        }
+
+        .section p,
+        .section li {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .main-content {
+            margin: 40px auto;
+            padding: 0 12px;
+        }
+
+        .section {
+            padding: 1rem;
+        }
+
+        .main-content h1 {
+            font-size: 1.8rem;
+        }
+
+        .main-content h2 {
+            font-size: 1.3rem;
+        }
+    }
+
+    /* Ensure high contrast for accessibility */
+    .main-content {
+        background-color: #e0e0e4;
+        color: #1a365d;
+    }
+    .main-content h1, .main-content h2 {
+        color: #1a365d;
+    }
+    strong {
+        color: #2c5282;
+    }
+</style>
+
+<div class="main-content">
+    <h1>Privacy Policy</h1>
+
+    <div class="section">
+        <p><strong>Effective Date: March 15, 2024</strong></p>
+        <h2>Introduction</h2>
+        <p>Uniview ("we," "our," "us") is committed to protecting your privacy and ensuring that your personal data is
+            handled in a safe and responsible manner. This Privacy Policy outlines how we collect, use, store, and
+            protect your personal information in compliance with the UAE's Federal Decree-Law No. 45 of 2021 on the
+            Protection of Personal Data (PDPL) and other relevant data protection regulations.</p>
+        <p>By accessing or using our website and services, you agree to the collection and use of your information in
+            accordance with this Privacy Policy.</p>
+    </div>
+
+    <div class="section">
+        <h2>1. Information We Collect</h2>
+        <p>We may collect the following types of personal data from you:</p>
+        <ul>
+            <li><strong>Personal Identification Information:</strong> Name, email address, phone number, and other
+                contact details.</li>
+            <li><strong>Transaction Data:</strong> Information about products or services you have purchased, including
+                payment details (handled securely).</li>
+            <li><strong>Usage Data:</strong> Information about how you use our website or services, including IP
+                addresses, browser types, pages visited, and other data related to your interactions with our services.
+            </li>
+            <li><strong>Cookies and Tracking Technologies:</strong> We may use cookies or similar technologies to
+                collect information about your preferences and activities on our website to improve your experience.
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>2. How We Use Your Information</h2>
+        <p>We use your personal data for the following purposes:</p>
+        <ul>
+            <li>To provide, operate, and improve our services and products</li>
+            <li>To communicate with you regarding your account, transactions, and customer service inquiries</li>
+            <li>To process payments and manage your orders or subscriptions</li>
+            <li>To send promotional materials, newsletters, or marketing communications (if you have opted in)</li>
+            <li>To comply with legal obligations or respond to lawful requests from authorities</li>
+            <li>To analyze website traffic and usage patterns to enhance user experience</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>3. Data Sharing and Disclosure</h2>
+        <p>We do not sell, rent, or share your personal data with third parties except in the following circumstances:
+        </p>
+        <ul>
+            <li><strong>Service Providers:</strong> We may share your data with trusted third-party vendors or service
+                providers who assist in delivering our services.</li>
+            <li><strong>Legal Requirements:</strong> We may disclose your information if required by law or to comply
+                with legal processes.</li>
+            <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or sale of assets, your
+                personal data may be transferred as part of the transaction.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>4. Data Retention</h2>
+        <p>We will retain your personal data only for as long as necessary to fulfill the purposes outlined in this
+            Privacy Policy, or as required by law. When your personal data is no longer needed, we will securely delete
+            or anonymize it.</p>
+    </div>
+
+    <div class="section">
+        <h2>5. Your Rights</h2>
+        <p>Under the UAE's data protection laws, you have certain rights regarding your personal data, including:</p>
+        <ul>
+            <li>Right to Access</li>
+            <li>Right to Correct</li>
+            <li>Right to Delete</li>
+            <li>Right to Object</li>
+        </ul>
+        <p>To exercise these rights, please contact us at privacy@unv-uae.com</p>
+    </div>
+
+    <div class="section">
+        <h2>6. Data Security</h2>
+        <p>We implement reasonable and appropriate technical and organizational measures to safeguard your personal data
+            from unauthorized access, disclosure, alteration, or destruction. However, no method of transmission over
+            the internet or method of electronic storage is 100% secure, and we cannot guarantee absolute security.</p>
+    </div>
+
+    <div class="section">
+        <h2>7. Third-Party Websites and Links</h2>
+        <p>Our website may contain links to third-party websites that are not controlled by us. We are not responsible
+            for the privacy practices or content of such websites. We recommend reviewing the privacy policies of any
+            third-party sites you visit.</p>
+    </div>
+
+    <div class="section">
+        <h2>8. International Transfers of Data</h2>
+        <p>If we transfer your personal data outside the UAE, we will ensure that such transfers are conducted in
+            compliance with applicable data protection laws and regulations.</p>
+    </div>
+
+    <div class="section">
+        <h2>9. Children's Privacy</h2>
+        <p>Our services are not intended for children under the age of 16, and we do not knowingly collect or process
+            personal data from children. If you are a parent or guardian and believe your child has provided us with
+            personal data, please contact us immediately to request the deletion of such data.</p>
+    </div>
+
+    <div class="section">
+        <h2>10. Changes to This Privacy Policy</h2>
+        <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page, and the
+            "Effective Date" will be updated accordingly. We encourage you to review this Privacy Policy periodically to
+            stay informed about how we are protecting your personal data.</p>
+    </div>
+
+    <div class="section">
+        <h2>11. Contact Us</h2>
+        <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at:</p>
+        <p>
+            <strong>Uniview UAE</strong><br>
+            Email: <a href="mailto:sales1@digitallink.ae">sales1@digitallink.ae</a><br>
+            Phone: <a href="tel:+971509162488">+971509162488</a><br>
+            Address: Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira, Dubai, United Arab Emirates<br>
+            P.O.Box: 123421
+        </p>
+    </div>
+
+    <div class="section">
+        <p><strong>Last updated: March 15, 2024</strong></p>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Set background images from data attributes
+        document.querySelectorAll('[data-bg-image]').forEach(element => {
+            element.style.backgroundImage = `url('${element.dataset.bgImage}')`;
+        });
+    });
+</script>
+{% endblock content %}

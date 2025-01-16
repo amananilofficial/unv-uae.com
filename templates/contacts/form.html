@@ -1,0 +1,230 @@
+﻿{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Contact Us - Uniview{% endblock %}
+{% block meta_description %}Learn more contact Uniview and our innovative AIoT Contact Us, transforming industries and
+improving lives.{% endblock %}
+{% block og_image %}/static/images/contact-og-image.jpg{% endblock %}
+{% block schema_url %}{% url 'contacts:contacts' %}{% endblock %}
+
+<!-- Add proper meta tags for SEO -->
+{% block extra_meta %}
+<!-- SEO Meta Tags -->
+<meta name="robots" content="index, follow">
+<meta name="keywords"
+    content="contact, uniview, aiot, support, customer service, get in touch, Dubai, UAE, Middle East">
+<meta name="author" content="Uniview">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="{% url 'contacts:contacts' %}">
+
+<!-- Open Graph / Social Media Meta Tags -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact Uniview - Get in Touch With Our Team">
+<meta property="og:description" content="Contact Uniview for AIoT solutions in Dubai and the Middle East.">
+<meta property="og:site_name" content="Uniview">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="{% url 'contacts:contacts' %}">
+<meta property="og:image" content="/static/images/contact-og-image.jpg">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact Uniview - Get in Touch With Our Team">
+<meta name="twitter:description" content="Contact Uniview for AIoT solutions in Dubai and the Middle East.">
+<meta name="twitter:image" content="/static/images/contact-og-image.jpg">
+
+<!-- Performance & Security Meta Tags -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#0088cc">
+
+<!-- Accessibility Meta Tags -->
+<meta name="language" content="English">
+<meta name="accessibility-control" content="fullKeyboardControl">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<!-- Preconnect to required origins -->
+<link rel="preconnect" href="/" crossorigin>
+<link rel="dns-prefetch" href="/">
+<link rel="preconnect" href="https://www.unv-uae.com" crossorigin>
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Uniview UAE | Contact Form - Uniview | Global AIoT Solutions Provider",
+    "url": "https://www.unv-uae.com",
+    "logo": "https://www.unv-uae.com/static/images/logo/logo.svg",
+    "description": "Leading provider of AIoT solutions including security systems, surveillance cameras, industrial automation, smart city solutions, and IoT integration in UAE",
+    "sameAs": [
+        "https://www.linkedin.com/company/digital-link-technology-uae/",
+        "https://www.instagram.com/digitallinktechnologyllc/",
+        "https://www.facebook.com/people/Digital-Link-Technology-LLC/100087290161175/?mibextid=ZbWKwL"
+    ],
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+971-509162488",
+        "email": "sales1@digitallink.ae",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Arabic"],
+        "areaServed": ["AE", "OM", "BH", "SA", "KW", "QA"],
+        "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+            ],
+            "opens": "09:00",
+            "closes": "18:00"
+        }
+    },
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira",
+        "addressLocality": "Dubai",
+        "addressRegion": "Dubai",
+        "postalCode": "123421",
+        "addressCountry": "AE"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "25.2744",
+        "longitude": "55.3009"
+    }
+}
+</script>
+{% block content %}
+<div class="form-container">
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    <form method="post" action="{% url 'contacts:inquiry_form' %}" novalidate>
+        {% csrf_token %}
+
+        {% for field in form %}
+        <div class="form-group">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}
+            <div class="error-feedback">
+                {% for error in field.errors %}
+                <span class="error-message">{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+        <button type="submit" class="submit-btn">Submit Inquiry</button>
+    </form>
+</div>
+
+<style>
+    .form-container {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 6rem 2rem 2rem;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: #2009ed;
+        font-size: 1.1rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+        color: #2009ed;
+        background: #fff;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+
+    .error-feedback {
+        color: #dc3545;
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+    }
+
+    .submit-btn {
+        background: #007bff;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background 0.3s;
+    }
+
+    .submit-btn:hover {
+        background: #004085;
+    }
+
+    .alert {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 4px;
+    }
+
+    .alert-success {
+        background-color: #d4edda;
+        /* Light green background */
+        color: #155724;
+        /* Dark green text */
+        border: 1px solid #c3e6cb;
+        /* Green border */
+    }
+
+    .alert-error {
+        background-color: #f8d7da;
+        /* Light red background */
+        color: #721c24;
+        /* Dark red text */
+        border: 1px solid #f5c6cb;
+        /* Red border */
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 600px) {
+        .form-container {
+            padding: 1rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+        }
+    }
+</style>
+{% endblock %}

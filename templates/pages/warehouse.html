@@ -1,0 +1,677 @@
+﻿{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Warehouse & Logistics - Uniview{% endblock %}
+{% block meta_description %}Learn more about Uniview and our innovative AIoT Warehouse & Logistics, transforming
+industries and improving lives.{% endblock %}
+{% block og_image %}/static/images/about-og-image.jpg{% endblock %}
+{% block schema_url %}{% url 'pages:warehouse' %}{% endblock %}
+{% block extra_meta %}
+<meta name="keywords"
+  content="warehouse management, logistics solution, AIoT warehouse, Uniview solutions, smart logistics, UAE, Middle East, Dubai, security systems, surveillance, automation">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{% url 'pages:warehouse' %}">
+<!-- SEO Meta Tags -->
+<meta name="author" content="Uniview">
+<meta name="theme-color" content="#2563eb">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Warehouse & Logistics - Uniview">
+<meta name="twitter:description"
+  content="Learn more about Uniview and our innovative AIoT Warehouse & Logistics, transforming industries and improving lives.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Warehouse & Logistics - Uniview">
+<meta property="og:description"
+  content="Learn more about Uniview and our innovative AIoT Warehouse & Logistics, transforming industries and improving lives.">
+<meta property="og:site_name" content="Uniview">
+<meta property="og:locale" content="en_AE">
+<meta property="og:url" content="{% url 'pages:warehouse' %}">
+<meta property="og:image" content="{% static 'images/about-og-image.jpg' %}">
+<meta name="geo.region" content="AE-DU">
+<meta name="geo.placename" content="Dubai">
+<meta name="geo.position" content="25.2744;55.3009">
+<meta name="ICBM" content="25.2744, 55.3009">
+<meta name="contact" content="sales1@digitallink.ae">
+<meta name="telephone" content="+971509162488">
+<meta name="address" content="Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira, Dubai, United Arab Emirates, P.O.Box: 123421">
+
+<!-- Performance & Best Practices -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="//fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+<meta http-equiv="Content-Security-Policy"
+  content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline';">
+
+<!-- Accessibility -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="alternate" href="{% url 'pages:warehouse' %}" hreflang="x-default">
+<link rel="alternate" href="{% url 'pages:warehouse' %}" hreflang="en">
+<link rel="preload" href="{% static 'images/solutions/warehouse/1.webp' %}" as="image">
+<link rel="preload" href="{% static 'css/main.css' %}" as="style">
+<link rel="preload" href="{% static 'js/main.js' %}" as="script">
+
+<!-- Add these security headers -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+{% endblock %}
+{% block content %}
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Uniview UAE",
+    "url": "https://www.unv-uae.com",
+    "logo": "https://www.unv-uae.com/static/images/logo/logo.svg",
+    "description": "Leading provider of AIoT solutions including security systems, surveillance cameras, industrial automation, smart city solutions, and IoT integration in UAE",
+    "sameAs": [
+        "https://www.linkedin.com/company/digital-link-technology-uae/",
+        "https://www.instagram.com/digitallinktechnologyllc/",
+        "https://www.facebook.com/people/Digital-Link-Technology-LLC/100087290161175/?mibextid=ZbWKwL"
+    ],
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+971509162488",
+        "email": "sales1@digitallink.ae",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Arabic"],
+        "areaServed": ["AE", "OM", "BH", "SA", "KW", "QA"],
+        "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+            ],
+            "opens": "09:00",
+            "closes": "18:00"
+        }
+    },
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira",
+        "addressLocality": "Dubai",
+        "addressRegion": "Dubai",
+        "postalCode": "123421",
+        "addressCountry": "AE"
+    },
+    "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "25.2744",
+        "longitude": "55.3009"
+    }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Warehouse & Logistics Solutions",
+  "description": "Uniview's warehouse and logistics solutions for enhanced security and efficiency",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.unv-uae.com"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Warehouse & Logistics",
+      "item": "https://www.unv-uae.com/warehouse"
+    }]
+  }
+}
+</script>
+<style>
+  :root {
+    --primary: #2563eb;
+    --secondary: #1e40af;
+    --accent: #3b82f6;
+    --dark: #0f172a;
+    --light: #f8fafc;
+    --white: #ffffff;
+    --gray: #64748b;
+    --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    --radius: 24px;
+  }
+
+  /* Core Typography */
+  h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    color: var(--dark);
+    text-align: center;
+    margin: 6rem 0 4rem;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+  }
+
+  h4 {
+    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+  }
+
+  p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--gray);
+    margin-bottom: 2rem;
+  }
+
+  /* Hero Banner */
+  .sub-banner {
+    position: relative;
+    height: 85vh;
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .sub-banner .bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    left: 0;
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .sub-banner:hover .bg {
+    transform: scale(1.05);
+  }
+
+  .sub-banner .txt {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.4));
+    padding: 2rem;
+  }
+
+  .sub-banner .unv-tit {
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 900;
+    color: var(--white);
+    text-align: center;
+    margin-bottom: 2rem;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+
+  .sub-banner .unv-subtit {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    color: var(--white);
+    font-weight: 500;
+    opacity: 0.9;
+  }
+
+  /* Navigation */
+  .adds-nav {
+    position: sticky;
+    top: 0;
+    background: var(--white);
+    padding: 1.5rem 0;
+    margin: 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    width: 100%;
+  }
+
+  .adds-nav a {
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    margin: 0 0.5rem;
+    border-radius: 100px;
+    transition: all 0.3s ease;
+  }
+
+  .adds-nav a:hover {
+    background: var(--primary);
+    color: var(--white);
+  }
+
+  /* Solution Overview */
+  .solution-overview-four-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 4rem 0;
+  }
+
+  .overview-four-box {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: all 0.4s ease;
+  }
+
+  .overview-four-box:hover {
+    transform: translateY(-8px);
+  }
+
+  .overview-four-box img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Solution List */
+  .solution-list-wrap {
+    display: grid;
+    gap: 4rem;
+    margin: 6rem 0;
+    content-visibility: auto;
+    contain-intrinsic-size: 1000px;
+  }
+
+  .solution-list-box {
+    display: grid;
+    grid-template-columns: minmax(300px, 1fr) minmax(300px, 1.5fr);
+    gap: 3rem;
+    padding: 3rem;
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: all 0.4s ease;
+    align-items: start;
+  }
+
+  .solution-list-box .img-box {
+    position: sticky;
+    top: 100px;
+  }
+
+  .solution-list-box img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: calc(var(--radius) / 2);
+  }
+
+  /* Success Cases */
+  .unv-solution-case-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    margin: 4rem 0;
+  }
+
+  .solution-case-box {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.4s ease;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+    color: inherit;
+  }
+
+  .solution-case-box:hover {
+    transform: translateY(-8px);
+  }
+
+  .solution-case-box img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  .solution-case-box:hover img {
+    transform: scale(1.05);
+  }
+
+  .solution-case-box h4 {
+    padding: 2rem;
+    margin: 0;
+    text-align: center;
+  }
+
+  /* Container */
+  .wr {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .solution-list-box {
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2rem;
+      padding: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .solution-list-box {
+      grid-template-columns: 1fr;
+    }
+    
+    .solution-list-box .img-box {
+      position: relative;
+      top: 0;
+    }
+
+    .adds-nav {
+      padding: 1rem;
+    }
+
+    .adds-nav a {
+      display: block;
+      margin: 0.5rem 0;
+      text-align: center;
+    }
+
+    .sub-banner {
+      height: 70vh;
+      margin: -1rem -1rem 0;
+    }
+
+    .wr {
+      padding: 0 1rem;
+    }
+  }
+
+  /* Mobile Optimizations */
+  @media (max-width: 768px) {
+    .header-fix.wr {
+      padding: 0 1rem;
+    }
+
+    .adds-nav .wr {
+      display: flex;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 0.5rem;
+      gap: 0.5rem;
+    }
+
+    .solution-list-box {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Small mobile devices */
+  @media (max-width: 480px) {
+    .sub-banner {
+      height: 60vh;
+    }
+
+    .solution-case-box img {
+      height: 200px;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+  }
+
+  /* Add loading optimization */
+  .lazy-image {
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+  }
+
+  .lazy-image.loaded {
+    opacity: 1;
+  }
+
+  /* Add print styles */
+  @media print {
+    .adds-nav {
+      display: none;
+    }
+
+    .sub-banner {
+      height: auto;
+    }
+
+    .lazy-image {
+      print-color-adjust: exact;
+    }
+  }
+</style>
+<div class="header-fix" role="main">
+  <div class="sub-banner" role="banner" aria-label="Warehouse Solutions Banner">
+    <div class="bg pc" data-image style="background-image: url({% static 'images/solutions/warehouse/1.webp' %})"
+      role="img" aria-label="Warehouse security system showcase">
+      <picture>
+        <source srcset="{% static 'images/solutions/warehouse/1.webp' %}" type="image/webp">
+        <source srcset="{% static 'images/solutions/warehouse/1.jpg' %}" type="image/jpeg">
+        <img src="{% static 'images/solutions/warehouse/1.jpg' %}" alt="Warehouse security system showcase">
+      </picture>
+    </div>
+    <div class="bg mb" data-image style="background-image: url({% static 'images/solutions/warehouse/1.webp' %});">
+    </div>
+    <div class="txt col-fff">
+      <div class="unv-tit lh1">Uniview Solution for Warehouse and Logistics</div>
+      <div class="unv-subtit">Minimizing Risks, Enhancing Safety, Optimizing Efficiency</div>
+    </div>
+  </div>
+  <nav class="adds-nav" role="navigation" aria-label="Page sections">
+    <div class="wr">
+      <a href="#warehouse-and-logistics-solution">Warehouse and Logistics Solution</a>
+      <a href="#success-cases">Success Cases</a>
+    </div>
+  </nav>
+  <div class="wr">
+    <div class="view">
+      <div class="unv-solution-wrap pordw" id="warehouse-and-logistics-solution">
+        <h2>Warehouse and Logistics Solution</h2>
+        <div class="inc-box">
+          <P>Business and consumers around the world depend on warehousing and logistics for safe and timely delivery of
+            goods. Theft, break-ins and other unforeseen threats can have a devastating impact on their business
+            continuity.
+          <P>UNV’s end-to-end warehouse and logistics solution empowers operators to create a secure environment
+            safeguarding employees, vehicle processes, and cargo storage. This ensures uninterrupted workflow and
+            enhances operational efficiency.</P>
+        </div>
+        <div class="solution-overview-four-wrap">
+          <div class="overview-four-box">
+            <img src="{% static 'images/solutions/warehouse/2.webp' %}" alt="Personnel management system"
+              class="lazy-image" loading="lazy" width="400" height="300" decoding="async" fetchpriority="high">
+            <h4>Personnel</h4>
+            <p>Protect employees and achieve efficient personnel management </p>
+          </div>
+          <div class="overview-four-box">
+            <img src="{% static 'images/solutions/warehouse/3.webp' %}" alt="Vehicle management system visualization"
+              class="lazy-image" loading="lazy" width="400" height="300">
+            <h4>Vehicle</h4>
+            <p>From entry to exit, all key aspects of the vehicle's operation are guarded </p>
+          </div>
+          <div class="overview-four-box">
+            <img src="{% static 'images/solutions/warehouse/4.webp' %}" alt="Cargo tracking and monitoring system"
+              class="lazy-image" loading="lazy" width="400" height="300">
+            <h4>Cargo</h4>
+            <p>Monitor and record the condition and movement of all goods </p>
+          </div>
+          <div class="overview-four-box">
+            <img src="{% static 'images/solutions/warehouse/5.webp' %}" alt="">
+            <h4>Process</h4>
+            <p>Ensure that every link of the operation is orderly and compliant </p>
+          </div>
+        </div>
+        <div class="solution-list-wrap">
+          <div class="solution-list-box" role="article" aria-labelledby="personnel-heading">
+            <h4 id="personnel-heading">Personnel</h4>
+            <div class="img-box"> <img src="{% static 'images/solutions/warehouse/6.webp' %}" alt="">
+            </div>
+            <div class="ft-box">
+              <h4>Perimeter Protection</h4>
+              <p>Effective perimeter protection serves as the primary defense against security threats such as
+                break-ins, vandalism, and theft. UNV's robust Tri-guard series and advanced thermal cameras swiftly
+                detect intrusions, fires, and other abnormal, ensuring timely response and safeguarding your
+                premises.<br>
+              <h4>What We Offer</h4>
+              <p>
+                - Smart Intrusion Prevention with high alarm accuracy<br>
+                - Active Deterrence to intervene proactively<br>
+                - Thermal Technology to make the invisible visible</p>
+              </p>
+            </div>
+          </div>
+          <div class="solution-list-box">
+            <div class="img-box"> <img src="{% static 'images/solutions/warehouse/7.webp' %}" alt="">
+            </div>
+            <div class="ft-box">
+              <h4>Access Control Management</h4>
+              <p>In a bustling warehouse environment with heavy traffic and constant movement of people and products,
+                efficient access control is crucial. UNV offers advanced access control system to facilitate the smooth
+                passage of employees during peak hours and seamless vehicle movements around the clock. Additionally,
+                our visitor management system enhances security by ensuring safe entry and exit for outsiders.<br>
+              <h4>What We Offer</h4>
+              <p>
+                - UNV deep learning algorithm for high accuracy<br>
+                - ANPR for smooth and automated vehicle access<br>
+                - Access data available for query and attendance management</p>
+              </p>
+            </div>
+          </div>
+          <div class="solution-list-box">
+            <div class="img-box"> <img src="{% static 'images/solutions/warehouse/8.webp' %}" alt="">
+            </div>
+            <div class="ft-box">
+              <h4>Cargo Management:</h4>
+              <p>A huge warehouse has to store thousands of goods, the storage and transportation process of goods is
+                the key to the business. UNV professional product line can meet the requirements of each link. In
+                addition, thermal imaging technology can help monitor the condition of goods, detect abnormal
+                temperatures and fire hazards promptly, and reduce losses.<br>
+              <h4>What We Offer</h4>
+              <p>
+                - 360° panoramic view, a wide coverage without blind spot<br>
+                - Clear image in backlight environment to record every cargo<br>
+                - Temperature Measurement and Fire Detection</p>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="unv-solution-wrap pordw" id="success-cases">
+        <h2>Success Cases</h2>
+        <div class="unv-solution-case-wrap">
+          <a class="solution-case-box">
+            <img src="{% static 'images/solutions/warehouse/9.webp' %}" alt="">
+            <h4>Shopee Warehouse in Malaysia</h4>
+          </a>
+          <a class="solution-case-box">
+            <img src="{% static 'images/solutions/warehouse/10.webp' %}" alt="">
+            <h4>SHEIN Warehouse in Poland</h4>
+          </a>
+          <a class="solution-case-box">
+            <img src="{% static 'images/solutions/warehouse/11.webp' %}" alt="">
+            <h4>GWC Business Storage and Transportation in Qatar</h4>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  // Lazy loading images
+  document.addEventListener("DOMContentLoaded", function () {
+    const lazyImages = document.querySelectorAll(".lazy-image");
+
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.classList.add("loaded");
+          observer.unobserve(img);
+        }
+      });
+    });
+
+    lazyImages.forEach(img => imageObserver.observe(img));
+  });
+
+  // Smooth scroll optimization
+  document.querySelectorAll('.adds-nav a').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const sectionId = this.getAttribute('href').substring(1);
+      const section = document.getElementById(sectionId);
+
+      if (section) {
+        const offset = 100;
+        const elementPosition = section.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Use Intersection Observer with options
+  const observerOptions = {
+    root: null,
+    rootMargin: '50px',
+    threshold: 0.1
+  };
+
+  // Debounce scroll events
+  function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+
+  // Enhanced smooth scroll
+  const smoothScroll = debounce((e) => {
+    // ... existing smooth scroll code
+  }, 16);
+
+  // Add error handling
+  window.addEventListener('error', function (e) {
+    console.error('Script error:', e);
+    // Send to analytics if needed
+  });
+
+  // Performance monitoring
+  if ('performance' in window) {
+    window.addEventListener('load', () => {
+      const timing = performance.getEntriesByType('navigation')[0];
+      console.log('Page load time:', timing.loadEventEnd - timing.navigationStart);
+    });
+  }
+</script>
+
+{% endblock content %}
