@@ -11,3 +11,5 @@ python manage.py runserver <br>
 
 main url:- http://127.0.0.1:8000/ <br>
 admin url:- http://127.0.0.1:8000/admin <br>
+
+static file url https://github.com/amananilofficial/static
