@@ -157,7 +157,11 @@
 
   <!-- Minified CSS for Performance -->
   <!-- Favicon for Branding -->
-  <link rel="icon" href="{% static 'images/favicon.ico' %}" sizes="32x32">
+  <link rel="icon" type="image/svg+xml" href="{% static 'images/logo/logo.svg' %}">
+  <link rel="alternate icon" type="image/png" href="{% static 'images/logo/favicon.png' %}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/logo/apple-touch-icon.png' %}">
+  <link rel="mask-icon" href="{% static 'images/logo/logo.svg' %}" color="#006666">
+  <meta name="theme-color" content="#006666">
 
   <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
