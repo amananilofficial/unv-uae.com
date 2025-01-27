@@ -1,0 +1,31 @@
+User-agent: *
+Disallow: /admin/
+Allow: /inquiry-form/
+Allow: /contact/
+Allow: /checkout/
+Allow: /newsletter/
+Disallow: /generate-validation-code/
+Disallow: /sitemap.xml
+
+Allow: /about/
+Allow: /careers/
+Allow: /solutions/
+Allow: /bank/
+Allow: /cookies/
+Allow: /hospital/
+Allow: /hotel/
+Allow: /school/
+Allow: /shoppingmall/
+Allow: /stadium/
+Allow: /warehouse/
+Allow: /building/
+Allow: /retail/
+
+Allow: /products/
+Allow: /category/
+Allow: /search/
+Allow: /product/
+Allow: /category/
+Allow: /contacts/
+
+Sitemap: http://127.0.0.1:8000/sitemap.xml
