@@ -1,36 +1,33 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}About Us - Uniview | Global AIoT Solutions Provider{% endblock %}
-{% block meta_description %}Discover Uniview's innovative AIoT solutions, including video surveillance, smart
-technology, and security systems. Present in 145+ countries with 1500+ R&D engineers.{% endblock %}
-
-<!-- Add these meta tags after the existing ones -->
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="theme-color" content="#006666">
+{% block title %}UNV Security Cameras Dubai | Professional CCTV Installation & Solutions{% endblock %}
+{% block meta_description %}Leading provider of UNV cameras and CCTV systems in Dubai. Expert installation of security cameras, IP cameras, and NVR systems with 24/7 support. Best security camera prices in UAE.{% endblock %}
 
 <!-- SEO Meta Tags -->
-<meta name="keywords"
-  content="AIoT solutions, video surveillance, security cameras, smart technology, Uniview, IP cameras, NVR, smart office, smart home">
-<meta name="author" content="Uniview">
-<meta name="robots" content="index, follow, max-image-preview:large">
-<meta name="google" content="notranslate">
+<meta name="keywords" content="unv camera dubai, cctv installation dubai, unv security cameras, unv ip camera, unv nvr system, uniview camera, security camera maintenance dubai, cctv dubai, network video recorder, professional surveillance solutions">
+<meta name="author" content="Digital Link - Official UNV Partner Dubai">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 
 <!-- Open Graph / Social Media -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="About Uniview - Global AIoT Solutions Provider">
-<meta property="og:description"
-  content="Discover Uniview's innovative AIoT solutions, including video surveillance, smart technology, and security systems. Present in 145+ countries with 1500+ R&D engineers.">
+<meta property="og:type" content="business.business">
+<meta property="og:title" content="UNV Security Cameras Dubai | Professional CCTV Installation">
+<meta property="og:description" content="Leading provider of UNV cameras and CCTV systems in Dubai. Expert installation of security cameras, IP cameras, and NVR systems with 24/7 support.">
 <meta property="og:image" content="{% static 'images/about-og-image.jpg' %}">
 <meta property="og:url" content="{{ request.build_absolute_uri }}">
+<meta property="og:site_name" content="Digital Link Technology LLC">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="About Uniview - Global AIoT Solutions Provider">
-<meta name="twitter:description"
-  content="Discover Uniview's innovative AIoT solutions, including video surveillance, smart technology, and security systems.">
+<meta name="twitter:title" content="UNV Security Cameras Dubai | Professional CCTV Installation">
+<meta name="twitter:description" content="Leading provider of UNV cameras and CCTV systems in Dubai. Expert installation of security cameras, IP cameras, and NVR systems with 24/7 support.">
 <meta name="twitter:image" content="{% static 'images/about-og-image.jpg' %}">
+
+<!-- Location and Regional Meta Tags -->
+<meta name="geo.region" content="AE-DU">
+<meta name="geo.placename" content="Dubai">
+<meta name="geo.position" content="25.276987;55.296249">
+<meta name="ICBM" content="25.276987, 55.296249">
 
 <!-- Performance & Best Practices -->
 <link rel="dns-prefetch" href="//www.youtube.com">
@@ -47,6 +44,103 @@ technology, and security systems. Present in 145+ countries with 1500+ R&D engin
 <link rel="preload" href="{% static 'images/about/5.webp' %}" as="image" type="image/webp">
 <link rel="preload" href="{% static 'images/about/1.webp' %}" as="image" type="image/webp">
 <link rel="preload" href="{% static 'fonts/your-main-font.woff2' %}" as="font" type="font/woff2" crossorigin>
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "SecuritySystem",
+  "name": "Digital Link - Official UNV Partner Dubai",
+  "description": "Dubai's premier provider of UNV security cameras and CCTV systems. Professional installation, maintenance, and support services for IP cameras, NVR systems, and complete surveillance solutions.",
+  "url": "{% url 'pages:about' %}",
+  "logo": "/static/images/logo/logo.svg",
+  "image": [
+    "{% static 'images/about/5.webp' %}",
+    "{% static 'images/about/1.webp' %}"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira",
+    "addressLocality": "Dubai",
+    "addressRegion": "Dubai",
+    "postalCode": "123421",
+    "addressCountry": "AE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "25.276987",
+    "longitude": "55.296249"
+  },
+  "telephone": "+971509162488",
+  "email": "sales1@digitallink.ae",
+  "sameAs": [
+    "https://www.facebook.com/digitallinktechnologyllc",
+    "https://www.linkedin.com/company/digital-link-technology-uae/",
+    "https://www.instagram.com/digitallinktechnologyllc"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+971509162488",
+    "contactType": "Sales",
+    "areaServed": ["Dubai", "UAE", "Middle East"],
+    "availableLanguage": ["Arabic", "English"],
+    "hoursAvailable": "Mo-Sa 09:00-19:00"
+  },
+  "priceRange": "$$",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "19:00"
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "UNV Security Solutions",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "UNV Camera Installation",
+          "description": "Professional installation of UNV security cameras and CCTV systems with comprehensive setup and configuration"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "IP Camera Solutions",
+          "description": "Advanced IP camera systems with remote monitoring capabilities and smart features"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "NVR System Setup",
+          "description": "Expert configuration and installation of Network Video Recorder systems for comprehensive surveillance"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Security System Maintenance",
+          "description": "Professional maintenance and support services for all types of security camera systems"
+        }
+      }
+    ]
+  }
+}
+</script>
+
+<!-- Add these meta tags after the existing ones -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="theme-color" content="#006666">
+
 <!-- Debug info -->
 <div style="display: none;">
   Debug:

@@ -2,8 +2,8 @@
 {% load static %}
 {% load humanize %}
 
-{% block title %}Contact Us - Uniview{% endblock %}
-{% block meta_description %}Contact Uniview for sales inquiries and technical support in the UAE and Middle East. Get in touch with our expert team for innovative AIoT solutions and customer service.{% endblock %}
+{% block title %}Contact UNV Security Camera Supplier Dubai | CCTV Installation{% endblock %}
+{% block meta_description %}Contact Digital Link Technology LLC, official UNV security camera supplier in Dubai. Get best prices for CCTV cameras, IP cameras and professional installation services. 24/7 technical support available.{% endblock %}
 {% block og_image %}/static/images/about-og-image.jpg{% endblock %}
 {% block schema_url %}{% url 'contacts:contacts' %}{% endblock %}
 
@@ -11,9 +11,8 @@
 {{ block.super }}
 {# Meta tags optimization - Consolidated and organized #}
 <meta name="robots" content="index, follow">
-<meta name="keywords"
-  content="Uniview contact, technical support, sales inquiry, AIoT solutions, customer service, UAE, Middle East, Dubai, Digital Link Technology">
-<meta name="author" content="Uniview">
+<meta name="keywords" content="unv camera price dubai, security camera installation dubai, cctv camera supplier dubai, ip camera system uae, unv cctv camera, security system company dubai, surveillance camera installation">
+<meta name="author" content="Digital Link Technology LLC - Official UNV Partner">
 <meta name="language" content="en">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0284c7">
@@ -24,20 +23,18 @@
 <link rel="preload" href="{% static 'images/contact/3.webp' %}" as="image" fetchpriority="low">
 <link rel="preload" href="{% static 'images/contact/4.webp' %}" as="image" fetchpriority="low">
 
-{# Existing meta tags... #}
-{% endblock %}
-
 {# Open Graph Tags for Social Sharing #}
 <meta property="og:type" content="website">
-<meta property="og:title" content="Contact Uniview - Sales & Support in UAE">
-<meta property="og:description" content="Contact Uniview for sales inquiries and technical support in the UAE and Middle East.">
+<meta property="og:title" content="Contact UNV Security Camera Supplier Dubai | Get Best Prices">
+<meta property="og:description" content="Official UNV security camera supplier in Dubai. Professional CCTV installation and support services. Contact us for best security camera prices in UAE.">
 <meta property="og:image" content="{% static 'images/about-og-image.jpg' %}">
 <meta property="og:url" content="{% url 'contacts:contacts' %}">
+<meta property="og:site_name" content="Digital Link Technology LLC">
 
 {# Twitter Card Tags #}
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Contact Uniview - Sales & Support in UAE">
-<meta name="twitter:description" content="Contact Uniview for sales inquiries and technical support in the UAE and Middle East.">
+<meta name="twitter:title" content="Contact UNV Security Camera Supplier Dubai | Get Best Prices">
+<meta name="twitter:description" content="Official UNV security camera supplier in Dubai. Professional CCTV installation and support services. Contact us for best security camera prices in UAE.">
 <meta name="twitter:image" content="{% static 'images/about-og-image.jpg' %}">
 
 {# Performance & Security Headers #}
@@ -54,18 +51,20 @@
 <meta name="application-name" content="Contact Uniview">
 <link rel="canonical" href="{% url 'contacts:contacts' %}">
 
+{% endblock %}
+
 {% block content %}
 <script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "LocalBusiness",
-    "name": "Uniview UAE",
+    "name": "Digital Link Technology LLC - Official UNV Partner Dubai",
     "url": "https://www.unv-uae.com",
     "logo": "https://www.unv-uae.com/static/images/logo/logo.svg",
-    "description": "Leading provider of AIoT solutions including security systems, surveillance cameras, industrial automation, smart city solutions, and IoT integration in UAE.",
+    "description": "Leading supplier of UNV security cameras in Dubai. We provide professional CCTV installation services, IP camera systems, and NVR solutions at competitive prices. Contact us for the best security camera prices in UAE.",
     "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Baghlaf Building Showroom No.5",
+        "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market, Naif, Deira",
         "addressLocality": "Dubai",
         "addressRegion": "Dubai",
         "postalCode": "123421",
@@ -75,7 +74,7 @@
         "@type": "ContactPoint",
         "telephone": "+971509162488",
         "email": "sales1@digitallink.ae",
-        "contactType": "customer service",
+        "contactType": "Sales Support",
         "availableLanguage": ["English", "Arabic"],
         "areaServed": ["AE", "OM", "BH", "SA", "KW", "QA"],
         "hoursAvailable": {
@@ -85,10 +84,11 @@
                 "Tuesday",
                 "Wednesday",
                 "Thursday",
-                "Friday"
+                "Friday",
+                "Saturday"
             ],
-            "opens": "08:30",
-            "closes": "18:00"
+            "opens": "09:00",
+            "closes": "19:00"
         }
     },
     "sameAs": [
@@ -100,6 +100,42 @@
         "@type": "GeoCoordinates",
         "latitude": "25.2744",
         "longitude": "55.3009"
+    },
+    "potentialAction": {
+        "@type": "ContactAction",
+        "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "tel:+971509162488",
+            "name": "Contact Sales"
+        },
+        "result": {
+            "@type": "ContactPage",
+            "name": "Sales Inquiry"
+        }
+    },
+    "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": "25.2744",
+            "longitude": "55.3009"
+        },
+        "geoRadius": "100000"
+    },
+    "priceRange": "$$",
+    "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer"],
+    "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ],
+        "opens": "09:00",
+        "closes": "19:00"
     }
 }
 </script>

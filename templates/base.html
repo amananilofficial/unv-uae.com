@@ -17,28 +17,85 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
   <!-- Dynamic Title and Meta Description -->
-  <title>{% block title %}Uniview - Innovative AIoT Solutions{% endblock %}</title>
+  <title>{% block title %}UNV UAE - Security Cameras, CCTV Systems & Network Video Recorders | Best Price in Dubai{% endblock %}</title>
   <meta name="description"
-    content="{% block meta_description %}Uniview offers AI and IoT-based solutions to transform industries and improve lives.{% endblock %}">
+    content="{% block meta_description %}Leading provider of UNV security solutions in UAE. Shop IP cameras, CCTV systems, network video recorders (NVR), dome cameras, PTZ cameras & WiFi cameras. Professional installation & support available.{% endblock %}">
 
-  <!-- SEO Optimization (Open Graph & Twitter) -->
-  <meta property="og:title" content="Uniview - Innovative AIoT Solutions">
-  <meta property="og:description"
-    content="{% block meta_description_og %}Uniview offers AI and IoT-based solutions to transform industries and improve lives.{% endblock %}">
-  <meta property="og:image" content="{% block og_image_og %}/static/images/og-image.jpg{% endblock %}">
-  <meta property="og:url" content="{% block og_url %}{% url 'pages:home' %}{% endblock %}">
+  <!-- Enhanced SEO Meta Tags with All Keywords -->
+  <meta name="keywords" content="network video recorder, unv ip camera price, cctv camera price in india, wifi cctv camera, dome security cameras, ptz cctv, camera cctv for home, shop camera cctv, unv ptz camera, ip camera software, ip camera systems, ip surveillance camera system, security camera monitoring software, ip camera recorder, ip network camera, security camera website, uniview ip camera, security camera types, outdoor cctv camera price, outdoor dome security camera, wifi camera software for pc, onvif camera software, poe ip security camera, cctv camera website, unv security system, cctv viewing software, nvr ip, cctv camera software for pc, ip camera viewing software, axis camera price">
 
-  <meta name="twitter:title" content="Uniview - Innovative AIoT Solutions">
-  <meta name="twitter:description"
-    content="{% block meta_description_twitter %}Uniview offers AI and IoT-based solutions to transform industries and improve lives.{% endblock %}">
-  <meta name="twitter:image" content="{% block og_image_twitter %}/static/images/twitter-image.jpg{% endblock %}">
+  <!-- Comprehensive SEO Tags -->
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Uniview UAE">
+  <meta name="geo.region" content="AE-DU">
+  <meta name="geo.placename" content="Dubai">
+  <meta name="geo.position" content="25.2048;55.2708">
+  <meta name="ICBM" content="25.2048, 55.2708">
 
-  <!-- Accessibility -->
-  <meta name="theme-color" content="#4CAF50">
-  <meta name="robots" content="index, follow">
+  <!-- Enhanced Open Graph Tags -->
+  <meta property="og:title" content="UNV UAE - Complete Security Camera Solutions | IP Cameras, NVR & CCTV Systems">
+  <meta property="og:description" content="Dubai's trusted provider of UNV security solutions. Professional IP cameras, CCTV systems, NVR, dome cameras & WiFi cameras. Expert installation & support available.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Uniview UAE">
+  <meta property="og:locale" content="en_AE">
+  
+  <!-- Enhanced Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="UNV UAE - Professional Security Camera Solutions">
+  <meta name="twitter:description" content="Leading provider of security cameras in UAE. IP cameras, CCTV, NVR systems & more. Expert installation & support.">
 
-  <!-- Canonical URL to avoid duplicate content -->
-  <link rel="canonical" href="{% block canonical %}{% url 'pages:home' %}{% endblock %}">
+  <!-- Product Schema with All Categories -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Uniview UAE",
+    "description": "Leading provider of security camera solutions in UAE",
+    "url": "{{ request.build_absolute_uri }}",
+    "logo": "{% static 'images/logo/logo.svg' %}",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "UAE",
+      "addressLocality": "Dubai"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "AED",
+      "itemOffered": [
+        {
+          "@type": "Product",
+          "name": "Network Video Recorders",
+          "description": "Professional NVR systems for security surveillance"
+        },
+        {
+          "@type": "Product",
+          "name": "IP Cameras",
+          "description": "Professional IP security cameras with advanced features"
+        },
+        {
+          "@type": "Product",
+          "name": "Dome Security Cameras",
+          "description": "Indoor and outdoor dome security cameras"
+        },
+        {
+          "@type": "Product",
+          "name": "PTZ Cameras",
+          "description": "Pan-Tilt-Zoom cameras for advanced surveillance"
+        },
+        {
+          "@type": "Product",
+          "name": "WiFi Security Cameras",
+          "description": "Wireless security cameras for flexible installation"
+        },
+        {
+          "@type": "Product",
+          "name": "PoE Security Cameras",
+          "description": "Power over Ethernet security cameras"
+        }
+      ]
+    }
+  }
+  </script>
 
   <!-- Schema Markup (JSON-LD for Structured Data) -->
   <script type="application/ld+json">
@@ -56,8 +113,8 @@
           ],
           "contactPoint": {
               "@type": "ContactPoint",
-              "telephone": "+971-xxx-xxx-xxxx",
-              "email": "info@unv-uae.com",
+              "telephone": "+971509162488",
+              "email": "sales1@digitallink.ae",
               "contactType": "customer service",
               "availableLanguage": ["English", "Arabic"],
               "areaServed": ["AE", "OM", "BH", "SA", "KW", "QA"],
@@ -948,7 +1005,7 @@
 
       <div class="footer-bottom">
         <div class="footer-copyright">
-          © {% now "Y" %} Uniview UAE. All rights reserved.
+          &copy; {% now "Y" %} Uniview UAE. All rights reserved.
         </div>
         <div class="footer-legal">
           <a href="{% url 'pages:privacy' %}">Privacy Policy</a>

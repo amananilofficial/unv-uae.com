@@ -167,11 +167,10 @@ class ProductDetailView(DetailView):
 
 
 # Get products by category (JSON response)
-def get_products_by_category(request, category_id):
-    products = Product.objects.filter(category_id=category_id)
-    product_data = [{'id': product.id, 'name': product.name}
-                    for product in products]
-    return JsonResponse({'products': product_data})
+def get_products_by_category(request, slug):
+    category = get_object_or_404(Category, slug=slug)
+    products = Product.objects.filter(category=category, is_available=True).values('id', 'name', 'slug', 'photo_main')
+    return JsonResponse(list(products), safe=False)
 
 
 # Category view with product count and pagination
@@ -203,21 +202,27 @@ def category_view(request, category_id=None):
 
 # Category detail view (by slug)
 def category_detail(request, slug):
-    category = Category.objects.get(slug=slug)
-    return render(request, 'products/category.html', {'category': category})
-
-
-# Refactored search function (single function only)
-def search(request):
-    query = request.GET.get('keywords', '')
-    products = Product.objects.all()
-
-    if query:
-        products = products.filter(
-            Q(name__icontains=query) | Q(id__icontains=query)
-        )
-
-    return render(request, 'products/search.html', {'products': products})
+    category = get_object_or_404(Category, slug=slug)
+    products = Product.objects.filter(category=category, is_available=True).order_by('-created_at')
+    
+    # Pagination
+    paginator = Paginator(products, 12)  # Show 12 products per page
+    page = request.GET.get('page')
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        products = paginator.page(1)
+    except EmptyPage:
+        products = paginator.page(paginator.num_pages)
+        
+    context = {
+        'category': category,
+        'products': products,
+        'meta_title': f'{category.name} - Uniview',
+        'meta_description': category.description[:160] if category.description else f'Explore our {category.name} collection',
+        'meta_keywords': f'{category.name}, products, Uniview',
+    }
+    return render(request, 'products/category.html', context)
 
 
 class CategoryListView(ListView):

@@ -84,17 +84,29 @@ if not DEBUG and 'DATABASE_URL' in os.environ:
     db_from_env = dj_database_url.config(conn_max_age=600)
     DATABASES['default'].update(db_from_env)
 
-# Caching configuration (using Redis)
-CACHES = {
-    'default': {
-        'BACKEND': 'django_redis.cache.RedisCache',
-        # Update with your Redis server details
-        'LOCATION': 'redis://127.0.0.1:6379/1',
-        'OPTIONS': {
-            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+# Caching configuration
+if DEBUG:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+            'LOCATION': 'unique-snowflake',
         }
     }
-}
+else:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django_redis.cache.RedisCache',
+            'LOCATION': 'redis://127.0.0.1:6379/1',
+            'OPTIONS': {
+                'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+            }
+        }
+    }
+
+# Cache and session settings
+CACHE_TTL = 60 * 15  # 15 minutes
+SESSION_ENGINE = "django.contrib.sessions.backends.db"  # Use database sessions in development
+SESSION_CACHE_ALIAS = "default"
 
 # Static files
 STATIC_URL = '/static/'
@@ -109,11 +121,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-# Cache and session settings
-CACHE_TTL = 60 * 15  # 15 minutes
-SESSION_ENGINE = "django.contrib.sessions.backends.cache"
-SESSION_CACHE_ALIAS = "default"
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'

@@ -36,6 +36,7 @@ class Category(models.Model, ModelMeta):
     name = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(unique=True, default='default-slug')
     description = models.TextField(blank=True)
+    image = models.ImageField(upload_to='category/%Y/%m/%d/', blank=True, null=True)
     created_at = models.DateTimeField(default=datetime.now, blank=True)
     is_active = models.BooleanField(default=True)
 

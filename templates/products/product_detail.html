@@ -4,33 +4,33 @@
 
 {# Merge meta blocks #}
 {% block meta %}
-    <title>{{ meta_title|default:product.name }}</title>
-    <meta name="description" content="{{ meta_description|default:product.description }}">
-    <meta name="keywords" content="{{ meta_keywords }}">
+    <title>{{ product.name }} | UNV Security Camera Price Dubai</title>
+    <meta name="description" content="Get the best price for {{ product.name }} in Dubai. Professional UNV security camera with expert installation and support. Contact us for latest CCTV camera prices in UAE.">
+    <meta name="keywords" content="unv camera price dubai, {{ product.name }}, unv cctv camera price, security camera installation dubai">
 {% endblock %}
 
 {# Meta tags for SEO, Accessibility, Performance and Best Practices #}
 {% block extra_head %}
 {# Basic SEO #}
-<meta name="title" content="{{ product.name }} - Uniview Products">
-<meta name="description" content="{{ product.description|truncatewords:30 }}">
-<meta name="keywords" content="security camera, {{ product.name }}, {{ product.category.name }}, Uniview, surveillance">
+<meta name="title" content="{{ product.name }} | UNV Security Camera Dubai">
+<meta name="description" content="Buy {{ product.name }} at best price in Dubai. Professional UNV {{ product.category.name }} with warranty. Contact us for latest security camera prices in UAE.">
+<meta name="keywords" content="unv camera price, {{ product.name }}, {{ product.category.name }}, security camera dubai, cctv installation, ip camera system">
 <meta name="robots" content="index, follow">
 <meta name="language" content="English">
 <meta name="revisit-after" content="7 days">
 
 {# Open Graph / Facebook #}
 <meta property="og:type" content="product">
-<meta property="og:title" content="{{ product.name }} - Uniview Products">
-<meta property="og:description" content="{{ product.description|truncatewords:30 }}">
+<meta property="og:title" content="{{ product.name }} | UNV Security Camera Dubai">
+<meta property="og:description" content="Buy {{ product.name }} at best price in Dubai. Professional UNV {{ product.category.name }} with warranty. Contact us for latest security camera prices in UAE.">
 <meta property="og:image" content="{{ product.photo_main.url }}">
 <meta property="og:url" content="{{ request.build_absolute_uri }}">
-<meta property="og:site_name" content="Uniview Products">
+<meta property="og:site_name" content="Digital Link Technology LLC - Official UNV Partner">
 
 {# Twitter #}
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ product.name }} - Uniview Products">
-<meta name="twitter:description" content="{{ product.description|truncatewords:30 }}">
+<meta name="twitter:title" content="{{ product.name }} | UNV Security Camera Dubai">
+<meta name="twitter:description" content="Buy {{ product.name }} at best price in Dubai. Professional UNV {{ product.category.name }} with warranty. Contact us for latest security camera prices in UAE.">
 <meta name="twitter:image" content="{{ product.photo_main.url }}">
 
 {# Accessibility #}
@@ -83,15 +83,15 @@ innovative AIoT solutions.{% endblock %}
     "@context": "http://schema.org",
     "@type": "Product",
     "name": "{{ product.name }}",
-    "description": "{{ product.description }}",
+    "description": "Professional {{ product.name }} available in Dubai. High-quality UNV security camera with advanced features. Includes installation support and warranty. Contact us for best CCTV camera prices in UAE.",
     "image": "{{ product.photo_main.url }}",
     "url": "{% url 'products:product_detail' product.id %}",
     "brand": {
         "@type": "Organization",
-        "name": "Uniview UAE | {{ product.name }} | Uniview | Global AIoT Solutions Provider",
+        "name": "Digital Link Technology LLC - Official UNV Partner Dubai",
         "url": "https://www.unv-uae.com",
         "logo": "https://www.unv-uae.com/static/images/logo/logo.svg",
-        "description": "Leading provider of AIoT solutions including security systems, surveillance cameras, industrial automation, smart city solutions, and IoT integration in UAE",
+        "description": "Leading supplier of UNV security cameras in Dubai. We offer competitive prices on IP cameras, CCTV systems, and NVR solutions with professional installation services.",
         "sameAs": [
             "https://www.linkedin.com/company/digital-link-technology-uae/",
             "https://www.instagram.com/digitallinktechnologyllc/",
@@ -101,7 +101,7 @@ innovative AIoT solutions.{% endblock %}
             "@type": "ContactPoint",
             "telephone": "+971509162488",
             "email": "sales1@digitallink.ae",
-            "contactType": "customer service",
+            "contactType": "Sales",
             "availableLanguage": ["English", "Arabic"],
             "areaServed": ["AE", "OM", "BH", "SA", "KW", "QA"],
             "hoursAvailable": {
@@ -111,10 +111,11 @@ innovative AIoT solutions.{% endblock %}
                     "Tuesday",
                     "Wednesday",
                     "Thursday",
-                    "Friday"
+                    "Friday",
+                    "Saturday"
                 ],
                 "opens": "09:00",
-                "closes": "18:00"
+                "closes": "19:00"
             }
         },
         "address": {
@@ -133,9 +134,41 @@ innovative AIoT solutions.{% endblock %}
     },
     "offers": {
         "@type": "Offer",
-        "availability": "https://schema.org/InStock"
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "AED",
+        "priceValidUntil": "2025-12-31",
+        "seller": {
+            "@type": "Organization",
+            "name": "Digital Link Technology LLC"
+        },
+        "areaServed": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": "25.2744",
+                "longitude": "55.3009"
+            },
+            "geoRadius": "100000"
+        }
     },
-    "CategoryType": "AIoT-based industrial automation, Smart city Categorys, Healthcare IoT integration, Custom development"
+    "category": "Security Cameras and Surveillance Systems",
+    "additionalProperty": [
+        {
+            "@type": "PropertyValue",
+            "name": "Product Category",
+            "value": "{{ product.category.name }}"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Installation",
+            "value": "Professional installation available"
+        },
+        {
+            "@type": "PropertyValue",
+            "name": "Support",
+            "value": "24/7 technical support"
+        }
+    ]
 }
 </script>
 {% block content %}
