@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Security settings
 # Replace with a secure, randomly generated key
 SECRET_KEY = "%07dn)!zj+*7))o7ra2#t^i+p5i59qr1q^d@fm81d_dio%p2d$"
-DEBUG = True  # Set to True for development, True for production
+DEBUG = True  # Set to True for development, False for production
 ALLOWED_HOSTS = ['unv-uae.com', 'www.unv-uae.com', '127.0.0.1']
 
 # Application definition
@@ -159,7 +159,7 @@ SITE_ID = 1
 SITEMAP_LIMIT = 50000
 
 # Robots.txt settings
-ROBOTS_USE_HOST = True
+ROBOTS_USE_HOST = False
 ROBOTS_USE_SITEMAP = True
 
 # SEO metadata
@@ -174,12 +174,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Temporarily disable security settings for development
 if DEBUG:
-    CSRF_COOKIE_SECURE = True
-    SESSION_COOKIE_SECURE = True
-    SECURE_SSL_REDIRECT = True
+    CSRF_COOKIE_SECURE = False
+    SESSION_COOKIE_SECURE = False
+    SECURE_SSL_REDIRECT = False
     SECURE_HSTS_SECONDS = 0
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_HSTS_PRELOAD = True
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+    SECURE_HSTS_PRELOAD = False
 
 # Add message tags for proper styling
 MESSAGE_TAGS = {
