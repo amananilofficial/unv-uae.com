@@ -1,9 +1,9 @@
 User-agent: *
 Disallow: /admin/
-Disallow: /inquiry-form/
-Disallow: /contact/
-Disallow: /checkout/
-Disallow: /newsletter/
+Allow: /inquiry-form/
+Allow: /contact/
+Allow: /checkout/
+Allow: /newsletter/
 Disallow: /generate-validation-code/
 Disallow: /sitemap.xml
 
