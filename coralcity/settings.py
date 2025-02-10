@@ -10,7 +10,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Replace with a secure, randomly generated key
 SECRET_KEY = "%07dn)!zj+*7))o7ra2#t^i+p5i59qr1q^d@fm81d_dio%p2d$"
 DEBUG = True  # Set to True for development, False for production
-ALLOWED_HOSTS = ['unv-uae.com', 'www.unv-uae.com', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 INSTALLED_APPS = [
