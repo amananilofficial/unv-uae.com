@@ -1,7 +1,10 @@
-from django.contrib.messages import constants as messages
-import os
-import dj_database_url
 from pathlib import Path
+import dj_database_url
+import os
+from django.contrib.messages import constants as messages
+from dotenv import load_dotenv
+load_dotenv()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -36,6 +39,8 @@ INSTALLED_APPS = [
     'django_htmx',
     'django_browser_reload',
     'meta',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -105,7 +110,8 @@ else:
 
 # Cache and session settings
 CACHE_TTL = 60 * 15  # 15 minutes
-SESSION_ENGINE = "django.contrib.sessions.backends.db"  # Use database sessions in development
+# Use database sessions in development
+SESSION_ENGINE = "django.contrib.sessions.backends.db"
 SESSION_CACHE_ALIAS = "default"
 
 # Static files
@@ -116,11 +122,21 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # WhiteNoise configuration for serving static files
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Cloudinary Settings
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET')
+}
+
+# Update DEFAULT_FILE_STORAGE
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'

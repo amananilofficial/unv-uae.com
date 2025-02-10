@@ -4,6 +4,7 @@ from django.utils.text import slugify
 from django.urls import reverse
 from meta.models import ModelMeta
 from django.utils.safestring import mark_safe
+from cloudinary_storage.storage import RawMediaCloudinaryStorage
 # Category Model
 
 
@@ -36,7 +37,12 @@ class Category(models.Model, ModelMeta):
     name = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(unique=True, default='default-slug')
     description = models.TextField(blank=True)
-    image = models.ImageField(upload_to='category/%Y/%m/%d/', blank=True, null=True)
+    image = models.ImageField(
+        upload_to='category/%Y/%m/%d/',
+        blank=True,
+        null=True,
+        storage=RawMediaCloudinaryStorage()
+    )
     created_at = models.DateTimeField(default=datetime.now, blank=True)
     is_active = models.BooleanField(default=True)
 
@@ -147,15 +153,35 @@ class Product(models.Model, ModelMeta):
 
     # Images
     photo_main = models.ImageField(
-        upload_to='photos/%Y/%m/%d/', blank=True, null=True)
+        upload_to='photos/%Y/%m/%d/',
+        blank=True,
+        null=True,
+        storage=RawMediaCloudinaryStorage()
+    )
     photo_1 = models.ImageField(
-        upload_to='photos/%Y/%m/%d/', blank=True, null=True)
+        upload_to='photos/%Y/%m/%d/',
+        blank=True,
+        null=True,
+        storage=RawMediaCloudinaryStorage()
+    )
     photo_2 = models.ImageField(
-        upload_to='photos/%Y/%m/%d/', blank=True, null=True)
+        upload_to='photos/%Y/%m/%d/',
+        blank=True,
+        null=True,
+        storage=RawMediaCloudinaryStorage()
+    )
     photo_3 = models.ImageField(
-        upload_to='photos/%Y/%m/%d/', blank=True, null=True)
+        upload_to='photos/%Y/%m/%d/',
+        blank=True,
+        null=True,
+        storage=RawMediaCloudinaryStorage()
+    )
     photo_4 = models.ImageField(
-        upload_to='photos/%Y/%m/%d/', blank=True, null=True)
+        upload_to='photos/%Y/%m/%d/',
+        blank=True,
+        null=True,
+        storage=RawMediaCloudinaryStorage()
+    )
 
     # Metadata
     list_date = models.DateTimeField(default=datetime.now, blank=True)
