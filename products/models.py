@@ -156,31 +156,31 @@ class Product(models.Model, ModelMeta):
         upload_to='photos/%Y/%m/%d/',
         blank=True,
         null=True,
-        storage=RawMediaCloudinaryStorage()
+        # storage=RawMediaCloudinaryStorage()
     )
     photo_1 = models.ImageField(
         upload_to='photos/%Y/%m/%d/',
         blank=True,
         null=True,
-        storage=RawMediaCloudinaryStorage()
+        # storage=RawMediaCloudinaryStorage()
     )
     photo_2 = models.ImageField(
         upload_to='photos/%Y/%m/%d/',
         blank=True,
         null=True,
-        storage=RawMediaCloudinaryStorage()
+        # storage=RawMediaCloudinaryStorage()
     )
     photo_3 = models.ImageField(
         upload_to='photos/%Y/%m/%d/',
         blank=True,
         null=True,
-        storage=RawMediaCloudinaryStorage()
+        # storage=RawMediaCloudinaryStorage()
     )
     photo_4 = models.ImageField(
         upload_to='photos/%Y/%m/%d/',
         blank=True,
         null=True,
-        storage=RawMediaCloudinaryStorage()
+        # storage=RawMediaCloudinaryStorage()
     )
 
     # Metadata
