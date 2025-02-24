@@ -18,7 +18,7 @@ click-repl==0.3.0
 cloudinary==1.42.2
 colorama==0.4.6
 cron-descriptor==1.4.5
-cryptography==44.0.0
+cryptography==44.0.1
 dataclasses==0.6
 Deprecated==1.2.18
 diff-match-patch==20241021
